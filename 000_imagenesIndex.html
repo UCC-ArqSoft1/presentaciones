@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Presentación de la Materia</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+    <link rel="stylesheet" href="./_assets/slides/css/filminas.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^---" data-separator-vertical="^\r?\n----\r?\n$">
+          <textarea data-template>
+            
+
+# Presentación de la Materia
+
+![u1](images/indice/u1_icono.png)
+![u2](images/indice/u2_icono.png)
+![u3](images/indice/u3_icono.png)
+![u4](images/indice/u4_icono.png)
+![u5](images/indice/u5_icono.png)
+![proyecti](images/indice/proyecto.png)
+
+---
+
+## Temario
+
+1. Aplicaciones web y arquitectura cliente servidor
+2. Control de versiones (Git)
+3. Introducción a Go
+4. Funciones, variables y estructuras en Go
+5. Manejo de errores en Go
+6. Consumo de APIs en Go con HTTP
+7. Testing en Go
+8. Testing assertions
+
+---
+
+### Condiciones de Regularidad y Examen Final
+
+- **Regularidad:** Para regularizar la materia se pide el desarrollo relacionado con la autenticación de usuarios, la visualización de la página de inicio con el listado de cursos, la búsqueda de cursos y la funcionalidad de inscripción.
+- **Examen Final:** Para el examen final se solicita el desarrollo completo del sistema y puntos extras enumerados a continuación:
+  - Gestión de cursos por parte de los administradores.
+  - Seguridad del sistema en todos los componentes.
+  - Funcionalidad de listado de cursos a los que está inscrito el usuario.
+  - Implementar un sistema de comentarios y valoraciones para los cursos.
+  - Permitir a los usuarios subir archivos relacionados con los cursos.
+  - Dockerizar y componer la solución completa.
+
+---
+
+## ¿Dudas, Preguntas, Comentarios?
+
+![Preguntas](images/pregunta.gif)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"_":["slides"],"static":"public"}, queryOptions);
+    </script>
+
+    <script src="./_assets/slides/js/pruebas.js"></script>
+    <script src="./_assets/slides/js/init.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
