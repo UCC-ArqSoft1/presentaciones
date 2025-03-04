@@ -8,3 +8,6 @@ Se pueden ver online en https://ucc-arqsoft1.github.io/presentaciones/
 2. Install reveal-md (npm install -g reveal-md)
 3. Run reveal-md slides -w to render and watch directory for changes
 4. Run reveal-md slides/ --static to generate all html files in \_static
+
+Lenguages soportados por hightlight
+https://github.com/jincheng9/markdown_supported_languages
