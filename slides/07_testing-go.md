@@ -21,6 +21,30 @@ slideNumber: true
 
 ---
 
+- Han realizado un proyecto?
+- Como le aseguran al cliente que su proyecto funciona?
+- Como aseguran que cumple con las funcionalidades requeridas por el cliente?
+
+---
+
+## Testing en Go
+
+El testing en Go es un método para verificar si un producto digital cumple con los requisitos esperados y se encuentra libre de errores y brechas. El testing implica la ejecución de componentes de software utilizando herramientas manuales o automatizadas para evaluar una o más propiedades de interés.
+Las pruebas de integración son una parte esencial del proceso de pruebas en Go, ya que proporcionan información valiosa sobre la funcionalidad general y el rendimiento de su aplicación a través de diferentes componentes.
+
+---
+
+## Testing en Go
+
+Los diferentes tipos de pruebas en software son:
+
+- Pruebas unitarias
+- Pruebas de integración
+- Pruebas funcionales
+- Pruebas de extremo a extremo
+
+---
+
 ## Concepto y utilidad de testing o pruebas de software
 
 <!-- .slide: style="font-size: 0.80em" -->
@@ -28,14 +52,6 @@ slideNumber: true
 - Las pruebas de software (en inglés software testing) son las investigaciones empíricas y técnicas cuyo objetivo es proporcionar información objetiva e independiente sobre la calidad del producto a la parte interesada o stakeholder. Es una actividad más en el proceso de control de calidad.
 - El testing se puede realizar mediante pruebas estáticas (no requiere ejecución del software) y pruebas dinámicas (requieren ejecución del programa implementado).
 - Librería para Golang: [https://github.com/stretchr/testify](https://github.com/stretchr/testify)
-
----
-
-## Tipos de testing según el scope o alcance
-
-- Unitario
-- Funcional
-- Integración
 
 ---
 
@@ -51,6 +67,12 @@ func division(a int, b int) (int, error) {
 	return a / b, nil
 }
 ```
+
+---
+
+## Pruebas Unitarias
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/THUGSL6GM0g?si=qpYukAzrR5fUZTmx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -74,7 +96,15 @@ func getUsuario(idUsuario int) *Usuario {
 
 Un test de integración hace referencia a una prueba de software donde se brindan un conjunto de entradas y se espera una salida sin conocer el proceso que ocurre internamente. También se conoce como test E2E.
 
+Las pruebas de integración son esenciales en Go porque permiten comprobar cómo funcionan juntos los distintos componentes o módulos de una aplicación, garantizando que la funcionalidad general del software siga siendo fiable y esté libre de errores.
+
 [https://api.mercadolibre.com/users/1234567](https://api.mercadolibre.com/users/1234567)
+
+---
+
+## Importancia de cada Test
+
+Mientras mas test unitarios haga, mas seguridad tengo que mis test de integración van a funcionar, y asi vamos subiendo.
 
 ---
 
@@ -103,6 +133,23 @@ Un test de integración hace referencia a una prueba de software donde se brinda
 - Los tests de caja blanca pueden implementarse en cada uno de los paquetes que contienen los módulos de software a testear. Tienen que ver con funciones, variables, constantes y estructuras privadas.
 - Los tests de caja negra pueden implementarse en la carpeta test y tienen que ver con funciones, variables, constantes y estructuras públicas.
 - También se pueden implementar benchmarks para medir rendimiento.
+
+---
+
+## Cómo implementar testing en Go
+
+Para implementar testing en Go, puedes seguir estos pasos:
+
+- Escribir pequeñas funciones de prueba que ejerciten una única función o método de tu código.
+- Ejecutar la prueba usando el comando go test.
+- Para generar un reporte con el coverage de tus suites de test, puedes pasar el parámetro adicional -cover.
+- Para ejecutar todos los tests dentro del directorio actual y los subdirectorios del mismo, de forma recursiva, puedes pasar el parámetro adicional ./...
+- Los archivos de pruebas utilizan el nombre del archivo que se está probando con el sufijo \_test.
+- Las funciones que se escriben empiezan con la palabra Test.
+
+---
+
+![Ejemplo Test](images/go/ejemplo_test.png)
 
 ---
 
