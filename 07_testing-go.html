@@ -75,7 +75,7 @@ Los diferentes tipos de pruebas en software son:
 
 Una prueba unitaria es una forma de comprobar el correcto funcionamiento de una unidad de código.
 
-```go
+```go []
 func division(a int, b int) (int, error) {
 	if b == 0 {
       return 0, errors.New(“no puedo dividir por 0”)}
@@ -96,7 +96,7 @@ func division(a int, b int) (int, error) {
 
 Una prueba funcional implica la ejecución de un servicio que está conectado con un conjunto de componentes externos.
 
-```go
+```go []
 func getUsuario(idUsuario int) *Usuario {
 	if idUsuario == 0 {
       return nil
@@ -153,6 +153,8 @@ Mientras mas test unitarios haga, mas seguridad tengo que mis test de integraci�
 ---
 
 ## Cómo implementar testing en Go
+
+<!-- .slide: style="font-size: 0.80em" -->
 
 Para implementar testing en Go, puedes seguir estos pasos:
 
