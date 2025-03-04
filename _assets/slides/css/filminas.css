@@ -1,0 +1,35 @@
+.reveal section img {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.reveal i.fab {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+}
+
+table {
+  font-size: 20px;
+}
+
+.cuadroBlanco {
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+  padding: 20px !important;
+  border-radius: 50px;
+  box-shadow: 10px 10px 5px rgba(100, 100, 100, 0.4);
+}
+
+.grid-container4 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  font-size: 0.8em;
+  text-align: left !important;
+}
+
+.grid-item {
+  border: 3px solid rgba(121, 177, 217, 0.8);
+  padding: 20px;
+  text-align: left !important;
+}

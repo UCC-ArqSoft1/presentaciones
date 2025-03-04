@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Go Modules</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+    <link rel="stylesheet" href="./_assets/slides/css/filminas.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^---" data-separator-vertical="^\r?\n----\r?\n$">
+          <textarea data-template>
+            
+
+# Go Modules
+
+---
+
+## Temario
+
+---
+
+## Go Modules
+
+<!-- .slide: style="font-size: 0.80em" -->
+
+Go Modules es un sistema de administración de dependencias para el lenguaje de programación Go. Fue introducido oficialmente en Go 1.11 como una forma de manejar las dependencias de manera más robusta y reproducible en proyectos Go.
+
+Antes de la introducción de Go Modules, la gestión de dependencias en Go solía ser más manual y estaba basada principalmente en el GOPATH y herramientas como "dep" o el mismo control de versiones (Git, principalmente). Sin embargo, estas soluciones tenían limitaciones y problemas, como la falta de soporte para la gestión de versiones semánticas, la necesidad de repositorios centralizados y la dificultad para trabajar con múltiples proyectos en el mismo entorno.
+
+---
+
+## Documentación de una API: Ventajas
+
+<!-- .slide: style="font-size: 0.80em" -->
+
+- **Versionado semántico:** Permite especificar las versiones de las dependencias utilizando semver (Semantic Versioning), lo que facilita la gestión de las dependencias y garantiza una mayor compatibilidad entre versiones.
+- **Reproducibilidad:** Con Go Modules, se garantiza que los builds sean reproducibles, ya que las dependencias y versiones exactas se registran en un archivo de bloqueo (go.mod) junto con el proyecto.
+- **Soporte para múltiples repositorios:** No se depende únicamente de un único repositorio centralizado (como era común con GOPATH), lo que permite trabajar con múltiples módulos en diferentes repositorios.
+- **Privacidad y seguridad mejoradas:** Se utilizan URLs basadas en HTTPS para importar dependencias, lo que proporciona una capa adicional de seguridad y privacidad.
+
+---
+
+## Pasos:
+
+Pararnos en la carpeta root (donde se encuentra el main.go)
+Ejecutar
+
+```go
+go mod init {nombre-del-proyecto}
+go mod tidy
+```
+
+---
+
+## ¿Dudas, Preguntas, Comentarios?
+
+![Preguntas](images/pregunta.gif)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"_":["slides"],"static":"public"}, queryOptions);
+    </script>
+
+    <script src="./_assets/slides/js/pruebas.js"></script>
+    <script src="./_assets/slides/js/init.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
