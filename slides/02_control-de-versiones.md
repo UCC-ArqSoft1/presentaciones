@@ -148,6 +148,6 @@ git push origin grupo-1
 
 ---
 
-¿Dudas, Preguntas, Comentarios?
+## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)

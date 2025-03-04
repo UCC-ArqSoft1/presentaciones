@@ -207,6 +207,6 @@ Tips cuando se elabora un JSON:
 
 ---
 
-¿Dudas, Preguntas, Comentarios?
+## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)

@@ -194,6 +194,6 @@ import "fmt" //Ejemplo de importación de paquete
 
 ---
 
-¿Dudas, Preguntas, Comentarios?
+## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)
