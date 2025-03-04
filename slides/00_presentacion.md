@@ -1,21 +1,23 @@
 ---
-title: Aplicaciones web y arquitectura cliente servidor
+title: Presentación de la Materia
 theme: solarized
 slideNumber: true
 ---
 
-# Aplicaciones web y arquitectura cliente servidor
+# Presentación de la Materia
 
 ---
 
 ## Temario
 
-1. Introducción a las aplicaciones web
-2. Arquitectura cliente servidor
-3. Frontend y backend
-4. REST - Transferencia de estado representacional
-5. API - Interfaces de programación de aplicaciones
-6. MVC - Modelo vista controlador
+1. Aplicaciones web y arquitectura cliente servidor
+2. Control de versiones (Git)
+3. Introducción a Go
+4. Funciones, variables y estructuras en Go
+5. Manejo de errores en Go
+6. Consumo de APIs en Go con HTTP
+7. Testing en Go
+8. Testing assertions
 
 ---
 
@@ -204,9 +206,3 @@ Tips cuando se elabora un JSON:
   "total": 55000
 }
 ```
-
----
-
-¿Dudas, Preguntas, Comentarios?
-
-![Preguntas](images/pregunta.gif)
