@@ -1,0 +1,27 @@
+{
+  "name": "presentaciones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22.13.1"
+  },
+  "scripts": {
+    "build": "reveal-md slides --static public",
+    "deploy": "npm run build && gh-pages -d public -b master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:UCC-ArqSoft1/preentaciones.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UCC-ArqSoft1/preentaciones/issues"
+  },
+  "homepage": "https://ucc-arqsoft1.github.io/preentaciones/",
+  "dependencies": {
+    "gh-pages": "^6.1.1",
+    "reveal-md": "^6.1.2"
+  }
+}
