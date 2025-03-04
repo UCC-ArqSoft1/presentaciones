@@ -135,18 +135,17 @@ Ejemplo:
 Puedo crear mis propias estructuras en Go de la siguiente manera:
 
 ```go
-	type Persona struct {
-		Nombre 		string
-		Edad			int
-		Trabajo  		Empleo
-  }
+type Persona struct {
+  Nombre 		string
+  Edad			int
+  Trabajo  	Empleo
+}
 
-  type Empleo struct {
-    Nombre 		string
-    Sueldo		float32
-    Independiente 	bool
-  }
-
+type Empleo struct {
+  Nombre 		      string
+  Sueldo		      float32
+  Independiente 	bool
+}
 ```
 
 - Se coloca en cada estructura el nombre del campo acompañado del tipo de dato que representa.
@@ -161,14 +160,14 @@ Puedo crear mis propias estructuras en Go de la siguiente manera:
 - Esta función de ejemplo recibe una persona y retorna otra estructura que es de tipo Empleado, que tiene campos distintos.
 - Es importante notar que si bien en este caso se envía y recibe una sola estructura, es válido parametrizar con múltiples estructuras una función así como retornar un conjunto de estructuras.
 
-```go
+```go []
 func Emplear(persona Persona) Empleado {
 	return Empleado{
 		Nombre: persona.Nombre,
 		Empleo: “Nombre del empleo”,
 		Antiguedad: 0,
 		Edad: persona.Edad,
-}
+  }
 }
 ```
 
@@ -183,8 +182,8 @@ func Emplear(persona Persona) Empleado {
 Los receivers permiten implementar métodos que formen parte de una estructura. De esta manera, yo puedo crear una estructura y luego definir para esa estructura una función mediante un receiver para luego invocarla.
 Por ejemplo:
 
-```go
-	type Persona struct {
+```go []
+type Persona struct {
 	Nombre 	string
 	Edad		int
 }
@@ -197,8 +196,8 @@ func (p Persona) Mostrar() {
 Luego puedo utilizar este método sobre una persona:
 
 ```go
-	var p Persona
-	p.Mostrar()
+var p Persona
+p.Mostrar()
 ```
 
 ---

@@ -177,7 +177,7 @@ Tips cuando se elabora un JSON:
 
 ### Ejercicio JSON
 
-```json
+```json []
 {
   "id": 1,
   "address": {

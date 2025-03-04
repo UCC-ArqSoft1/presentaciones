@@ -50,7 +50,7 @@ err := fmt.Errorf(“Mensaje %d con directiva de %s”, 1, “hola”)
 
 Luego a esta variable puede retornarla en una función para informar que ocurrió un error:
 
-```go
+```go []
 func division(a int, b int) (int, error) {
   if b == 0 {
     return -1, errors.New(“b no puede ser cero”)
@@ -71,12 +71,12 @@ En este punto, si no ocurre ningún error, en el lugar del error para retornar, 
 - De esta manera, lo primero que debemos hacer es preguntar si el valor del error es distinto de nil.
 - Continuando con el ejemplo anterior:
 
-```go
-	_, err := division(7, 0)
-	if err != nil {
-	  fmt.Println(“Error:”, err.Error())
-	  return
-  }
+```go []
+_, err := division(7, 0)
+if err != nil {
+  fmt.Println(“Error:”, err.Error())
+  return
+}
 ```
 
 - Siempre es importante que cuando utilicemos una función que puede devolver un error, lo primero que hagamos sea validar que el mismo no existe.
@@ -104,24 +104,24 @@ En este punto, si no ocurre ningún error, en el lugar del error para retornar, 
 
 Ejemplo INCORRECTO:
 
-```go
-	div, err := division(5, 0)
-	if err != nil {
-		fmt.Println(“Error:”, err.Error())
-  } else {
-    fmt.Println(“Division:”, div)
-  }
+```go []
+div, err := division(5, 0)
+if err != nil {
+  fmt.Println(“Error:”, err.Error())
+} else {
+  fmt.Println(“Division:”, div)
+}
 ```
 
 Ejemplo CORRECTO:
 
-```go
-  div, err := division(5, 0)
-  if err != nil {
-    fmt.Println(“Error:”, err.Error())
-    return
-  }
-  fmt.Println(“Division:”, div)
+```go []
+div, err := division(5, 0)
+if err != nil {
+  fmt.Println(“Error:”, err.Error())
+  return
+}
+fmt.Println(“Division:”, div)
 ```
 
 ---

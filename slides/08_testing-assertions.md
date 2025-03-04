@@ -16,7 +16,7 @@ slideNumber: true
 
 [https://pkg.go.dev/github.com/stretchr/testify/assert](https://pkg.go.dev/github.com/stretchr/testify/assert)
 
-```go
+```go []
 import (
     "testing"
     "github.com/stretchr/testify/assert"
@@ -49,7 +49,7 @@ func TestSomething(t *testing.T) {
 
 **main.go**
 
-```go
+```go []
 package main
 
 import "fmt"
@@ -65,7 +65,7 @@ func main() {
 
 **test_main.go**
 
-```go
+```go []
 package main
 
 import (
@@ -90,7 +90,7 @@ go test
 
 Escriba la función que pase estos tests. Ejecutar el test para comprobarlo.
 
-```go
+```go []
 package main
 
 import (
@@ -124,7 +124,7 @@ func TestCalculate(t *testing.T) {
 
 Escriba un test para la siguiente función
 
-```go
+```go []
 func division(a int, b int) (int, error) {
 	if b == 0 {
 		return 0, errors.New(“no puedo dividir por 0”)}
@@ -163,7 +163,7 @@ package_b - utils_b.go -> package package_b
 
 **utils_a.go**
 
-```go
+```go []
 package package_a
 
 func Hello() string {
@@ -173,7 +173,7 @@ func Hello() string {
 
 **utils_b.go**
 
-```go
+```go []
 package package_b
 
 func Hello() string {
@@ -189,7 +189,7 @@ func Hello() string {
 
 **main.go**
 
-```go
+```go []
 package main
 
 import "ucc/package_a"

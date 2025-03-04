@@ -201,8 +201,7 @@ docker network -d create docker-net
 
 ## Docker Compose
 
-```bash
-
+```bash []
 version: "3.7"
 
 services:

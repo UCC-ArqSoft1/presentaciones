@@ -23,7 +23,7 @@ microservicio con una base de datos.
 
 ## Ejemplo
 
-```go
+```go []
 package main
 
 import (
@@ -58,7 +58,7 @@ func main() {
 
 ## Ejemplo: Dockerfile
 
-```bash
+```bash []
 FROM golang:1.17
 
 RUN mkdir /gin
@@ -108,7 +108,9 @@ docker exec -it [id-contenedorSql] bash
 mysql -p
 ```
 
-```sql
+**file**
+
+```sql []
 CREATE DATABASE nums;
 
 USE nums;
@@ -121,7 +123,7 @@ CREATE TABLE squarenum (
 
 ---
 
-```go
+```go []
 package main
 
 import (
@@ -156,7 +158,7 @@ func main() {
 
 ---
 
-```go
+```go []
 // Preparar una sentencia para leer datos
 stmtOut, err := db.Prepare("SELECT squareNumber FROM squarenum WHERE number = ?")
 if err != nil {
@@ -181,7 +183,7 @@ for i := 0; i < 25; i++ {
 
 ---
 
-```go
+```go []
 var squareNum int // Variable para almacenar el resultado
 
 // Consultar el cuadrado del número 13
@@ -210,7 +212,7 @@ select * form squarenum;
 
 ---
 
-```go
+```go []
 package main
 
 import (
@@ -276,7 +278,7 @@ func main() {
 
 ## Dockerfile
 
-```bash
+```bash []
 FROM golang:1.17
 
 RUN mkdir /gin
@@ -300,7 +302,7 @@ ENTRYPOINT ["/gin/gin"]
 
 ## docker-compose.yml
 
-```yml
+```yml []
 version: "3"
 
 services:
@@ -341,7 +343,7 @@ services:
 
 ## db-create.sql
 
-```sql
+```sql []
 CREATE DATABASE nums;
 
 USE nums;

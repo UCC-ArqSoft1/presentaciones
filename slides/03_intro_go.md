@@ -97,7 +97,7 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 
 ## Hola Mundo
 
-```go
+```go []
 package main
 import "fmt"
 func main() {

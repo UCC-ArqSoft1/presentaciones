@@ -16,7 +16,7 @@ slideNumber: true
 
 ## Ciclo For
 
-```go
+```go []
 sum := 0
 for i := 0; i < 10; i++ {
 	sum += i
@@ -25,7 +25,7 @@ for i := 0; i < 10; i++ {
 
 Ejemplo:
 
-```go
+```go []
 For
 sum := 0
 for \_, value := range array {
@@ -33,7 +33,7 @@ for \_, value := range array {
 }
 ```
 
-```go
+```go []
 for pos, char := range myList {
 	fmt.Printf("character %U starts at byte position %d\n", char, pos)
 }
@@ -43,7 +43,7 @@ for pos, char := range myList {
 
 ## Go - Defer
 
-```go
+```go []
 for i := 0; i < 5; i++ {
 	defer fmt.Printf("%d ", i)
 }
@@ -55,7 +55,7 @@ for i := 0; i < 5; i++ {
 
 Punteros
 
-```go
+```go []
 func swap(x *int, y *int) {
 	var temp int
 	temp = *x //save the value at address x
@@ -84,10 +84,11 @@ Escriba dos funciones, una que realice una asignación por valor de un string y 
 
 File Write
 
-```go
+```go []
 import (
-"fmt"
-"os")
+	"fmt"
+	"os"
+)
 …
 f, err := os.Create(path) //*os.File fmt.Fprintln(f, "data")
 err = f.Close()
@@ -95,10 +96,11 @@ err = f.Close()
 
 File Read
 
-```go
+```go []
 import (
-"fmt"
-"os")
+	"fmt"
+	"os"
+)
 …
 f, \_ := os.ReadFile(path) fmt.Print(string(f))
 ```
@@ -119,7 +121,7 @@ El orden de ejecución en main tiene que ser 1 - 3 - 2
 
 ## Go - Ejercicio
 
-```go
+```go []
 package main
 import (
 	"fmt"
@@ -136,7 +138,7 @@ func main() {
 
 ## Go - Ejercicio
 
-```go
+```go []
 func createFile(p string) *os.File { fmt.Println("creating")
 	f, err := os.Create(p)
 	if err != nil {

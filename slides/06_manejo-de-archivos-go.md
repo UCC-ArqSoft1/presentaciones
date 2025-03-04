@@ -14,7 +14,7 @@ slideNumber: true
 
 ## Defer
 
-```go
+```go []
 func printHello() {
   fmt.Println("Hello World")
 }
@@ -23,8 +23,7 @@ func main() {
   defer printHello()
 }
 
-
-Se puede invocar una función anónima:
+//Se puede invocar una función anónima:
 func main() {
   defer func() {
      fmt.Println("Hello World")
@@ -38,9 +37,8 @@ func main() {
 
 Crear un archivo en Go.
 
-```go
+```go []
 func CreateFile(path string) error {
-
   file, err := os.Create(path)
   defer file.Close()
 
@@ -56,14 +54,11 @@ func CreateFile(path string) error {
 
 ## Escribir un Archivo
 
-```go
+```go []
 func WriteFile(path string, content []byte) error {
-
   if err := os.WriteFile(path, content, os.ModeAppend); err != nil {
-
      return err
   }
-
   return nil
 }
 ```
@@ -74,7 +69,7 @@ func WriteFile(path string, content []byte) error {
 
 <!-- .slide: style="font-size: 0.80em" -->
 
-```go
+```go []
 func readFile(path string) ([]byte, error) {
 
   file, err := os.Open(path)
@@ -87,7 +82,7 @@ func readFile(path string) ([]byte, error) {
      if err != nil {
         log.Fatal(err)
      }
-  }()
+  }() //Se agregan parentesis para que se ejecute la función
 
   bytes, err := ioutil.ReadAll(file)
   if err != nil {

@@ -24,7 +24,7 @@ slideNumber: true
 
 ## product_client.go
 
-```go
+```go []
 package product_client
 
 import (
@@ -51,7 +51,7 @@ var (
 
 ## product_client.go (2)
 
-```go
+```go []
 package product_client
 
 import (
@@ -85,7 +85,7 @@ func (s *productClient) GetProductName() string {
 
 ## product_service.go
 
-```go
+```go []
 package services
 
 import (
@@ -115,7 +115,7 @@ var (
 
 ## product_service.go (2)
 
-```go
+```go []
 // Usamos esta función para que cuando se inicialice el paquete,
 // se guarde nuestra interfaz en la variable global.
 func init() {
@@ -149,7 +149,7 @@ func (s *productService) GetProductName() (string, error) {
 
 ## main.go
 
-```go
+```go []
 package main
 
 import (
@@ -176,7 +176,7 @@ go run main.go
 
 ## product_service_test.go
 
-```go
+```go []
 package services
 
 import (
@@ -206,7 +206,7 @@ func (c *mockProductClient) GetProductName() string {
 
 ## product_service_test.go (2)
 
-```go
+```go []
 // TestGetProductId prueba el caso en que `GetProductId` devuelve un valor válido.
 func TestGetProductId(t *testing.T) {
     // Creamos una instancia del cliente mock
@@ -259,7 +259,7 @@ go mod tidy
 go test ./…
 ```
 
-```go
+```go []
 // TestGetProductName prueba el caso en que `GetProductName` devuelve un valor válido.
 func TestGetProductName(t *testing.T) {
     // Creamos una instancia del cliente mock
