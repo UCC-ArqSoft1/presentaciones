@@ -14,15 +14,16 @@ slideNumber: true
 
 ## HTTP: Generalidades
 
-Hypertext Transfer Protocol (HTTP) es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML. 
+Hypertext Transfer Protocol (HTTP) es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML.
 Fue diseñado para la comunicación entre los navegadores y servidores web.
 
 Es un protocolo sin estado, es decir, que cada petición es independiente.
 Aunque en la mayoría de casos se basa en una conexión del tipo TCP/IP, se puede usar sobre cualquier capa de transporte segura (no como UDP, que puede perder mensajes).
 
-----
+---
 
 ### HTTP: Generalidades
+
 Sigue el modelo cliente-servidor, en el que un cliente establece una conexión con el servidor, realiza una petición y espera hasta que recibe una respuesta.
 una página web completa resulta de la unión de distintos sub-documentos recibidos, como, por ejemplo: un documento que especifique el estilo de maquetación de la página web (CSS), el texto, las imágenes, vídeos, scripts, etc...
 
@@ -31,18 +32,19 @@ una página web completa resulta de la unión de distintos sub-documentos recibi
 ---
 
 ### HTTP: Generalidades
-Clientes y servidores se comunican intercambiando mensajes individuales. 
-Los mensajes que envía el cliente se llaman **peticiones**, y los mensajes enviados por el servidor se llaman 
+
+Clientes y servidores se comunican intercambiando mensajes individuales.
+Los mensajes que envía el cliente se llaman **peticiones**, y los mensajes enviados por el servidor se llaman
 **respuestas**
 
 ![Capas de HTTP](images/http/http-layers.svg)
 
-----
+---
 
 ### Arquitectura de los sistemas basados en HTTP
 
 Las peticiones son enviadas por una entidad: el agente del usuario (normalmente un navegador Web),
-Entre cada petición y respuesta, hay varios intermediarios, normalmente denominados proxies, los cuales realizan distintas 
+Entre cada petición y respuesta, hay varios intermediarios, normalmente denominados proxies, los cuales realizan distintas
 funciones, como: gateways (puerta de enlace) o caches (almacena termporalmente respuestas http).
 
 ![Cadena de Cliente-Servidor](images/http/client-server-chain.svg)
@@ -53,9 +55,10 @@ funciones, como: gateways (puerta de enlace) o caches (almacena termporalmente r
 
 Un servidor "sirve" los datos pedidos por el cliente.
 Un servidor se considera una entidad única, aunque puede estar formado por varios elementos:
+
 - Balanceador de carga
-- Gestores de cache, 
-- Bases de datos, 
+- Gestores de cache,
+- Bases de datos,
 - Correo electrónico.
 
 Un servidor no tiene que ser un único equipo físico.
@@ -65,7 +68,8 @@ Varios servidores pueden estar funcionando en un único computador.
 
 ### Proxies
 
-Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funciones: 
+Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funciones:
+
 - caching (la caché puede ser pública o privada, como la caché de un navegador)
 - filtrado (como un anti-virus, control parental, ...)
 - balanceo de carga de peticiones (para permitir a varios servidores responder a la carga total de peticiones que reciben)
@@ -77,13 +81,13 @@ Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funci
 ### Características del protocolo HTTP
 
 - Es sencillo
-Esta pensado y desarrollado para ser leído y fácilmente interpretado por las personas. Facil la depuración de errores, 
+  Esta pensado y desarrollado para ser leído y fácilmente interpretado por las personas. Facil la depuración de errores,
 - HTTP es extensible
-Las cabeceras de han hecho que sea fácil de ampliar y de experimentar. 
+  Las cabeceras de han hecho que sea fácil de ampliar y de experimentar.
 - HTTP es un protocolo con sesiones, pero sin estados
-No guarda ningún dato entre dos peticiones en la mísma sesión. El uso de cookies permite guardar datos con respecto a la sesión de comunicación. 
+  No guarda ningún dato entre dos peticiones en la mísma sesión. El uso de cookies permite guardar datos con respecto a la sesión de comunicación.
 - HTTP y conexiones
-No se requiere que se mantenga una conexión continua entre los participantes en la comunicación. 
+  No se requiere que se mantenga una conexión continua entre los participantes en la comunicación.
 
 ---
 
@@ -101,10 +105,13 @@ No se requiere que se mantenga una conexión continua entre los participantes en
 
 1. Abre una conexión TCP
 2. Hace una petición HTTP
+
 ```
 GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 ```
+
 3. Leer la respuesta enviada por el servidor:
+
 ```html
     HTTP/1.1 200 OK
     Date: Sat, 09 Oct 2010 14:28:02 GMT
@@ -117,6 +124,7 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 
     <!DOCTYPE html... (here comes the 29769 bytes of the requested web page)
 ```
+
 4. Cierre o reuso de la conexión para futuras peticiones.
 
 ---
@@ -131,9 +139,10 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 ## Mensajes HTTP: Peticiones
 
 Se compone de:
-- Un **método HTTP**: GET, POST, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar. 
+
+- Un **método HTTP**: GET, POST, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar.
 - La **dirección** o URL del recurso.
-- La versión del protocolo HTTP. 
+- La versión del protocolo HTTP.
 - **Cabeceras HTTP** opcionales, que aportam información adicional a los servidores.
 - Un **cuerpo de mensaje**, en algún método, como puede ser POST, en el cual envía la información para el servidor.
 
@@ -148,11 +157,30 @@ Se compone de:
 ## Mensajes HTTP: Respuestas
 
 Las respuestas están formadas por:
-- La **versión** del protocolo HTTP 
+
+- La **versión** del protocolo HTTP
 - Un **código de estado**, indicando si la petición ha sido exitosa o no.
 - Un **mensaje de estado**, una breve descripción del código de estado.
 - **Cabeceras HTTP**, como las de las peticiones.
 - **Opcionalmente**, el recurso que se ha pedido.
+
+---
+
+## HTTP: Tipos de Recursos
+
+<!-- .slide: style="font-size: 0.55em" -->
+
+1. **XHR (XMLHttpRequest):** Peticiones asíncronas que se realizan usando XMLHttpRequest o fetch(), normalmente para obtener o enviar datos a un servidor sin recargar la página.
+2. **Docs (Document):** Representa la carga de documentos HTML, es decir, la página principal o cualquier otro documento HTML dentro de un iframe.
+3. **CSS:** Archivos de hojas de estilo en cascada (CSS) que se usan para el diseño de la página.
+4. **JS (JavaScript):** Archivos JavaScript que se cargan para la ejecución de scripts en la página.
+5. **Font:** Archivos de fuentes (como .woff, .woff2, .ttf) que el sitio carga para mostrar diferentes tipografías.
+6. **Img (Imagen):** Archivos de imagen (.png, .jpg, .svg, .gif, etc.) que se cargan en la página.
+7. **Media:** Archivos de audio o video (.mp4, .mp3, .webm, etc.).
+8. **Manifest:** Archivos manifest.json utilizados en Progressive Web Apps (PWA) para definir metadatos sobre la aplicación, como iconos, nombre de la app y comportamiento offline.
+9. **WS (WebSocket):** Conexiones WebSocket utilizadas para la comunicación en tiempo real entre el navegador y el servidor.
+10. **WASM (WebAssembly):** Archivos .wasm que contienen código WebAssembly, un formato binario que permite ejecutar código compilado en el navegador con alto rendimiento.
+11. **Other (Otros):** Recursos que no encajan en ninguna de las categorías anteriores, como peticiones específicas de extensiones del navegador, peticiones preflight CORS, o archivos que el navegador no puede categorizar claramente.
 
 ---
 
@@ -164,6 +192,123 @@ Las respuestas están formadas por:
 2. Abrir las herramientas de desarrollo
 3. Recargar la página
 4. Verificar toda la información de la Petición y la Respuesta
+
+---
+
+### Swagger
+
+Es un conjunto de reglas, especificaciones y herramientas que permiten la creación de una documentación estandarizada para APIs.
+
+Con su evolución, Swagger se ha integrado en la especificación OpenAPI, consolidándose como el estándar de facto para describir interfaces de APIs.
+
+---
+
+### Ejercicio: Swagger
+
+1. Ingresar a [Swagger Petstore](https://petstore.swagger.io/)
+2. Probar las diferentes llamadas a servicios con diversos parámetros.
+
+---
+
+### Postman
+
+Es una herramienta que permite:
+
+- Probar APIS
+- Documentarlas
+- Testear APIs
+- Monitorear servicios, etc
+
+---
+
+### Ejercicio: Postman
+
+1. Abrir alguna web:
+   - [Tienda Claro](https://tienda.claro.com.ar)
+   - [Mercado Libre](https://www.mercadolibre.com.ar/)
+2. Realizar alguna petición de esas páginas empleando **POSTMAN**
+
+---
+
+### cURL
+
+Es una herramienta de línea de comandos y una biblioteca (libcurl) utilizada para transferir datos mediante diversas redes de protocolos, como HTTP, HTTPS, FTP, SCP, SFTP, LDAP, entre otros.
+
+Se usa ampliamente para realizar solicitudes web y automatizar interacciones con APIs.
+
+---
+
+### cURL: Usos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+1. Hacer peticiones HTTP/S
+
+```bash
+curl https://www.ejemplo.com
+```
+
+Obtiene el contenido de la página web.
+
+2. Descargar un archivo
+
+```bash
+curl -O https://www.ejemplo.com/archivo.zip
+```
+
+3. Enviar datos con una solicitud POST
+
+```bash
+curl -X POST -d "usuario=agus&clave=1234" https://www.ejemplo.com/login
+```
+
+4. Enviar JSON en una solicitud POST
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"usuario":"agus","clave":"1234"}' https://www.ejemplo.com/api
+```
+
+---
+
+### cURL: Usos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+5. Descargar un archivo con un nombre específico
+
+```bash
+curl -o salida.txt https://www.ejemplo.com/archivo.txt
+```
+
+6. Enviar encabezados personalizados
+
+```bash
+curl -H "Authorization: Bearer TOKEN" https://www.ejemplo.com/api
+```
+
+7. Ver la respuesta del servidor con detalles
+
+```bash
+curl -v https://www.ejemplo.com
+```
+
+8. Seguir redirecciones automáticamente
+
+```bash
+curl -L https://www.ejemplo.com
+```
+
+Si el servidor redirige la solicitud, la sigue automáticamente.
+
+---
+
+### cURL: Ejercicio
+
+1. Abrir alguna web:
+   - [Tienda Claro](https://tienda.claro.com.ar)
+   - [Mercado Libre](https://www.mercadolibre.com.ar/)
+2. Copiar el cURL de alguna petición
+3. Importar ese cUrl en **POSTMAN**
 
 ---
 
