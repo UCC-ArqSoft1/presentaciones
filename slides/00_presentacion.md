@@ -8,16 +8,78 @@ slideNumber: true
 
 ---
 
-## Temario
+## Unidades
 
-1. Aplicaciones web y arquitectura cliente servidor
-2. Control de versiones (Git)
-3. Introducción a Go
-4. Funciones, variables y estructuras en Go
-5. Manejo de errores en Go
-6. Consumo de APIs en Go con HTTP
-7. Testing en Go
-8. Testing assertions
+1. HTTP y REST URL
+2. Servicios
+3. Patrones, Diseño de Aplicación y buenas prácticas
+4. Capa de Datos - ORM
+5. Testing
+6. Servicios Backend y FrontEnd
+
+---
+
+#### Unidad 1: HTTP y REST URL
+
+- Mensajes de request y response
+- Status codes
+- Mime Types
+- Headers (principales cabeceras de petición y respuesta)
+- Body - Multipart
+- Herramientas (httpserver, telnet, SO socks, curl, wget, browser dev tools, postman)
+- Verbos - GET - POST - PUT - DELETE JSON & XML
+- Generación de Contratos API
+- Frameworks
+
+---
+
+#### Unidad 2: Servicios
+
+- Concepto de Patrones
+- Arquitectura Orientada a Servicios. Microservicios.
+- Buenas Prácticas.
+- Clientes - Servidores.
+- Sincronismo y Asincronismo. Tiempo Real.
+- Programación concurrente, paralelismo. Threads.
+
+---
+
+#### Unidad 3: Patrones, Diseño de Aplicación y buenas prácticas
+
+- Desarrollo en Capas y Responsabilidades.
+- Patrones creacionales, estructurales, de comportamiento. Antipatrones.
+- Aplicación de Patrones en la Programación.
+- Patrón DAO y DTO
+- Patrón Model View Controller
+- Anatomía de una aplicación backend: modelo, persistencia, negocio, exposición de servicios de negocio
+- Logging
+
+---
+
+#### Unidad 4: Capa de Datos - ORM
+
+- Frameworks de Persistencia
+- Configuración
+- Base de Datos Relacionales.
+- Estrategias de Caché.
+- Mapeo con anotaciones: entidades, claves, transitorios, uno a uno, uno a muchos, muchos a uno, muchos a muchos.
+- DAO Genericos.
+
+---
+
+#### Unidad 5: Testing
+
+- Unitarios
+- Funcionales
+- de Componentes
+
+---
+
+#### Unidad 6: Servicios Backend y FrontEnd
+
+- Lenguaje de Programación Web
+- Implementación
+- Buenas prácticas.
 
 ---
 
