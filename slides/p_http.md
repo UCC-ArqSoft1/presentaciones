@@ -179,6 +179,12 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 
 ---
 
+![Evolución de HTTP](images/http/evolution-of-http.png)
+
+<!-- Secure Sockets Layer -->
+
+---
+
 ## Mensajes HTTP
 
 - Peticiones
@@ -187,6 +193,8 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 ---
 
 ## Mensajes HTTP: Peticiones
+
+<!-- .slide: style="font-size: 0.90em" -->
 
 Se compone de:
 
@@ -206,6 +214,8 @@ Se compone de:
 
 #### Mensajes HTTP: Peticiones - Métodos
 
+<!-- .slide: style="font-size: 0.80em" -->
+
 - **GET:** Solicitar datos.
 - **HEAD:** Similar a GET, pero sin el cuerpo de la respuesta.
 - **POST:** Enviar un recurso, causando a menudo un cambio en el estado o efectos secundarios en el servidor.
@@ -215,6 +225,26 @@ Se compone de:
 - **OPTIONS:** Describir las opciones de comunicación para el recurso de destino.
 - **TRACE:** Realiza una prueba de bucle de retorno de mensaje a lo largo de la ruta al recurso de destino.
 - **PATCH:** Aplicar modificaciones parciales a un recurso.
+
+---
+
+#### Mensajes HTTP: Peticiones - Cabeceras
+
+- **Cabeceras generales:** Como _Via_, afectan al mensaje como una unidad completa.
+- **Cabeceras de petición:** Como _User-Agent_ (ej. Mozilla/5.0 (Windows NT 10.0) Chrome/134.0.0.0) , _Accept-Type_, modifican la petición especificándola en mayor detalle ( como: _Accept-Language_, o dándole un contexto, como: _Referer_, o restringiéndola condicionalmente.
+- **Cabeceras de entidad:** Como _Content-Length_ (no necesita ser transmitida si el mensaje no tiene 'body').
+
+---
+
+#### Mensajes HTTP: Peticiones - Cuerpo
+
+Generalmente GET, HEAD, DELETE, o OPTIONS no llevan cuerpo.
+Algunas veces POST lleva cuerpo (que contiene datos de un formulario HTML).
+
+Los cuerpos pueden ser dividos en dos categorias:
+
+- **Cuerpos con un único dato**, un único archivo con Content-Type y Content-Length.
+- **Cuerpos con múltiples datos**, que están formados por distintos contenidos, normalmente estan asociados con los formularios HTML.
 
 ---
 
@@ -242,6 +272,17 @@ Las respuestas están formadas por:
 
 ---
 
+### Ejercicio: Análisis
+
+1. Abrir alguna web:
+   - [Tienda Claro](https://tienda.claro.com.ar)
+   - [Mercado Libre](https://www.mercadolibre.com.ar/)
+2. Abrir las herramientas de desarrollo. Ir a la pestaña de **Network** o **Red**
+3. Recargar la página
+4. Verificar toda la información de la Petición y la Respuesta
+
+---
+
 ## HTTP: Tipos de Recursos
 
 <!-- .slide: style="font-size: 0.55em" -->
@@ -257,17 +298,6 @@ Las respuestas están formadas por:
 9. **WS (WebSocket):** Conexiones WebSocket utilizadas para la comunicación en tiempo real entre el navegador y el servidor.
 10. **WASM (WebAssembly):** Archivos .wasm que contienen código WebAssembly, un formato binario que permite ejecutar código compilado en el navegador con alto rendimiento.
 11. **Other (Otros):** Recursos que no encajan en ninguna de las categorías anteriores, como peticiones específicas de extensiones del navegador, peticiones preflight CORS, o archivos que el navegador no puede categorizar claramente.
-
----
-
-### Ejercicio: Análisis
-
-1. Abrir alguna web:
-   - [Tienda Claro](https://tienda.claro.com.ar)
-   - [Mercado Libre](https://www.mercadolibre.com.ar/)
-2. Abrir las herramientas de desarrollo. Ir a la pestaña de **Network** o **Red**
-3. Recargar la página
-4. Verificar toda la información de la Petición y la Respuesta
 
 ---
 
