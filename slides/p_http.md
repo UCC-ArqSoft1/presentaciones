@@ -190,7 +190,7 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 
 Se compone de:
 
-- Un **método HTTP**: GET, POST, PUT, DELETE, PATCH, TRACE, CONNECT, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar.
+- Un **método HTTP**: GET, POST, PUT, DELETE, PATCH, TRACE, CONNECT, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar. También llamado verbo.
 - La **dirección** o URL del recurso.
 - La versión del protocolo HTTP.
 - **Cabeceras HTTP** opcionales, que aportam información adicional a los servidores.
@@ -201,6 +201,20 @@ Se compone de:
 ## Mensajes HTTP: Peticiones
 
 ![Peticiones](images/http/http-request.svg)
+
+---
+
+#### Mensajes HTTP: Peticiones - Métodos
+
+- **GET:** Solicitar datos.
+- **HEAD:** Similar a GET, pero sin el cuerpo de la respuesta.
+- **POST:** Enviar un recurso, causando a menudo un cambio en el estado o efectos secundarios en el servidor.
+- **PUT:** Reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.
+- **DELETE:** Borra un recurso en específico.
+- **CONNECT:** Establece un túnel hacia el servidor identificado por el recurso.
+- **OPTIONS:** Describir las opciones de comunicación para el recurso de destino.
+- **TRACE:** Realiza una prueba de bucle de retorno de mensaje a lo largo de la ruta al recurso de destino.
+- **PATCH:** Aplicar modificaciones parciales a un recurso.
 
 ---
 
@@ -217,6 +231,14 @@ Las respuestas están formadas por:
 ---
 
 ![Respuesta](images/http/http-response.svg)
+
+---
+
+![Status Code](images/http/status-code.png)
+
+---
+
+![Complete Status Code](images/http/complete-status-code.png)
 
 ---
 
