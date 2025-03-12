@@ -6,15 +6,59 @@ slideNumber: true
 
 # HTTP
 
+<style>
+	.p-12 {
+		font-size: 0.6em;
+	}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 0.8em;
+    text-align: left !important;
+}
+
+.grid-item {
+    border: 3px solid rgba(121, 177, 217, 0.8);
+    padding: 20px;
+    text-align: left !important;
+}
+</style>
+
 ---
 
 ## Temario
+
+<div class="grid-container2">
+<div class="grid-item">
+
+- Generalidades
+- Arquitectura de los sistemas basados en HTTP
+- Servidor Web
+- Proxies
+- Características del Protocolo http
+- ¿Qué se puede controlar con http?
+- Flujo HTTP
+- Mensajes
+
+</div>
+<div class="grid-item">
+
+- Tipos de Recursos
+- Ej: Análisis de Peticiones
+- Swagger
+- Ej. Swagger
+- Postman
+- Ej. Postman
+- cURL
+
+</div></div>
 
 ---
 
 ## HTTP: Generalidades
 
-Hypertext Transfer Protocol (HTTP) es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML.
+**Hypertext Transfer Protocol** (HTTP) es un protocolo de la capa de aplicación para la transmisión de documentos hipermedia, como HTML.
 Fue diseñado para la comunicación entre los navegadores y servidores web.
 
 Es un protocolo sin estado, es decir, que cada petición es independiente.
@@ -24,8 +68,11 @@ Aunque en la mayoría de casos se basa en una conexión del tipo TCP/IP, se pued
 
 ### HTTP: Generalidades
 
-Sigue el modelo cliente-servidor, en el que un cliente establece una conexión con el servidor, realiza una petición y espera hasta que recibe una respuesta.
-una página web completa resulta de la unión de distintos sub-documentos recibidos, como, por ejemplo: un documento que especifique el estilo de maquetación de la página web (CSS), el texto, las imágenes, vídeos, scripts, etc...
+<!-- .slide: style="font-size: 0.55em" -->
+
+Sigue el modelo **cliente-servidor**, en el que un cliente establece una conexión con el servidor, realiza una petición y espera hasta que recibe una respuesta.
+
+Una página web resulta de la unión de distintos sub-documentos recibidos: estilo (CSS), el texto, las imágenes, vídeos, scripts, etc...
 
 ![Fetching a Page](images/http/fetching-a-page.svg)
 
@@ -43,7 +90,7 @@ Los mensajes que envía el cliente se llaman **peticiones**, y los mensajes envi
 
 ### Arquitectura de los sistemas basados en HTTP
 
-Las peticiones son enviadas por una entidad: el agente del usuario (normalmente un navegador Web),
+Las peticiones son enviadas por una entidad: el agente del usuario (normalmente un navegador Web).
 Entre cada petición y respuesta, hay varios intermediarios, normalmente denominados proxies, los cuales realizan distintas
 funciones, como: gateways (puerta de enlace) o caches (almacena termporalmente respuestas http).
 
@@ -51,15 +98,15 @@ funciones, como: gateways (puerta de enlace) o caches (almacena termporalmente r
 
 ---
 
-# ### HTTP: Servidor Web
+#### HTTP: Servidor Web
 
 Un servidor "sirve" los datos pedidos por el cliente.
 Un servidor se considera una entidad única, aunque puede estar formado por varios elementos:
 
 - Balanceador de carga
-- Gestores de cache,
-- Bases de datos,
-- Correo electrónico.
+- Gestores de cache
+- Bases de datos
+- Correo electrónico
 
 Un servidor no tiene que ser un único equipo físico.
 Varios servidores pueden estar funcionando en un único computador.
@@ -67,6 +114,8 @@ Varios servidores pueden estar funcionando en un único computador.
 ---
 
 ### Proxies
+
+<!-- .slide: style="font-size: 0.90em" -->
 
 Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funciones:
 
@@ -81,13 +130,14 @@ Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funci
 ### Características del protocolo HTTP
 
 - Es sencillo
-  Esta pensado y desarrollado para ser leído y fácilmente interpretado por las personas. Facil la depuración de errores,
+<p class="fragment p-12"> Esta pensado y desarrollado para ser leído y fácilmente interpretado por las personas. Fácil la depuración de errores. </p>
+
 - HTTP es extensible
-  Las cabeceras de han hecho que sea fácil de ampliar y de experimentar.
+<p class="fragment p-12">Las cabeceras de han hecho que sea fácil de ampliar y de experimentar.</p>
 - HTTP es un protocolo con sesiones, pero sin estados
-  No guarda ningún dato entre dos peticiones en la mísma sesión. El uso de cookies permite guardar datos con respecto a la sesión de comunicación.
+<p class="fragment p-12"> No guarda ningún dato entre dos peticiones en la mísma sesión. El uso de cookies permite guardar datos con respecto a la sesión de comunicación. </p>
 - HTTP y conexiones
-  No se requiere que se mantenga una conexión continua entre los participantes en la comunicación.
+<p class="fragment p-12">No se requiere que se mantenga una conexión continua entre los participantes en la comunicación.</p>
 
 ---
 
@@ -140,7 +190,7 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 
 Se compone de:
 
-- Un **método HTTP**: GET, POST, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar.
+- Un **método HTTP**: GET, POST, PUT, DELETE, PATCH, TRACE, CONNECT, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar.
 - La **dirección** o URL del recurso.
 - La versión del protocolo HTTP.
 - **Cabeceras HTTP** opcionales, que aportam información adicional a los servidores.
@@ -163,6 +213,10 @@ Las respuestas están formadas por:
 - Un **mensaje de estado**, una breve descripción del código de estado.
 - **Cabeceras HTTP**, como las de las peticiones.
 - **Opcionalmente**, el recurso que se ha pedido.
+
+---
+
+![Respuesta](images/http/http-response.svg)
 
 ---
 
@@ -189,7 +243,7 @@ Las respuestas están formadas por:
 1. Abrir alguna web:
    - [Tienda Claro](https://tienda.claro.com.ar)
    - [Mercado Libre](https://www.mercadolibre.com.ar/)
-2. Abrir las herramientas de desarrollo
+2. Abrir las herramientas de desarrollo. Ir a la pestaña de **Network** o **Red**
 3. Recargar la página
 4. Verificar toda la información de la Petición y la Respuesta
 
@@ -314,7 +368,7 @@ Si el servidor redirige la solicitud, la sigue automáticamente.
 
 Más info en:
 
-[MDN Web Docs](https://developer.mozilla.org/es/docs/Web/HTTP&#41)
+[MDN Web Docs](https://developer.mozilla.org/es/docs/Web/HTTP)
 
 ---
 
