@@ -418,6 +418,57 @@ Si el servidor redirige la solicitud, la sigue automáticamente.
 
 ---
 
+### Ejercicio: JSON
+
+Diseñar un archivo JSON (Javascript Object Notation) que contenga la información de una nota de pedido que hace una empresa a una compañía de transporte para una determinada dirección detallada y con un conjunto de ítems con precio a ser transportados. https://api.mercadolibre.com/items/MLA1387074579
+
+Tips cuando se elabora un JSON:
+
+- Corroborar que el JSON sea válido.
+- Indentar correctamente cada sección del JSON:
+- Un nuevo tab (o espacios) luego de cada llave abierta.
+- Un nuevo tab (o espacios) luego de cada corchete abierto.
+- Un espacio luego de cada 2 puntos y antes del valor.
+- Una nueva línea para cada campo.
+- Usar el valor explícito sin comillas para los valores numéricos.
+- Usar el valor explícito sin comillas para los valores booleanos.
+- Usar siempre minúsculas y guiones bajos en las keys.
+- Usar keys en inglés para evitar errores de caracteres especiales.
+
+---
+
+### Ejercicio: JSON
+
+```json
+{
+  "id": 1,
+  "address": {
+    "country": "Argentina",
+    "city": "Cordoba",
+    "zip_code": 5000,
+    "street": "Av. Rafael Nuñez",
+    "number": 4600
+  },
+  "items": [
+    {
+      "id": 513423,
+      "title": "Zapatillas Adidas",
+      "price": 25000,
+      "has_taxes": false
+    },
+    {
+      "id": 513424,
+      "title": "Camiseta Nike",
+      "price": 30000,
+      "has_taxes": false
+    }
+  ],
+  "total": 55000
+}
+```
+
+---
+
 Más info en:
 
 [MDN Web Docs](https://developer.mozilla.org/es/docs/Web/HTTP)
