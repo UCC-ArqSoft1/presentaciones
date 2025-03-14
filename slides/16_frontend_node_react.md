@@ -14,7 +14,7 @@ slideNumber: true
 
 ## Arquitectura web
 
-![Arquitetcura Web](images/react/arquitetcura.png)
+![Arquitectura Web](images/react/arquitetcura.png)
 
 ---
 
