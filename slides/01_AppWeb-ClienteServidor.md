@@ -19,9 +19,9 @@ slideNumber: true
 
 ---
 
-## Arquitetcura Cliente-Servidor
+## Arquitectura Cliente-Servidor
 
-![Arquitetcura Cliente-Servidor](images/cliente-servidor/modelo-cliente-servidor.png)
+![Arquitectura Cliente-Servidor](images/cliente-servidor/modelo-cliente-servidor.png)
 
 ---
 
@@ -54,7 +54,7 @@ Cada uno de los clientes recibe la respuesta (response) que el servidor retornó
 
 ## Arquitectura cliente-servidor
 
-![Arquitetcura Cliente-Servidor](images/cliente-servidor/arq-cliente-servidor.png)
+![Arquitectura Cliente-Servidor](images/cliente-servidor/arq-cliente-servidor.png)
 
 ---
 
