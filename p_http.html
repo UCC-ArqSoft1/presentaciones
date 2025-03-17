@@ -493,6 +493,126 @@ Más info en:
 
 ---
 
+### MIME Types
+
+**Multipurpose Internet Mail Extensions** son una serie de especificaciones dirigidas al intercambio a través de Internet 
+de todo tipo de archivos (texto, audio, vídeo, etc.) de forma transparente para el usuario.
+
+Los navegadores a menudo usan el tipo MIME (y no la extensión de archivo) para determinar cómo procesará un documento.
+
+---
+
+### MIME Types: Estructura
+
+Consiste en un tipo y un subtipo, dos cadenas, separadas por un '/'. No se permite espacio. 
+El tipo representa la categoría y puede ser de tipo discreto o multiparte. El subtipo es específico para cada tipo.
+
+```tipo/subtipo```
+
+---
+
+### MIME Types: Estructura
+
+````javascript
+text/plain
+text/html
+image/jpeg
+image/png
+audio/mpeg
+audio/ogg
+audio/*
+video/mp4
+application/octet-stream
+…
+````
+
+---
+
+### MIME Types: Multipartes
+
+Indican una categoría de documento que está rota en distintas partes, a menudo con diferentes tipos de MIME. 
+Es una forma de representar un documento compuesto. Con la excepción de *multipart/form-data*, que se utilizan en 
+relación con formularios HTML y el método POST, y *multipart/byteranges*, que se utilizan junto con el mensaje de estado 
+de Contenido Parcial 206 para enviar solo un subconjunto de un documento completo, HTTP no maneja documentos 
+multiparte de una manera específica: el mensaje simplemente se transmite al navegador (que probablemente propondrá una 
+ventana Guardar como, sin saber cómo mostrar el documento en línea.)
+
+````javascript
+multipart/form-data
+multipart/byteranges
+````
+
+---
+
+### Contratos
+
+Se refiere a un acuerdo técnico o especificación que define cómo deben interactuar diferentes sistemas, servicios o 
+componentes a través de la API. 
+
+Este "contrato" describe cómo los desarrolladores pueden llamar a la API, qué datos deben enviarse, qué respuestas 
+pueden esperar recibir y cómo manejar los errores.
+
+----
+
+### Contratos
+
+Un "contrato" de una API incluye:
+
+- **Puntos finales (Endpoints):** Son las URL a las que se puede hacer una solicitud para interactuar con la API. 
+El contrato describe qué puntos finales están disponibles y qué acciones pueden realizar.
+- **Métodos HTTP:** Define qué métodos HTTP (como GET, POST, PUT, DELETE) se deben usar en cada punto final. 
+- **Parámetros de entrada:** Especifica qué datos o parámetros deben enviarse al hacer una solicitud a la API. 
+Esto puede incluir parámetros en la URL, en el cuerpo de la solicitud (payload), o en los encabezados.
+- **Formato de la respuesta:** Define cómo será la respuesta de la API. Esto incluye el formato de los datos devueltos 
+(por ejemplo, JSON o XML), así como la estructura de esos datos.
+- **Códigos de estado HTTP:** Especifica qué códigos de estado HTTP se pueden devolver como respuesta. 
+- **Errores y manejo de excepciones:** Define cómo la API maneja los errores, qué tipo de errores pueden ocurrir y qué 
+mensajes o códigos se deben devolver para ayudar a los desarrolladores a depurar y entender qué salió mal.
+- **Autenticación y autorización:** Muchas APIs requieren que los usuarios se autentiquen (por ejemplo, mediante 
+claves API, tokens de acceso o OAuth). El contrato puede especificar cómo debe realizarse este proceso.
+- **Tasa de limitación (Rate Limiting):** Definir cuántas solicitudes se pueden realizar dentro de un período de tiempo 
+determinado, para evitar abusos y sobrecarga del sistema.
+
+----
+
+### Contratos
+
+Ejemplo de un "contrato" de API:
+
+Supongamos que estás utilizando una API para obtener información sobre películas. El contrato podría verse algo así:
+- Endpoint: `GET /movies`
+- Parámetros de entrada:
+  - genre: (opcional) Filtra las películas por género. 
+- year: (opcional) Filtra las películas por año de estreno.
+
+ Respuesta:
+````json
+ {
+   "status": "success",
+   "data": [
+     {
+       "title": "Inception",
+       "year": 2010,
+       "genre": "Sci-Fi"
+     },
+     {
+       "title": "The Dark Knight",
+       "year": 2008,
+       "genre": "Action"
+     }
+   ]
+ }
+````
+
+- Códigos de estado:
+  - 200 OK: Solicitud exitosa. 
+  - 400 Bad Request: Parámetros incorrectos o incompletos. 
+  - 404 Not Found: El recurso solicitado no existe.
+
+- Autenticación: Se requiere un token de autenticación válido en los encabezados de la solicitud.
+
+---
+
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)

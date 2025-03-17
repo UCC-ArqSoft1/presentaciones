@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>DAO & ORM</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+    <link rel="stylesheet" href="./_assets/slides/css/filminas.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^---" data-separator-vertical="^\r?\n----\r?\n$">
+          <textarea data-template>
+            
+
+# DAO & ORM
+
+<style>
+	.p-12 {
+		font-size: 0.6em;
+	}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 0.8em;
+    text-align: left !important;
+}
+
+.grid-item {
+    border: 3px solid rgba(121, 177, 217, 0.8);
+    padding: 20px;
+    text-align: left !important;
+}
+</style>
+
+---
+
+## Temario
+
+<div class="grid-container2">
+<div class="grid-item">
+
+- DAO
+
+</div>
+<div class="grid-item">
+
+- ORM
+
+</div></div>
+
+---
+
+## DAO: Data Access Object
+
+Se centra en separar la lógica de acceso a datos de la lógica de negocio. Proporciona una interfaz para interactuar con 
+una fuente de datos específica, como una base de datos, ocultando los detalles de la implementación. 
+
+Su objetivo principal es abstraer la interacción de la base de datos y proporcionar métodos para operaciones CRUD 
+(Create, Read, Update, Delete).
+
+<!-- https://leanmind.es/es/blog/comprendiendo-las-diferencias-entre-dao-repository-active-record/ -->
+<!-- https://levelup.gitconnected.com/understanding-abstraction-levels-in-database-interactions-dal-dao-raw-queries-query-builder-4819d607b0d6 -->
+<!-- https://www.youtube.com/watch?v=Knjw5_DshK8 -->
+
+---
+
+## DAO: Data Access Object
+
+- Es un objeto que actúa como interfaz entre la aplicación y la base de datos
+- Se centra en operaciones CRUD específicas para una fuente de datos
+- Separa la lógica de persistencia de datos en una capa separada
+- Permite independizar la aplicación de la forma de acceder a la base de datos
+
+---
+
+### ORM: Object-Relational Mappin
+
+Permite que los desarrolladores trabajen con la base de datos utilizando objetos en lugar de escribir consultas SQL 
+directamente. 
+
+Estos frameworks se encargan de la asignación (mapeo) entre las estructuras de datos en la base de datos relacional y 
+las representaciones de objetos en el lenguaje de programación.
+
+Estás librerías adoptan este patrón para simplificar el desarrollo de la interacción con la base de datos a través de objetos en el código.
+
+---
+
+### ORM: Object-Relational Mapping
+
+- Es una biblioteca o API que permite hacer que las interacciones con una base de datos sean más robustas 
+- Permite a un programa de software acceder y manipular datos almacenados en un sistema de gestión de bases de datos (DBMS) mediante objetos
+- Permite persistir objetos Java directamente en una base de datos sin tener que generar sentencias SQL
+
+---
+
+## ¿Dudas, Preguntas, Comentarios?
+
+![Preguntas](images/pregunta.gif)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"_":["slides"],"static":"public"}, queryOptions);
+    </script>
+
+    <script src="./_assets/slides/js/pruebas.js"></script>
+    <script src="./_assets/slides/js/init.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
