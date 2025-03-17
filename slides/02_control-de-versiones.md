@@ -21,10 +21,17 @@ slideNumber: true
 
 ---
 
-## Download
+## Bibliografía
 
-- [Golang](https://go.dev/)
-- [Docker](https://www.docker.com/products/docker-desktop/)
+[![Book](images/git/book_git.png)](https://git-scm.com/book/en/v2)
+
+---
+
+### Recuerdas lo que vimos en laboratorio de Computación II?
+
+[Git (parte 1)](https://ucc-labcompu2.github.io/filminas/U2_git.html#/)
+
+[Git (parte 2)](https://ucc-labcompu2.github.io/filminas/U2_git_avanzado.html#/)
 
 ---
 
@@ -92,10 +99,70 @@ Git es un software de control de versiones diseñado por Linus Torvalds, pensand
 
 ### Buenas prácticas
 
-- Se recomienda no trabajar sobre la rama master o main
+- Se recomienda **no** trabajar sobre la rama master o main
 - Para los cambios en desarrollo, utilizar el branch develop o features
 - Para fixes de urgencia, se utilizan branches hot fix.
 - También se pueden utilizar branches improve o fix si son necesarios.
+- Emplear "conventional commits"
+
+---
+
+### Conventional commits
+
+Es una convención en el formato de los mensajes de los commits.
+Esta convención define una serie de reglas que hacen muy sencillo tanto la legibilidad del histórico del repositorio
+como el poder tener herramientas que automaticen procesos basándose en el historial de commits.
+
+[Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+---
+
+### Conventional commits
+
+Posee la siguiente estructura:
+
+```bash
+<tipo>(ámbito opcional): <descripción>
+```
+
+---
+
+### Conventional commits: Tipo
+
+Los tipos más comunes:
+
+- **feat:** cuando se añade una nueva funcionalidad.
+- **fix:** cuando se arregla un error.
+- **chore:** tareas rutinarias que no sean específicas de una feature o un error como por ejemplo añadir contenido al fichero .gitignore o instalar una dependencia.
+- **test:** si añadimos o arreglamos tests.
+- **docs:** cuando solo se modifica documentación.
+- **build:** cuando el cambio afecta al compilado del proyecto.
+- **ci:** el cambio afecta a ficheros de configuración y scripts relacionados con la integración continua.
+- **style:** cambios de legibilidad o formateo de código que no afecta a funcionalidad.
+- **refactor:** cambio de código que no corrige errores ni añade funcionalidad, pero mejora el código.
+- **perf:** usado para mejoras de rendimiento.
+- **revert:** si el commit revierte un commit anterior. Debería indicarse el hash del commit que se revierte.
+
+---
+
+### Conventional commits: Ámbito
+
+El campo ámbito es opcional y sirve para dar información contextual como por ejemplo indicar el nombre de la feature a la que afecta el commit.
+
+---
+
+### Conventional commits: Cuerpo
+
+Es opcional y debería añadir aportar más información que la descripción. Debería usar el mismo tono imperativo que esta.
+
+---
+
+### Conventional commits: Ventajas
+
+- Conseguimos un acuerdo en el formato de los commits con todo el equipo de desarrollo tanto interno como externo
+- Armonía en el histórico del repositorio
+- Generación automática de CHANGELOG
+- Versionado automático del proyecto
 
 ---
 

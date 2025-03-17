@@ -30,6 +30,8 @@ slideNumber: true
 - [Install Go](https://goo.gl/5F5bWk)
 - [Go Tour](https://goo.gl/rGzKJj)
 - [Gopher's Reading List](https://goo.gl/PG5KU8)
+- [Golang](https://go.dev/)
+- [Docker](https://www.docker.com/products/docker-desktop/)
 
 ---
 
