@@ -8,7 +8,7 @@ slideNumber: true
 
 <style>
 	.p-12 {
-		font-size: 0.6em;
+		font-size: 0.56em;
 	}
 
 .grid-container2 {
@@ -133,7 +133,7 @@ Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funci
 <p class="fragment p-12"> Esta pensado y desarrollado para ser leído y fácilmente interpretado por las personas. Fácil la depuración de errores. </p>
 
 - HTTP es extensible
-<p class="fragment p-12">Las cabeceras de han hecho que sea fácil de ampliar y de experimentar.</p>
+<p class="fragment p-12">Las cabeceras han hecho que sea fácil de ampliar y de experimentar.</p>
 - HTTP es un protocolo con sesiones, pero sin estados
 <p class="fragment p-12"> No guarda ningún dato entre dos peticiones en la mísma sesión. El uso de cookies permite guardar datos con respecto a la sesión de comunicación. </p>
 - HTTP y conexiones
@@ -152,6 +152,8 @@ Pueden modificar o no las peticiones que pasan por ellos, cumpliendo estas funci
 ---
 
 ### Flujo de HTTP: Comunicación Cliente-Servidor
+
+<!-- .slide: style="font-size: 0.80em" -->
 
 1. Abre una conexión TCP
 2. Hace una petición HTTP
@@ -181,7 +183,7 @@ GET / HTTP/1.1 Host: developer.mozilla.org Accept-Language: fr
 
 ![Evolución de HTTP](images/http/evolution-of-http.png)
 
-<!-- Secure Sockets Layer -->
+<!-- SSL Secure Sockets Layer -->
 
 ---
 
@@ -201,7 +203,7 @@ Se compone de:
 - Un **método HTTP**: GET, POST, PUT, DELETE, PATCH, TRACE, CONNECT, OPTIONS, HEAD, que defina la operación que el cliente quiera realizar. También llamado verbo.
 - La **dirección** o URL del recurso.
 - La versión del protocolo HTTP.
-- **Cabeceras HTTP** opcionales, que aportam información adicional a los servidores.
+- **Cabeceras HTTP** opcionales, que aportan información adicional a los servidores.
 - Un **cuerpo de mensaje**, en algún método, como puede ser POST, en el cual envía la información para el servidor.
 
 ---

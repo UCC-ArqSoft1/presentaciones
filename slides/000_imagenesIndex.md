@@ -11,4 +11,5 @@ slideNumber: true
 ![u3](images/indice/u3_icono.png)
 ![u4](images/indice/u4_icono.png)
 ![u5](images/indice/u5_icono.png)
-![proyecti](images/indice/proyecto.png)
+![u6](images/indice/u6_icono.png)
+![proyecto](images/indice/proyecto.png)
