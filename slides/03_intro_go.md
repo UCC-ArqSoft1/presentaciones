@@ -116,22 +116,22 @@ func main() {
 <!-- .slide: style="font-size: 0.65em" -->
 
 - **Tipos Numéricos:**
-  - int: Enteros con signo. Su tamaño depende de la plataforma.
-  - uint: Enteros sin signo. Su tamaño depende de la plataforma.
-  - float32, float64: Números de punto flotante de 32 y 64 bits respectivamente.
+  - **int**: Enteros con signo. Su tamaño depende de la plataforma.
+  - **uint**: Enteros sin signo. Su tamaño depende de la plataforma.
+  - **float32, float64**: Números de punto flotante de 32 y 64 bits respectivamente.
 - **Tipo String:**
-  - string: Una secuencia inmutable de bytes.
+  - **string**: Una secuencia inmutable de bytes.
 - **Tipo Booleano:**
-  - bool: Representa un valor booleano, que puede ser true o false.
+  - **bool**: Representa un valor booleano, que puede ser true o false.
 - **Tipo de Datos Compuestos:**
-  - Array: Una secuencia fija de elementos del mismo tipo.
-  - Slice: Una secuencia dinámica de elementos de cualquier tipo.
-  - Map: Una colección no ordenada de pares clave-valor.
-  - Struct: Un tipo de datos compuesto que agrupa campos con nombres.
+  - **Array**: Una secuencia fija de elementos del mismo tipo.
+  - **Slice**: Una secuencia dinámica de elementos de cualquier tipo.
+  - **Map**: Una colección no ordenada de pares clave-valor.
+  - **Struct**: Un tipo de datos compuesto que agrupa campos con nombres.
 - **Tipo de Puntero:**
-  - Pointer: Almacena la dirección de memoria de una variable.
+  - **Pointer**: Almacena la dirección de memoria de una variable.
 - **Tipo de Datos Interfaz:**
-  - Interface: Define un conjunto de métodos que una estructura debe implementar para satisfacer la interfaz.
+  - **Interface**: Define un conjunto de métodos que una estructura debe implementar para satisfacer la interfaz.
 
 ---
 

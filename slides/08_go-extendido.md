@@ -11,6 +11,8 @@ slideNumber: true
 ## Temario
 
 1. Ciclos
+2. Defer
+3. ByRef
 
 ---
 

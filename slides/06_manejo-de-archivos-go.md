@@ -10,6 +10,11 @@ slideNumber: true
 
 ## Temario
 
+- Defer
+- Crear un archivo
+- Escribir un archivo
+- Leer un archivo
+
 ---
 
 ## Defer

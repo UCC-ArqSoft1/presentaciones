@@ -10,6 +10,9 @@ slideNumber: true
 
 ## Temario
 
+- Go Modules
+- Documentación de una API
+
 ---
 
 ## Go Modules

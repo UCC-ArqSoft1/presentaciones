@@ -10,6 +10,8 @@ slideNumber: true
 
 ## Temario
 
+- Testify y los asserts
+
 ---
 
 ## Testify y los asserts

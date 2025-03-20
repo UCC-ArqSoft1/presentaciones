@@ -57,7 +57,7 @@ slideNumber: true
 - Control de versiones
 - Introducción a GIT. Características principales
 - Branching model
-- Órdebes básicas
+- Comandos básicos
 - Buenas prácticas
 - Plataforma Github
 - Proyecto de ejemplo

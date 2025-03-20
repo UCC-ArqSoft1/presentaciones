@@ -84,7 +84,7 @@ Se llama control de versiones a la gestión de los diversos cambios que se reali
 
 ## Comandos Básicos de GIT
 
-<!-- .slide: style="font-size: 0.83em" -->
+<!-- .slide: style="font-size: 0.80em" -->
 
 - `git init`: Inicializa un nuevo repositorio.
 - `git clone`: Crea una copia local de un repositorio remoto.
@@ -156,12 +156,12 @@ Es una solicitud de incorporación de cambios que aún no está lista para revis
 
 ### Ejercicio 2: Github - Pull Request
 
+<!-- .slide: style="font-size: 0.90em" -->
+
 1. Cree un Pull Request en github
-
-- El título del PR debe ser el adecuado
-- En la Descripción debe agregar un detalle de los cambios que se realizaron
-- Se debe seleccionar al Reviewers
-
+   - El *título* del PR debe ser el adecuado
+   - La *descripción* debe agregar un detalle de los cambios que se realizaron
+   - Se debe seleccionar *revisores*
 2. Si hay algún error en el código, deje un comentario con la observación.
 3. Realice cambios en la rama para solucionar el error detectado.
 4. Realice un pull de los cambios para actualizar la rama remota
@@ -251,46 +251,6 @@ Es opcional y debería añadir aportar más información que la descripción. De
   Se utiliza principalmente para la creación de código fuente de programas de computadora.
 - [Link a Github](https://github.com/)
 - Permite una visualización más amigable de los repositorios GIT.
-
----
-
-## Instalación
-
-- Descargar GIT desde [https://git-scm.com/download/win](https://git-scm.com/download/win)
-- Configurar nombre de usuario y mail
-
-```bash
-git config --global user.name "FIRST_NAME LAST_NAME"
-git config --global user.email "MY_NAME@example.com"
-```
-
-- Clonar repositorio
-
-<!--TODO: SE RECOMIENDA PONER TODOS LOS REPOSITORIOS COMO PARTE DE LA ORGANIZACIÓN PARA TENER MAYOR CONTROL DE LAS CORRECCIONES-->
-
-```bash
-git clone https://github.com/emikohmann/ucc-arqsoft-1-2023.git
-```
-
----
-
-## Instalación
-
-- Crear un branch con el nombre del grupo grupo-{numero}
-
-```bash
-cd ucc-arqsoft-1-2023
-git checkout -b grupo-1
-```
-
-- Hacer push desde una cuenta
-
-```bash
-git status
-git add .
-git commit -m “Cambio”
-git push origin grupo-1
-```
 
 ---
 

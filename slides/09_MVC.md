@@ -10,7 +10,10 @@ slideNumber: true
 
 ## Temario
 
-(A COMPLETAR)
+- Estructura de un proyecto
+- Patrones de Diseño
+- Gin - Gonic
+- Auth
 
 ---
 

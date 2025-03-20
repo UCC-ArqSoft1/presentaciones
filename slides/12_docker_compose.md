@@ -10,7 +10,8 @@ slideNumber: true
 
 ## Temario
 
-(COMPLETAR)
+- Docker compose
+- Docker File
 
 ---
 

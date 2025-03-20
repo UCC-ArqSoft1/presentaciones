@@ -10,7 +10,14 @@ slideNumber: true
 
 ## Temario
 
-(COMPLETAR)
+- Deploy
+- Máquinas Virtuales
+- Docker
+- TL;DR
+- Comandos Docker
+- Docker File
+- Recomendaciones
+- Terminal
 
 ---
 
