@@ -16,7 +16,9 @@ slideNumber: true
 
 ### Deploy
 
-El despliegue de software es el proceso de entregar el software completado al cliente que lo solicitó o implementarlo para los consumidores. El despliegue de software solo debe realizarse después de pruebas exhaustivas para garantizar que todos los errores y fallas hayan sido identificados y corregidos.
+El despliegue de software es el proceso de entregar el software completado al cliente que lo solicitó o implementarlo 
+para los consumidores. El despliegue de software solo debe realizarse después de pruebas exhaustivas para garantizar 
+que todos los errores y fallas hayan sido identificados y corregidos.
 
 ---
 
@@ -30,9 +32,12 @@ El despliegue de software es el proceso de entregar el software completado al cl
 
 <!-- .slide: style="font-size: 0.90em" -->
 
-Docker es una herramienta que permite a los desarrolladores, administradores de sistemas, etc., implementar fácilmente sus aplicaciones en un entorno aislado (llamado contenedor) para ejecutarse en el sistema operativo anfitrión, es decir, Linux.
+Docker es una herramienta que permite a los desarrolladores, administradores de sistemas, etc., implementar fácilmente 
+sus aplicaciones en un entorno aislado (llamado contenedor) para ejecutarse en el sistema operativo anfitrión, es decir, Linux.
 
-El principal beneficio de Docker es que permite a los usuarios empaquetar una aplicación con todas sus dependencias en una unidad estandarizada para el desarrollo de software. A diferencia de las máquinas virtuales, los contenedores no tienen una gran sobrecarga, lo que permite un uso más eficiente del sistema y los recursos subyacentes.
+El principal beneficio de Docker es que permite a los usuarios empaquetar una aplicación con todas sus dependencias en 
+una unidad estandarizada para el desarrollo de software. A diferencia de las máquinas virtuales, los contenedores no 
+tienen una gran sobrecarga, lo que permite un uso más eficiente del sistema y los recursos subyacentes.
 
 ---
 
@@ -42,9 +47,10 @@ El principal beneficio de Docker es que permite a los usuarios empaquetar una ap
 
 ![Docker](images/docker/docker.png)
 
-La imagen de docker puede se rpropia o de un tercero.
+La imagen de docker puede ser propia o de un tercero.
 
-El Registry es una aplicación del lado del servidor sin estado y altamente escalable que almacena y permite distribuir imágenes de Docker. El Registry es de código abierto y está bajo la licencia permisiva Apache.
+El Registry es una aplicación del lado del servidor sin estado y altamente escalable que almacena y permite distribuir 
+imágenes de Docker. El Registry es de código abierto y está bajo la licencia permisiva Apache.
 
 ---
 
