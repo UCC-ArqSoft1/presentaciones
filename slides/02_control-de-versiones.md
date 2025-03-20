@@ -47,7 +47,7 @@ Se llama control de versiones a la gestión de los diversos cambios que se reali
 
 ---
 
-Git es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.
+**Git** es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.
 
 ![Empresas que usan GIT](images/git/companies.png)
 
@@ -66,7 +66,8 @@ Git es un software de control de versiones diseñado por Linus Torvalds, pensand
 
 ## Branching model
 
-- Es una convención utilizada en la gestión y control de versiones de un proyecto, objetivosimplificar la gestión de cambios
+- Es una convención utilizada en la gestión y control de versiones de un proyecto
+- Objetivo: Simplificar la gestión de cambios
 - Los branches (ramas, trees, code lines) permiten paralelizar el desarrollo de features, fixes y mejoras.
 - Los branches child tienen un parent a partir del cual fueron creados.
 - Un branch que no tiene parent es denominado trunk branch o mainline.
@@ -86,6 +87,7 @@ Git es un software de control de versiones diseñado por Linus Torvalds, pensand
 <!-- .slide: style="font-size: 0.83em" -->
 
 - `git init`: Inicializa un nuevo repositorio.
+- `git clone`: Crea una copia local de un repositorio remoto.
 - `git set remote`: Setea la URL remota del upstream (referencia al repositorio productivo).
 - `git status`: Muestra el estado actual de los cambios en el repositorio.
 - `git add`: Agrega determinados archivos para ser trackeados.
@@ -107,6 +109,66 @@ Git es un software de control de versiones diseñado por Linus Torvalds, pensand
 
 ---
 
+### Ejercicio 1: Github Branchs
+
+1. Visualizar en que rama estamos trabajando
+2. Cree una nueva rama (develop)
+3. Vea el listado de todas las branchs
+4. Cambie de rama
+5. Realice algún cambio en el código y commit al repositorio local
+6. Guarde los cambios en el repositorio remoto
+7. Visualice en Github los commits de las branchs
+
+---
+
+Puedes usar este código de ejemplo para tu archivo **main.go**:
+
+```bash
+package main
+
+import (
+	"fmt"
+)
+
+func main(){
+	fmt.Println("Hola Mundo")...
+}
+```
+
+---
+
+### Pull Request
+
+Un pull request (PR) es una solicitud para revisar y aprobar cambios en un repositorio de código.
+
+- Se propone incorporar cambios en una rama
+- Se discute sobre los cambios propuestos
+- Se detectan errores o problemas potenciales
+- Se mantiene el proyecto limpio y estable
+
+---
+
+### Draft
+
+Es una solicitud de incorporación de cambios que aún no está lista para revisión.
+
+---
+
+### Ejercicio 2: Github - Pull Request
+
+1. Cree un Pull Request en github
+
+- El título del PR debe ser el adecuado
+- En la Descripción debe agregar un detalle de los cambios que se realizaron
+- Se debe seleccionar al Reviewers
+
+2. Si hay algún error en el código, deje un comentario con la observación.
+3. Realice cambios en la rama para solucionar el error detectado.
+4. Realice un pull de los cambios para actualizar la rama remota
+5. Verifique si el Pull Request es correcto -> Merge
+
+---
+
 ### Conventional commits
 
 Es una convención en el formato de los mensajes de los commits.
@@ -125,9 +187,17 @@ Posee la siguiente estructura:
 <tipo>(ámbito opcional): <descripción>
 ```
 
+Ejemplo:
+
+```bash
+fix(PDEC-2146): resize modal
+```
+
 ---
 
 ### Conventional commits: Tipo
+
+<!-- .slide: style="font-size: 0.65em" -->
 
 Los tipos más comunes:
 
@@ -163,6 +233,15 @@ Es opcional y debería añadir aportar más información que la descripción. De
 - Armonía en el histórico del repositorio
 - Generación automática de CHANGELOG
 - Versionado automático del proyecto
+
+---
+
+### Ejercicio 3: Conventional Commits
+
+1. Cree una nueva rama. El nombre de la rama debe serguir una convención.
+2. Agregue código y realice un commit empleando "Conventional Commits".
+3. Realice un Pull Request para integrar estos cambios con main.
+4. Una vez mergeados los cambios, elimine la branch que ya no es necesaria.
 
 ---
 
