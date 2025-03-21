@@ -52,7 +52,7 @@ slideNumber: true
 
 ## Vista de arquitectura de docker - foto completa
 
-![Arquitectura Docker](images/docker/arquitetcura%20docker.png)
+![Arquitectura Docker](images/docker/arquitetcura_docker.png)
 
 ---
 
