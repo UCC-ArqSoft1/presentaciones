@@ -10,6 +10,8 @@ slideNumber: true
 
 ## Temario
 
+<!-- .slide: style="font-size: 0.70em" -->
+
 1. Control de versiones
 2. Introducción a GIT
 3. Características principales
