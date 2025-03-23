@@ -143,7 +143,23 @@ Es una herramienta que permite a profesoresgestionar aulas y tareas digitales.
 
 ---
 
-### Ejercicio 1: Github Branchs
+### Ejercicio 1.0: Github Básico
+
+1. Crear un repositorio en Github
+2. Clonarlo en nuestra compu
+3. Agregar un archivo **Readme.md**
+4. Versionarlo localmente
+5. Llevar los cambios a github
+
+---
+
+### Ejercicio 1.0: Github Básico
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VOrSQApihmc?si=AgcGWvoFao7qvoYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+### Ejercicio 1.1: Github Branchs
 
 1. Visualizar en que rama estamos trabajando
 2. Cree una nueva rama (develop)
@@ -168,6 +184,12 @@ func main(){
 	fmt.Println("Hola Mundo")...
 }
 ```
+
+---
+
+### Ejercicio 1.1: Github Branchs
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m4-SueQ7l9E?si=47erfMTkklw0W5G9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -200,6 +222,12 @@ Es una solicitud de incorporación de cambios que aún no está lista para revis
 3. Realice cambios en la rama para solucionar el error detectado.
 4. Realice un pull de los cambios para actualizar la rama remota
 5. Verifique si el Pull Request es correcto -> Merge
+
+---
+
+### Ejercicio 2: Github - Pull Request
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j3Su-k84F4Y?si=3atFdV09xWoBoHP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -249,18 +277,6 @@ Los tipos más comunes:
 
 ---
 
-### Conventional commits: Ámbito
-
-El campo ámbito es opcional y sirve para dar información contextual como por ejemplo indicar el nombre de la feature a la que afecta el commit.
-
----
-
-### Conventional commits: Cuerpo
-
-Es opcional y debería añadir aportar más información que la descripción. Debería usar el mismo tono imperativo que esta.
-
----
-
 ### Conventional commits: Ventajas
 
 - Conseguimos un acuerdo en el formato de los commits con todo el equipo de desarrollo tanto interno como externo
@@ -276,6 +292,12 @@ Es opcional y debería añadir aportar más información que la descripción. De
 2. Agregue código y realice un commit empleando "Conventional Commits".
 3. Realice un Pull Request para integrar estos cambios con main.
 4. Una vez mergeados los cambios, elimine la branch que ya no es necesaria.
+
+---
+
+### Ejercicio 3: Conventional Commits
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-AguKC9Me2s?si=5Wb2RwEjtFJ20VNe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
