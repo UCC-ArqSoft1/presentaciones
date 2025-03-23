@@ -25,20 +25,51 @@ slideNumber: true
 
 ---
 
-## Links para comenzar en Go
+### Instalar go
 
-- [Install Go](https://goo.gl/5F5bWk)
-- [Go Tour](https://goo.gl/rGzKJj)
-- [Gopher's Reading List](https://goo.gl/PG5KU8)
-- [Golang](https://go.dev/)
-- [Docker](https://www.docker.com/products/docker-desktop/)
+1. Ir a https://go.dev
+2. Click en **Download**
+3. En la sección **Featured downloads** seleccionar uno acorde al SO. (pasos detallados de instalación en [https://go.dev/doc/install](https://go.dev/doc/install))
+4. Una vez completado el proceso de intalación, para verificar que se realizó correctamente, abrir la terminal y ejecutar
+
+```bash
+go version
+```
 
 ---
 
-## Configurando nuestro entorno
+### Instalar go
 
-- GOROOT
-- GOPATH
+![Instalar go](images/go/install_go.png)
+
+---
+
+### Instalar VSC
+
+1. Ingresar a [https://code.visualstudio.com/](https://code.visualstudio.com/)
+2. Click "Download".
+3. Seguir los pasos de instalaicón.
+
+![Instalación VSC](images/go/VSC_install.png)
+
+---
+
+### Configuración de VSC
+
+1. Presionar en el menú izquierdo "Extensiones"
+2. Buscar **Go** e instalarla
+3. Hacer click en Manage (engranaje abajo a la izquierda)
+4. Click en "Settings"
+5. Buscar "Save" y clickear el checkbox **Format on Save**
+
+---
+
+## Links para comenzar en Go
+
+- [Go](https://go.dev/)
+- [Go Tour](https://goo.gl/rGzKJj)
+- [Gopher's Reading List](https://goo.gl/PG5KU8)
+- [Docker](https://www.docker.com/products/docker-desktop/)
 
 ---
 
