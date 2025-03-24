@@ -24,20 +24,52 @@
 
 ---
 
+<style> 
+.grid-container2 { 
+  display: grid; 
+  grid-template-columns: auto auto; 
+  font-size: 0.8em; 
+  text-align: left !important; 
+} 
+
+.grid-item { 
+  border: 3px solid rgba(121, 177, 217, 0.8); 
+  padding: 20px; 
+  text-align: left !important; 
+  } 
+</style>
+
 ## Temario
 
-1. Links para comenzar en Go
-2. Configurando nuestro entorno de desarrollo
+<div class="grid-container2">
+<div class="grid-item">
 
-- Instalación
-- IDE
+- Instalar Go
+- Instalar VSC
+- Configuración de VSC
+- Playground
+- Links para comenzar en Go
+- ¿Qué es Go?
+- ¿Cuáles son sus características?
+- Lenguaje Go
+- ¿Por qué usar Go?
+- ¿Cuáles son sus ventajas y desventajas?
 
-3. ¿Qué es Go?
-4. ¿Cuáles son sus características principales?
-5. ¿Por qué usar Go?
-6. ¿Cuáles son sus ventajas y desventajas?
-7. ¡Hola mundo!
-8. Ejercicios
+</div>
+<div class="grid-item">
+
+- Empresas que usan Go
+- Hola mundo!
+- Declaración de Paquetes
+- Importanción de Paquetes
+- Paquetes Estándar
+- Organización de Paquetes
+- Paquetes Personalizados
+- Espacio de trabajo
+- Ejercicio Hola Mundo!
+- Visibilidad de Símbolos
+
+</div></div>
 
 ---
 
@@ -80,6 +112,14 @@ go version
 
 ---
 
+### Playground de Go
+
+Esta herramienta permite probar código sencillo sin tener instalado un IDE de desarrollo. El [playground de Go](https://go.dev/play/) está disponible en su página.
+
+![Playground](images/go/playground.png)
+
+---
+
 ## Links para comenzar en Go
 
 - [Go](https://go.dev/)
@@ -101,13 +141,25 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 
 <!-- ![Go Pet](images/go/go-hat.png) -->
 
+- De código abierto
 - Compilado
 - Tipado estático
+- Multiplataforma y multiparadigma
 - Garbage collection
 - Administración segura de la memoria
-- Concurrencia
+- Manejo de Concurrencia
 - Paralelismo
 - Velocidad
+- Gran biblioteca estándar
+
+---
+
+## Lenguaje de Go
+
+- Hereda aspectos de C (punteros)
+- Comparte similitudes con Java, Python y otros
+- Características de otros lenguajes de programación
+- Algunas características de POO
 
 ---
 
@@ -144,6 +196,12 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 
 ---
 
+## Empresas que usan Go
+
+![Empresas que usan Go](images/go/companies.png)
+
+---
+
 ## Hola Mundo
 
 ```go []
@@ -155,30 +213,6 @@ func main() {
 ```
 
 ![Go Bootom](images/go/go_bottom.png)
-
----
-
-## Tipos de datos
-
-<!-- .slide: style="font-size: 0.65em" -->
-
-- **Tipos Numéricos:**
-  - **int**: Enteros con signo. Su tamaño depende de la plataforma.
-  - **uint**: Enteros sin signo. Su tamaño depende de la plataforma.
-  - **float32, float64**: Números de punto flotante de 32 y 64 bits respectivamente.
-- **Tipo String:**
-  - **string**: Una secuencia inmutable de bytes.
-- **Tipo Booleano:**
-  - **bool**: Representa un valor booleano, que puede ser true o false.
-- **Tipo de Datos Compuestos:**
-  - **Array**: Una secuencia fija de elementos del mismo tipo.
-  - **Slice**: Una secuencia dinámica de elementos de cualquier tipo.
-  - **Map**: Una colección no ordenada de pares clave-valor.
-  - **Struct**: Un tipo de datos compuesto que agrupa campos con nombres.
-- **Tipo de Puntero:**
-  - **Pointer**: Almacena la dirección de memoria de una variable.
-- **Tipo de Datos Interfaz:**
-  - **Interface**: Define un conjunto de métodos que una estructura debe implementar para satisfacer la interfaz.
 
 ---
 
@@ -200,7 +234,10 @@ package main //Ejemplo de declaración de paquete
 - La importación de paquetes se realiza mediante la palabra clave import, seguida del nombre del paquete.
 
 ```go
-import "fmt" //Ejemplo de importación de paquete
+import (
+	"fmt"
+	"math"
+) //Ejemplo de importación de paquetes
 ```
 
 ---
@@ -233,6 +270,45 @@ import "fmt" //Ejemplo de importación de paquete
 
 - Además de los paquetes estándar, puedes crear tus propios paquetes personalizados.
 - Agrupa la funcionalidad relacionada en un paquete y reutiliza este paquete en diferentes partes de tu aplicación o en diferentes proyectos.
+
+---
+
+## Espacio de trabajo
+
+Para saber donde es el espacio de trabajo de go, ejecutar:
+
+```bash
+go env
+```
+
+Allí figura el **GOPATH**. Si bien se pueden crear proyectos en otras carpetas, se recomienda que sean creados dentro de **go/src/nombre-proyecto**. Aquí se descargaran los paquetes, los binarios y las herramientas
+
+---
+
+### Ejercicio 1: Hola Mundo!
+
+<!-- .slide: style="font-size: 0.80em" -->
+
+1. Escribir en la terminal `go env`.
+2. Dentro de esa dirección crear una carpeta **src** y dentro de ella una carpeta **hola-mundo**
+3. Abrir en el VSC la carpeta de **hola-mundo**
+4. Crear un archivo **hola.go**
+5. Agregar el código:
+
+```go []
+package main
+
+import "fmt" //Se importa automáticamente
+
+func main() {
+	fmt.Println("Hola Mundo!")
+}
+```
+
+6. En la terminal escribir `go run hola.go`
+7. Si queremos compilar `go build hola.go`
+
+Nota: Si VSC sugiere agregar herramientas, presionar SI
 
 ---
 

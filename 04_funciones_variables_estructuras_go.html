@@ -24,19 +24,28 @@
 
 ---
 
+<style>
+.small{
+	font-size: 0.5em
+}
+</style>
+
 ## Temario
 
-1. ¿Qué son las constantes en Go y cómo se definen?
-2. ¿Qué son las variables en Go y cómo se definen?
-3. Tipos de datos en Go
-4. Declaración de una función que recibe parámetros y retorna valores
-5. ¿Cómo se crean estructuras en Go?
-6. Declaración de una función que recibe y retorna estructuras
-7. Receivers
+- Constantes
+- Variables
+- Tipos de Datos
+- Ejercicio: Valores predeterminados
+- Conversión de Datos
+- Paquete fmt
+- Paquete math
+- Funciones
+- Estructuras
+- Receivers
 
 ---
 
-## ¿Qué son las constantes en Go y cómo se definen?
+## Constantes
 
 <!-- .slide: style="font-size: 0.75em" -->
 
@@ -45,8 +54,8 @@ Las **constantes** en Go nos permiten definir valores cuyo contenido no se modif
 ```go
 	package ejemplo
 	const (
-		mensajePrivado = “Éste es un mensaje privado a mi paquete”
-		MensajePublico = “Éste es un mensaje público de mi paquete”
+		mensajePrivado = "Éste es un mensaje privado a mi paquete"
+		MensajePublico = "Éste es un mensaje público de mi paquete"
   )
 ```
 
@@ -55,22 +64,106 @@ Las **constantes** en Go nos permiten definir valores cuyo contenido no se modif
 
 ---
 
-## ¿Qué son las variables en Go y cómo se definen?
+## Constantes
+
+```go
+const Pi float32 = 3.14 //Deben declararse e inicializarse
+const Euler = 2.71828 //No es necesario declarar el tipo de datos
+//Se recomienda crearlos con mayúscula para para que puedan ser leídos por cualquier paquete
+
+const (
+	avogadro = 602214076000000000000000
+	x = 100
+	y = 0b1010 //binarios
+	z = 0o12 //octal
+	w = 0xFF //Hexadecimal
+)
+
+fmt.Println(avogadro,x, y, z, w)
+
+//iota permite empezar en 0 e ir incrementalmente
+const (
+	Lunes = iota + 1
+	Martes
+	Miercoles
+	Jueves
+	Viernes
+	Sabado
+	Domingo
+)
+fmt.Println(Viernes) //Imprime 5
+```
+
+---
+
+## Variables
 
 <!-- .slide: style="font-size: 0.80em" -->
 
 Las **variables** en Go nos permiten definir valores cuyo contenido puede ser modificado y no necesariamente será reutilizado. Aquellas variables que deban ser utilizadas muchas veces en un paquete se declararán a nivel paquete en el módulo var.
 
 ```go
-	package ejemplo
-	var (
-		variablePrivada = “Ésta es una variable privada”
-		VariablePublica = “Ésta es una variable pública”
-  )
+package ejemplo
+var (
+	variablePrivada = "Ésta es una variable privada" //Empieza en minúscula
+	VariablePublica = "Ésta es una variable pública" //Empieza en mayúscula
+)
 ```
 
 - Las **variables** que comienzan con minúscula sólo serán visibles dentro de mi paquete.
 - Las **variables** que comienzan con mayúscula serán visibles desde cualquier paquete.
+
+---
+
+## Variables
+
+```go
+var firstName1 string //Declarar una sola variable
+var middleName1, lastName1 string //Declarar varias variables del mismo tipo
+var age1 int
+
+firstName1 = "Agus"
+age1 = 89
+
+fmt.Println(firstName1, age1)
+
+var ( //Declarar todas las variables juntas
+	firstName2, lastName2 string
+	age2 = 89 //Cuando una variable se crea e inicializa no es necesario colocar el tipo de dato
+	dni2 string = "34004888"
+)
+
+fmt.Println(age2, dni2)
+
+//Se pueden crear todas las variables en la misma línea
+var firstName3, lastName3, age3 = "Agus", "Alici", 89
+
+fmt.Println(firstName3, lastName3, age3)
+
+dni1 string := "34004888" //Declarar una variable e inicializarla
+firstName4, lastName4, age4 := "Agus", "Alici", 89 //Declarar e inicializar (forma más usada DENTRO de las funciones)
+firstName4 = "Agustina" //Modificar una variable
+fmt.Println(dni1, firstName4, lastName4, age4)
+
+```
+
+---
+
+## No se pueden compilar archivos que posean variables o constantes que NO estén siendo usadas
+
+---
+
+## Variables
+
+```go
+var a byte = 'a'
+fmt.Println(a) //Imprime 97 en ascii
+s := "hola"
+fmt.Println(s[0]) //Imprime 104
+
+var r rune = '❤' //Unicode
+fmt.Println(r) //Imprime 10084
+```
 
 ---
 
@@ -88,6 +181,122 @@ Las **variables** en Go nos permiten definir valores cuyo contenido puede ser mo
   - struct (soporta nil)
 - **NIL** es el equivalente a null en otros lenguajes de programación, pero de una naturaleza distinta.
 - **NIL** nos va a permitir representar la nulidad de la estructura o el error que estemos manejando.
+
+---
+
+## Tipos de datos
+
+<!-- .slide: style="font-size: 0.65em" -->
+
+- **Tipos Numéricos:**
+  - **int**: Enteros con signo. Su tamaño depende de la plataforma.
+  - **uint**: Enteros sin signo. Su tamaño depende de la plataforma.
+  - **float32, float64**: Números de punto flotante de 32 y 64 bits respectivamente.
+- **Tipo String:**
+  - **string**: Una secuencia inmutable de bytes.
+- **Tipo Booleano:**
+  - **bool**: Representa un valor booleano, que puede ser true o false.
+- **Tipo de Datos Compuestos:**
+  - **Array**: Una secuencia fija de elementos del mismo tipo.
+  - **Slice**: Una secuencia dinámica de elementos de cualquier tipo.
+  - **Map**: Una colección no ordenada de pares clave-valor.
+  - **Struct**: Un tipo de datos compuesto que agrupa campos con nombres.
+- **Tipo de Puntero:**
+  - **Pointer**: Almacena la dirección de memoria de una variable.
+- **Tipo de Datos Interfaz:**
+  - **Interface**: Define un conjunto de métodos que una estructura debe implementar para satisfacer la interfaz.
+
+---
+
+## Ejercicio 2: Valores predeterminados
+
+1. Crear una carpeta **variables-predeterminados**
+2. Crear un archivo **main.go**
+3. Crear variables de diferente tipo: int, uint, float32, bool, string
+4. Imprimirlas en la terminal
+5. Ejecutar **main.go**
+6. ¿Que valores poseen estas variables por defecto?
+
+```go
+var (
+	defaultInt int
+	defaultUint uint //...etc
+)
+```
+
+---
+
+### Conversión de Datos
+
+Para sumar variables deben ser del mismo tipo. Sino, es necesario convertir:
+
+```go
+var integer16 int16 = 50
+var integer32 int32 = 100
+fmt.Println(integer16 + int16(integer32))
+```
+
+Para convertir string a número se require un paquete ([strconv](https://pkg-go-dev.translate.goog/strconv?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc)):
+
+```go
+s := "100"
+i, _ := strconv.Atoi(s) //Devuelve 2 valores
+fmt.Println(i)
+var n:= 42
+c
+```
+
+---
+
+### Paquete [fmt](https://pkg.go.dev/fmt)
+
+Es un conjunto de funciones que se utiliza para formatear entradas y salidas de datos, y para imprimir en pantalla.
+
+Funciones más usadas:
+
+- Println
+- Printf (con %d, %s, %t, %g)
+- Scanln
+
+```go
+var name string
+altura := 1.5400002
+fmt.Print("Ingrese su nombre: ") //no contiene salto de línea
+fmt.Scanln(&name)
+fmt.Printf("Hola %s.\n", name)
+fmt.Printf("Altura: %.2f \n", altura) //Muestra solo 2 decimales
+```
+
+---
+
+### Paquete [math](https://pkg.go.dev/math)
+
+Posee contantes matemáticas y funciones como seno, coseno, tangente, potencia, entre otros.
+
+<p class="small">(Es importante acostumbrarse a leer la documentación para entender como funciona cada paquete y que funciones ofrece)</p>
+
+---
+
+### Ejercicio 3: Triángulo
+
+<!-- .slide: style="font-size: 0.80em" -->
+
+El programa debe:
+
+1. Solicitar al usuario que ingrese la longitud de los 2 lados del triángulo rectángulo.
+2. Calcular la **hipotenusa** del triángulo
+3. Calcular el **área** del triángulo.
+4. Calcular el **perímetro**.
+5. Imprimir el **área** y el **perímetro** del triángulo con dos decimales de precisión.
+
+Ejemplo de salida de pantalla:
+
+```bash
+Ingrese lado 1: 12.4
+Ingrese lado 2: 10.75
+Área: 66.65
+Perímetro: 39.56
+```
 
 ---
 
@@ -221,6 +430,10 @@ p.Mostrar()
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)
+
+```
+
+```
 
           </textarea>
         </section>
