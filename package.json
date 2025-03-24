@@ -21,7 +21,7 @@
   },
   "homepage": "https://ucc-arqsoft1.github.io/preentaciones/",
   "dependencies": {
-    "gh-pages": "^6.1.1",
-    "reveal-md": "^6.1.2"
+    "gh-pages": "^6.3.0",
+    "reveal-md": "^6.1.4"
   }
 }
