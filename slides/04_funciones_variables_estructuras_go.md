@@ -10,17 +10,16 @@ slideNumber: true
 
 ## Temario
 
-1. ¿Qué son las constantes en Go y cómo se definen?
-2. ¿Qué son las variables en Go y cómo se definen?
-3. Tipos de datos en Go
-4. Declaración de una función que recibe parámetros y retorna valores
-5. ¿Cómo se crean estructuras en Go?
-6. Declaración de una función que recibe y retorna estructuras
-7. Receivers
+- Constantes
+- Variables
+- Tipos de Datos
+- Funciones
+- Estructuras
+- Receivers
 
 ---
 
-## ¿Qué son las constantes en Go y cómo se definen?
+## Constantes
 
 <!-- .slide: style="font-size: 0.75em" -->
 
@@ -29,8 +28,8 @@ Las **constantes** en Go nos permiten definir valores cuyo contenido no se modif
 ```go
 	package ejemplo
 	const (
-		mensajePrivado = “Éste es un mensaje privado a mi paquete”
-		MensajePublico = “Éste es un mensaje público de mi paquete”
+		mensajePrivado = "Éste es un mensaje privado a mi paquete"
+		MensajePublico = "Éste es un mensaje público de mi paquete"
   )
 ```
 
@@ -39,7 +38,7 @@ Las **constantes** en Go nos permiten definir valores cuyo contenido no se modif
 
 ---
 
-## ¿Qué son las variables en Go y cómo se definen?
+## Variables
 
 <!-- .slide: style="font-size: 0.80em" -->
 
@@ -55,6 +54,30 @@ Las **variables** en Go nos permiten definir valores cuyo contenido puede ser mo
 
 - Las **variables** que comienzan con minúscula sólo serán visibles dentro de mi paquete.
 - Las **variables** que comienzan con mayúscula serán visibles desde cualquier paquete.
+
+---
+
+## Tipos de datos
+
+<!-- .slide: style="font-size: 0.65em" -->
+
+- **Tipos Numéricos:**
+  - **int**: Enteros con signo. Su tamaño depende de la plataforma.
+  - **uint**: Enteros sin signo. Su tamaño depende de la plataforma.
+  - **float32, float64**: Números de punto flotante de 32 y 64 bits respectivamente.
+- **Tipo String:**
+  - **string**: Una secuencia inmutable de bytes.
+- **Tipo Booleano:**
+  - **bool**: Representa un valor booleano, que puede ser true o false.
+- **Tipo de Datos Compuestos:**
+  - **Array**: Una secuencia fija de elementos del mismo tipo.
+  - **Slice**: Una secuencia dinámica de elementos de cualquier tipo.
+  - **Map**: Una colección no ordenada de pares clave-valor.
+  - **Struct**: Un tipo de datos compuesto que agrupa campos con nombres.
+- **Tipo de Puntero:**
+  - **Pointer**: Almacena la dirección de memoria de una variable.
+- **Tipo de Datos Interfaz:**
+  - **Interface**: Define un conjunto de métodos que una estructura debe implementar para satisfacer la interfaz.
 
 ---
 

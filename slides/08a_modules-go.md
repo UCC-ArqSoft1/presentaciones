@@ -36,14 +36,55 @@ Antes de la introducción de Go Modules, la gestión de dependencias en Go solí
 
 ---
 
-## Pasos:
+## Paquetes de Terceros
 
-Pararnos en la carpeta root (donde se encuentra el main.go)
-Ejecutar
+Son paquetes que no etsán incluidos en la biblioteca estándar de Go. Estos paquetes han sido desarrollados y mantenidos por la comunidad de desarrollados de go.
 
-```go
+Para incluir paquetes externos es necesario inicializar un **manejador de modulos** de Go. Para eso, en la carpeta root (donde se encuenta **main.go**), ejecutar:
+
+```bash
 go mod init {nombre-del-proyecto}
 go mod tidy
+```
+
+Esto creo un archivo **go.mod** que permite manejar los módulos.
+
+---
+
+## go.mod
+
+Es un archivo que se usa para definir y gestionar los módulos y dependencias en go.
+
+---
+
+### Ejercicio: Agregar paquete
+
+1. En la terminal ejecutar
+
+```bash
+go mod init holamundo
+```
+
+2. Descargar el paquete:
+
+```bash
+go get rsc.io/quote
+```
+
+3. Modificar el código de Hola Mundo
+
+```go []
+package main
+
+import (
+    "fmt"
+    "rsc.io/quote"
+)
+
+func main() {
+	fmt.Println("Hola Mundo!")
+    fmt.Println(quote.Hello())
+}
 ```
 
 ---
