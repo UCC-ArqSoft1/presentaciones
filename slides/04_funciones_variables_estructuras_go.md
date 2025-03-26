@@ -284,7 +284,120 @@ Perímetro: 39.56
 
 ---
 
-## Declaración de una función que recibe parámetros y retorna valores
+### Operadores Booleanos
+
+- **Operadores de Comparación**
+  - Igualdad (==)
+  - Desigualdad (!=)
+  - Mayor que (>)
+  - Menor que (<)
+  - Mayor o igual que (>=)
+  - Menor o igual que (<=)
+- **Operadores lógicos**
+  - AND (&&)
+  - OR (||)
+  - NOT (!)
+
+---
+
+## Control de Flujo: If - Else
+
+```go
+if condicion {//no usa paréntesis
+	//Código
+} else if condicion2 {
+	//Código>
+} else {
+	//Código
+}
+```
+
+---
+
+## Control de Flujo: If - Else
+
+```go
+if t := time.Now(); t.Hour() < 12 { //se puede declarar dentro del if, pero solo usar dentro del if
+	fmt.Println("Mañana")
+} else if t.Hour() < 17 {
+	fmt.Println("Tarde")
+} else {
+	fmt.Println("Noche")
+}
+```
+
+---
+
+## Control de Flujo: Switch
+
+```go
+switch valor {
+	case caso1:
+		//Código
+	case caso2:
+		//Código
+	default:
+		//Código
+}
+```
+
+No hace falta el break!
+
+---
+
+## Control de Flujo: Switch
+
+```go
+switch os := runtime.GOOS; os {
+	//Se puede declarar una variable dentro del switch
+	case "windows":
+		fmt.Println("Go run -> Windows")
+	case "linux":
+		fmt.Println("Go run -> Linux")
+	case "darwin":
+		fmt.Println("Go run -> macOs")
+	default:
+		fmt.Println("Go run -> en otro OS")
+}
+```
+
+---
+
+## Control de Flujo: For
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+Es la única estructura repetitiva (no hay while o do/while)
+
+```go
+for {
+	//Ejemplo de bucle infinito
+}
+```
+
+Bucle con 1 condición:
+
+```go
+var i int
+for i <= 10{
+	fmt.Println(i)
+	i++
+}
+```
+
+Bucle con inicio ; condición ; actualización :
+
+```go
+for i := 1 ; i <= 10; i++{
+	fmt.Println(i)
+}
+```
+
+Con un **break** se puede salir de un bucle antes de que una condición sea alcanzada. Con **continue** se puede saltar a la siguiente iteración.
+
+---
+
+## Función: recibe parámetros y retorna valores
 
 <!-- .slide: style="font-size: 0.70em" -->
 
@@ -302,14 +415,41 @@ func Nombre (par1 tipo1, par2 tipo2) (tipo3, tipo4) {
 Ejemplo:
 
 ```go
-	func Suma(a int, b int) int {
-		return a + b
+func Suma(a int, b int) int {
+	return a + b
 }
 ```
 
 ---
 
-## Declaración de una función con parámetros variádicos
+### Ejercicio 4: Juego de Adivinar Número
+
+<!-- .slide: style="font-size: 0.80em" -->
+
+Crear un programa que permita a un usuario adivinar un número.
+
+El programa debe:
+
+1. Generar un número aleatorio entre 0 y 100.
+2. El usuario tiene hasta 10 intentos para acertar el número.
+3. Tras cada intento el programa debe imprimir si el número aleatorio es menor o mayor al número ingresado por el usuario.
+4. Se debe mostrar un menú para permitir jugar nuevamente o salir del programa
+
+Ejemplo de salida de pantalla:
+
+```bash
+Ingrese un número (intentos restantes 10): 50
+No acertaste. El número es mayor.
+Ingrese un número (intentos restantes 9): 75
+No acertaste. El número es menor.
+Ingrese un número (intentos restantes 8): 56
+Felicitaciones! Adivinaste el número!
+Desea jugar nuevamente (s/n):
+```
+
+---
+
+## Función: parámetros variádicos
 
 <!-- .slide: style="font-size: 0.70em" -->
 
