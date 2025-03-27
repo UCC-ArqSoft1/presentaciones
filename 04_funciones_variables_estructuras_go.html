@@ -465,35 +465,116 @@ Desea jugar nuevamente (s/n):
 
 ---
 
-## Función: parámetros variádicos
+### Estructuras de Datos
 
-<!-- .slide: style="font-size: 0.70em" -->
+- **Matrices:** Almacena un conjunto de elementos (fijos) del mismo tipo.
+- **Slices o Rebanadas:** Es como una matriz pero dinámica.
+- **Mapas:** Almacenan clave-valor.
+- **Estructuras:** Se pueden crear tipos de datos personalizados.
 
-```go
-func Nombre (pars ...tipo) {
-	return
-}
-```
+---
 
-- Los parámetros de entrada de la función tienen que recibirse en un sólo valor mediante un nombre e indicando su tipo
-- Externamente los valores se envían como parámetros independientes
-- Internamente los valores se tratan como un array
-
-Ejemplo:
+### Matrices Unidimensionales
 
 ```go
-	func Suma(values ...int) int {
-		suma := 0
-		for _, v := range values {
-			suma += v
+var miMatriz [5]int //Se puede crear una matriz vacía, se ve como [0 0 0 0 0]
+miMatriz[0] = 10 //Se puede ir completando elemento por elemento
+
+var miMatrizNew = [5]int{10, 20, 30, 40, 50} //Se puede crear una matriz y asignar valores
+var newMatrix = [...]int{10, 30, 60} //Si no sabemos con cuantos datos va a inicializar
+
+//Recorrer una matriz: Ejemplo 1
+for i:=0; i < len(newMatrix); i ++{
+	fmt.Println(newMatrix[i])
 }
-		return suma
+
+//Recorrer una matriz: Ejemplo 2
+for index, value := range newMatrix {
+	fmt.Printf("Índice: %d, Valor: %d\n", index, value)
 }
 ```
 
 ---
 
-## ¿Cómo se crean estructuras en Go?
+### Matrices Multidimensionales
+
+```go
+var matriz = [3][5]int{
+	{1,2,3,4,5},
+	{1,2,3,4,5},
+	{1,2,3,4,5}
+} //3 filas y 5 columnas
+```
+
+---
+
+### Slice
+
+Forma sencilla de trabajar con partes de una matriz.
+
+```go
+var slice1 []int //Declarar Slice o Rebanada
+
+diasSemana := []string{"Lunes", "Martes", "Miércoles", "Jueves", "Viernes","Sábado", "Domingo"}
+
+//A partir de un slice se puede crear otro slice
+finSemana := diasSemana[5:7]
+
+fmt.Println(len(finSemana))//Para conocer la longitud. =2
+fmt.Println(cap(finSemana))//Para conocer la capacidad. =7
+
+finSemana = append(finSemana, "Osvaldo", "NuevoDiaDeFinde") //Si se agregan más de 7 elementos, su capacidad aumentará
+
+semanaSinMartes := append(diasSemana[:1], diasSemana[2:]...)
+
+nombres := make([]string, 5, 10) //Crea un slice con tipo de datos, longitud y capacidad
+nombres[0] = "Agus" //Se pueden crear 5 elementos de esta forma y el resto agregarlos por append
+
+slice2 := []int{1,2,3,4,5}
+slice3 := make([]int, 5)
+
+copy(slice3, slice2) //Se copian los valores de slice2 a -> slice3
+```
+
+---
+
+### Mapas
+
+Estructuras de datos que permiten almacenar clave-valor:
+
+```go
+colores := map[string]string{
+	"rojo":"#FF0000",
+	"verde": "#00FF00",
+	"azul": "#0000FF",
+}
+
+fmt.Println(colores) //Se puden imprimir todos los elementos
+fmt.Println(colores["azul"]) //O solo un elemento puntual
+colores["negro"] = "#000000" //Se pueden agregar más elementos
+
+//No respeta el orden - Pone los elementos en orden alfabético
+
+valorNew, ok := colores["rojo"] //Devuelve 2 valores, el valor y verificación true/false si ese elemento existe
+
+if ok{
+	fmt.Println("Si existe la clave")
+}else{
+	fmt.Println("No existe esta clave")
+}
+
+//Se pueden eliminar elementos
+delete(colores, "rojo")
+
+//Se puede iterar sobre todos los elementos
+for clave, valor := range colores{
+	fmt.Printf("Clave: %s, Valor: %s\n", clave, valor)
+}
+```
+
+---
+
+## Estructuras
 
 <!-- .slide: style="font-size: 0.70em" -->
 
@@ -503,12 +584,12 @@ Puedo crear mis propias estructuras en Go de la siguiente manera:
 type Persona struct {
   Nombre 		string
   Edad			int
-  Trabajo  	Empleo
+  Trabajo  		Empleo
 }
 
 type Empleo struct {
-  Nombre 		      string
-  Sueldo		      float32
+  Nombre 		    string
+  Sueldo		    float32
   Independiente 	bool
 }
 ```
@@ -518,25 +599,84 @@ type Empleo struct {
 
 ---
 
-## Declaración de una función que recibe y retorna estructuras
+## Estructuras
 
-<!-- .slide: style="font-size: 0.75em" -->
+```go
+package main
 
-- Esta función de ejemplo recibe una persona y retorna otra estructura que es de tipo Empleado, que tiene campos distintos.
-- Es importante notar que si bien en este caso se envía y recibe una sola estructura, es válido parametrizar con múltiples estructuras una función así como retornar un conjunto de estructuras.
+import "fmt"
+type Persona struct  {
+	nombre string
+	edad int
+	correo string
+}
 
-```go []
-func Emplear(persona Persona) Empleado {
-	return Empleado{
-		Nombre: persona.Nombre,
-		Empleo: “Nombre del empleo”,
-		Antiguedad: 0,
-		Edad: persona.Edad,
-  }
+func main(){
+	//Creamos instancia de tipo persona
+	var p Persona
+	p.nombre = "Agus"
+	p.edad = 99
+	p.correo = "agus@email.com"
+
+	fmt.Println(p)
+
+	//Creamos instancia de tipo persona en 1 línea
+	per := Persona{"Emi", 89, "emi@email.com"}
+	fmt.Println(per.nombre)
 }
 ```
 
-- Las funciones que devuelven errores son el ejemplo típico de una función que retorna estructuras.
+---
+
+## Punteros y Métodos (receivers)
+
+<!-- .slide: style="font-size: 0.80em" -->
+
+Se pueden definir **métodos** para realizar operaciones con las variables de las estructuras.
+
+Un **puntero** almacena la dirección de memoria de otra variable. Se utilizan para referenciar y acceder a la variable original en la dirección de memoria.
+
+```go
+package main
+
+func main() {
+	var x int = 10
+	fmt.Println(x) //10
+	editar(&x)
+	fmt.Println(x) //20
+}
+
+func editar(x *int) {
+	*x = 20
+}
+```
+
+---
+
+## Punteros y Métodos (receivers)
+
+Ejemplo:
+
+```go
+package main
+
+import "fmt"
+type Persona struct  {
+	nombre string
+	edad int
+	email string
+}
+
+func (p *Persona) diHola(){
+	fmt.Println("Hola, mi nombres es", p.nombre)
+}
+
+func main() {
+	p := {"Agus", 99, "agus@email.com"}
+	p.diHola()
+}
+
+```
 
 ---
 
@@ -567,13 +707,94 @@ p.Mostrar()
 
 ---
 
+### Ejercicio 5: Lista de Tareas
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+Crea un programa que permita gestionar (agregar, editar, eliminar) una lista de tareas. El programa debe tener en cuenta:
+
+1. Cada tarea debe tener un título, descripción y si está completada o no (**struc**).
+2. El programa debe permitir agregar, eliminar y actualizar tareas (**slice**)
+
+Ejemplo de Salida de Pantalla:
+
+```bash
+Seleccione una opción:
+1. Agregar tarea
+2. Marcar tarea como completada
+3. Editar Tarea
+4. Eliminar Tarea
+5. Salir
+Ingrese la opción:
+1
+Ingrese nombre de la tarea:
+Preparar Guia de Trabajos Prácticos
+Ingrese descripción de la tarea:
+Editar el template y agregar los ejercicio para arqui de soft
+Tarea agregada correctamente
+Lista de tareas:
+===================================
+0. Preparar Guia de Trabajos Prácticos
+ - Editar el template y agregar los ejercicio para arqui de soft
+ - Completado: false
+===================================
+```
+
+---
+
+## Función: parámetros variádicos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+```go
+func Nombre (pars ...tipo) {
+	return
+}
+```
+
+- Los parámetros de entrada de la función tienen que recibirse en un sólo valor mediante un nombre e indicando su tipo
+- Externamente los valores se envían como parámetros independientes
+- Internamente los valores se tratan como un array
+
+Ejemplo:
+
+```go
+	func Suma(values ...int) int {
+		suma := 0
+		for _, v := range values {
+			suma += v
+}
+		return suma
+}
+```
+
+---
+
+## Declaración de una función que recibe y retorna estructuras
+
+<!-- .slide: style="font-size: 0.75em" -->
+
+- Esta función de ejemplo recibe una persona y retorna otra estructura que es de tipo Empleado, que tiene campos distintos.
+- Es importante notar que si bien en este caso se envía y recibe una sola estructura, es válido parametrizar con múltiples estructuras una función así como retornar un conjunto de estructuras.
+
+```go []
+func Emplear(persona Persona) Empleado {
+	return Empleado{
+		Nombre: persona.Nombre,
+		Empleo: “Nombre del empleo”,
+		Antiguedad: 0,
+		Edad: persona.Edad,
+  }
+}
+```
+
+- Las funciones que devuelven errores son el ejemplo típico de una función que retorna estructuras.
+
+---
+
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)
-
-```
-
-```
 
           </textarea>
         </section>
