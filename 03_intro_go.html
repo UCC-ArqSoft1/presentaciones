@@ -125,7 +125,6 @@ Esta herramienta permite probar código sencillo sin tener instalado un IDE de d
 - [Go](https://go.dev/)
 - [Go Tour](https://goo.gl/rGzKJj)
 - [Gopher's Reading List](https://goo.gl/PG5KU8)
-- [Docker](https://www.docker.com/products/docker-desktop/)
 
 ---
 
@@ -144,7 +143,7 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 - De código abierto
 - Compilado
 - Tipado estático
-- Multiplataforma y multiparadigma
+- Multiplataforma y multiparadigma (orientado a objetos, funcional y estructurada)
 - Garbage collection
 - Administración segura de la memoria
 - Manejo de Concurrencia
@@ -251,6 +250,13 @@ import (
 
 ---
 
+## Paquetes personalizados:
+
+- Además de los paquetes estándar, puedes crear tus propios paquetes personalizados.
+- Agrupa la funcionalidad relacionada en un paquete y reutiliza este paquete en diferentes partes de tu aplicación o en diferentes proyectos.
+
+---
+
 ## Organización de paquetes:
 
 - Los paquetes en Go están organizados en una estructura de directorios.
@@ -266,13 +272,6 @@ import (
 
 ---
 
-## Paquetes personalizados:
-
-- Además de los paquetes estándar, puedes crear tus propios paquetes personalizados.
-- Agrupa la funcionalidad relacionada en un paquete y reutiliza este paquete en diferentes partes de tu aplicación o en diferentes proyectos.
-
----
-
 ## Espacio de trabajo
 
 Para saber donde es el espacio de trabajo de go, ejecutar:
@@ -281,7 +280,7 @@ Para saber donde es el espacio de trabajo de go, ejecutar:
 go env
 ```
 
-Allí figura el **GOPATH**. Si bien se pueden crear proyectos en otras carpetas, se recomienda que sean creados dentro de **go/src/nombre-proyecto**. Aquí se descargaran los paquetes, los binarios y las herramientas
+Allí figura el **GOPATH**. Si bien se pueden crear proyectos en otras carpetas, se recomienda que sean creados dentro de **go/src/nombre-proyecto**. Aquí se descargaran los paquetes, los binarios y las herramientas.
 
 ---
 
@@ -314,8 +313,8 @@ Nota: Si VSC sugiere agregar herramientas, presionar SI
 
 ## Visibilidad de símbolos:
 
-- En Go, la visibilidad de un símbolo (función, tipo, variable) fuera de un paquete está determinada por si su nombre comienza con una letra mayúscula o minúscula.
-- Los símbolos que comienzan con una letra mayúscula son visibles fuera del paquete (exportados), mientras que los símbolos que comienzan con una letra minúscula son visibles sólo dentro del paquete (no exportados).
+- En Go, la visibilidad de un símbolo (función, tipo, variable) fuera de un paquete está determinada por si su nombre comienza con una letra **mayúscula** o **minúscula**.
+- Los símbolos que comienzan con una letra **mayúscula** son visibles fuera del paquete (exportados), mientras que los símbolos que comienzan con una letra **minúscula** son visibles sólo dentro del paquete (no exportados).
 
 ---
 
