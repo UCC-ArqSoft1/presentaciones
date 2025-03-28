@@ -43,8 +43,8 @@ Las **constantes** en Go nos permiten definir valores cuyo contenido no se modif
   )
 ```
 
-- Las **constantes** que comienzan con minúscula sólo serán visibles dentro de mi paquete.
-- Las **constantes** que comienzan con mayúscula serán visibles desde cualquier paquete.
+- Las **constantes** que comienzan con **minúscula** sólo serán visibles dentro de mi paquete.
+- Las **constantes** que comienzan con **mayúscula** serán visibles desde cualquier paquete.
 
 ---
 
@@ -94,8 +94,8 @@ var (
 )
 ```
 
-- Las **variables** que comienzan con minúscula sólo serán visibles dentro de mi paquete.
-- Las **variables** que comienzan con mayúscula serán visibles desde cualquier paquete.
+- Las **variables** que comienzan con **minúscula** sólo serán visibles dentro de mi paquete.
+- Las **variables** que comienzan con **mayúscula** serán visibles desde cualquier paquete.
 
 ---
 
@@ -155,7 +155,7 @@ fmt.Println(r) //Imprime 10084
 
 <!-- .slide: style="font-size: 0.80em" -->
 
-- Existen muchos tipos de datos en Go, de hecho, yo puedo crear mis propios tipos de datos en Go.
+- Existen muchos tipos de datos en Go, de hecho, yo puedo crear mis propios tipos de datos en Go (**struct**).
 - Los que más utilizaremos son los siguientes:
   - bool
   - string
@@ -165,6 +165,30 @@ fmt.Println(r) //Imprime 10084
   - struct (soporta nil)
 - **NIL** es el equivalente a null en otros lenguajes de programación, pero de una naturaleza distinta.
 - **NIL** nos va a permitir representar la nulidad de la estructura o el error que estemos manejando.
+
+---
+
+<!--https://go.dev/ref/spec-->
+
+### Tipo de datos: uint
+
+| Number | Min. value |      Max. value      |
+| :----: | :--------: | :------------------: |
+| uint8  |     0      |         255          |
+| uint16 |     0      |        65535         |
+| uint32 |     0      |      4294967295      |
+| uint64 |     0      | 18446744073709551615 |
+
+---
+
+### Tipo de datos: int
+
+| Number |      Min. value      |     Max. value      |
+| :----: | :------------------: | :-----------------: |
+|  int8  |         -128         |         127         |
+| int16  |        -32768        |        32767        |
+| int32  |     -2147483648      |     2147483647      |
+| int64  | -9223372036854775808 | 9223372036854775807 |
 
 ---
 
@@ -210,7 +234,7 @@ var (
 
 ---
 
-### Conversión de Datos
+### Conversión de Datos (casteo)
 
 Para sumar variables deben ser del mismo tipo. Sino, es necesario convertir:
 
