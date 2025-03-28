@@ -636,11 +636,7 @@ func main(){
 
 ---
 
-## Punteros y Métodos (receivers)
-
-<!-- .slide: style="font-size: 0.80em" -->
-
-Se pueden definir **métodos** para realizar operaciones con las variables de las estructuras.
+## Punteros
 
 Un **puntero** almacena la dirección de memoria de otra variable. Se utilizan para referenciar y acceder a la variable original en la dirección de memoria.
 
@@ -663,6 +659,10 @@ func editar(x *int) {
 
 ## Punteros y Métodos (receivers)
 
+<!-- .slide: style="font-size: 0.80em" -->
+
+Se pueden definir **métodos** para realizar operaciones con las variables de las estructuras.
+
 Ejemplo:
 
 ```go
@@ -675,6 +675,11 @@ type Persona struct  {
 	email string
 }
 
+//(p *Persona) define un receptor (receiver) con puntero para el método diHola.
+//Esto significa que diHola es un método que pertenece al tipo Persona
+// Al ser llamado, diHola recibe una referencia (*Persona) a la instancia sobre la que se invoca.
+//diHola puede acceder y de ser necesario modificar Persona
+// El puntero *Persona permite evitar copias innecesarias
 func (p *Persona) diHola(){
 	fmt.Println("Hola, mi nombres es", p.nombre)
 }
@@ -682,6 +687,9 @@ func (p *Persona) diHola(){
 func main() {
 	p := {"Agus", 99, "agus@email.com"}
 	p.diHola()
+
+	j := {"Juan", 25, "juan@emal.com"}
+	j.diHola()
 }
 
 ```
