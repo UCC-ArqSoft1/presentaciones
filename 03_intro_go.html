@@ -20,11 +20,21 @@
           <textarea data-template>
             
 
-# Introducción a GO
+<section data-background-image="images/go/background.jpeg">
+
+<br><br><br><br><br><br><br><br>
+
+<h1> Introducción a GO </h1>
+
+</section>
 
 ---
 
 <style> 
+h1 {
+  background-color: rgba(255,255,255,.7);
+}
+
 .grid-container2 { 
   display: grid; 
   grid-template-columns: auto auto; 
@@ -124,6 +134,7 @@ Esta herramienta permite probar código sencillo sin tener instalado un IDE de d
 
 - [Go](https://go.dev/)
 - [Go Tour](https://goo.gl/rGzKJj)
+- [Go by Example](https://gobyexample.com/)
 - [Gopher's Reading List](https://goo.gl/PG5KU8)
 
 ---
@@ -168,6 +179,8 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 
 ---
 
+<section>
+
 ## Principales ventajas
 
 - Sintaxis parecida a lenguajes dinámicos
@@ -178,9 +191,13 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 - Implementación de interfaces
 - Compilación a binarios nativos
 
-![Go OK](images/go/ok.png)
+<img src="images/go/ok.png" style="position: fixed; bottom:0px;right:-350px;z-index:-10">
+
+</section>
 
 ---
+
+<section>
 
 ## Principales desventajas
 
@@ -191,7 +208,9 @@ Go se originó (2007/09) como un experimento para diseñar un nuevo lenguaje de 
 - Poca comunidad (cada vez más)
 - Peligro de mala implementación
 
-![Go NO](images/go/no.png)
+<img src="images/go/no.png" style="position: fixed; bottom:0px;right:-350px;z-index:-10">
+
+</section>
 
 ---
 
@@ -272,15 +291,31 @@ import (
 
 ---
 
-## Espacio de trabajo
+## Go env
 
-Para saber donde es el espacio de trabajo de go, ejecutar:
+Es una herramienta muy útil para ver y configurar variables de entorno que Go usa para compilar, ejecutar y gestionar dependencias.
 
 ```bash
 go env
 ```
 
-Allí figura el **GOPATH**. Si bien se pueden crear proyectos en otras carpetas, se recomienda que sean creados dentro de **go/src/nombre-proyecto**. Aquí se descargaran los paquetes, los binarios y las herramientas.
+- Muestra las variables de entorno que Go usa internamente.
+- Ayuda a entender cómo está configurado el entorno de desarrollo Go.
+- Es útil para depurar problemas con rutas, compilación cruzada, proxies, etc.
+
+---
+
+### GOPATH
+
+Antes de Go 1.11, todos los proyectos de Go tenían que estar dentro del **GOPATH**.
+
+Esto permitía al compilador y herramientas de Go encontrar el código fuente y sus dependencias.
+
+### GOROOT
+
+GOROOT es donde está instalado el compilador de Go y sus herramientas estándar.
+
+Contiene el código fuente del runtime de Go y las librerías estándar, como fmt, net/http, etc.
 
 ---
 
@@ -288,11 +323,10 @@ Allí figura el **GOPATH**. Si bien se pueden crear proyectos en otras carpetas,
 
 <!-- .slide: style="font-size: 0.80em" -->
 
-1. Escribir en la terminal `go env`.
-2. Dentro de esa dirección crear una carpeta **src** y dentro de ella una carpeta **hola-mundo**
-3. Abrir en el VSC la carpeta de **hola-mundo**
-4. Crear un archivo **hola.go**
-5. Agregar el código:
+1. Crear repositorio para los ejercicios de **Arqui de Soft 1**.
+2. Crear subcarpeta para **ejercicio 1**.
+3. Crear un archivo **hola.go**
+4. Agregar el código:
 
 ```go []
 package main
@@ -304,10 +338,16 @@ func main() {
 }
 ```
 
-6. En la terminal escribir `go run hola.go`
-7. Si queremos compilar `go build hola.go`
+5. En la terminal escribir `go run hola.go`
+6. Si queremos compilar `go build hola.go`
 
 Nota: Si VSC sugiere agregar herramientas, presionar SI
+
+---
+
+### Ejercicio 1: Hola Mundo!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uLjrm9bRJ-c?si=fWbBL8-CGZ84thw7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 

@@ -20,11 +20,21 @@
           <textarea data-template>
             
 
-# Funciones, variables y estructuras en GO
+<section data-background-image="images/go/background.jpeg">
+
+<br><br><br><br><br><br>
+
+<h1> Funciones, variables y estructuras en GO </h1>
+
+</section>
 
 ---
 
 <style>
+h1 {
+  background-color: rgba(255,255,255,.7);
+}
+
 .small{
 	font-size: 0.5em
 }
@@ -72,14 +82,13 @@ const Euler = 2.71828 //No es necesario declarar el tipo de datos
 //Se recomienda crearlos con mayúscula para para que puedan ser leídos por cualquier paquete
 
 const (
-	avogadro = 602214076000000000000000
 	x = 100
 	y = 0b1010 //binarios
 	z = 0o12 //octal
 	w = 0xFF //Hexadecimal
 )
 
-fmt.Println(avogadro,x, y, z, w)
+fmt.Println(x, y, z, w)
 
 //iota permite empezar en 0 e ir incrementalmente
 const (
@@ -250,6 +259,12 @@ var (
 
 ---
 
+## Ejercicio 2: Valores predeterminados
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dDDGRu_kzUA?si=tJ2IztG1UsaABa0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 ### Conversión de Datos (casteo)
 
 Para sumar variables deben ser del mismo tipo. Sino, es necesario convertir:
@@ -321,6 +336,12 @@ Ingrese lado 2: 10.75
 Área: 66.65
 Perímetro: 39.56
 ```
+
+---
+
+### Ejercicio 3: Triángulo
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vsjqy9U-TSo?si=mZoZoAuwFSchhuLC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
