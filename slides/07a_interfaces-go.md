@@ -4,7 +4,19 @@ theme: solarized
 slideNumber: true
 ---
 
-# Interfaces en GO
+<style>
+h1 {
+  background-color: rgba(255,255,255,.7);
+}
+</style>
+
+<section data-background-image="images/go/background.jpeg">
+
+<br><br><br><br><br><br>
+
+<h1>Interfaces en GO</h1>
+
+</section>
 
 ---
 

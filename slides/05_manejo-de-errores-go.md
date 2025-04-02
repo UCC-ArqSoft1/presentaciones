@@ -4,7 +4,19 @@ theme: solarized
 slideNumber: true
 ---
 
-# Manejo de Errores en GO
+<style>
+h1 {
+  background-color: rgba(255,255,255,.7);
+}
+</style>
+
+<section data-background-image="images/go/background.jpeg">
+
+<br><br><br><br><br><br>
+
+<h1> Manejo de Errores GO </h1>
+
+</section>
 
 ---
 
