@@ -13,3 +13,4 @@ slideNumber: true
 ![u5](images/indice/u5_icono.png)
 ![u6](images/indice/u6_icono.png)
 ![proyecto](images/indice/proyecto.png)
+![caratula go](images/go/background.jpeg)
