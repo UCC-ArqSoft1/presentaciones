@@ -22,20 +22,52 @@ h1 {
 .small{
 	font-size: 0.5em
 }
+
+.grid-container2 { 
+  display: grid; 
+  grid-template-columns: auto auto; 
+  font-size: 0.8em; 
+  text-align: left !important; 
+} 
+
+.grid-item { 
+  border: 3px solid rgba(121, 177, 217, 0.8); 
+  padding: 20px; 
+  text-align: left !important; 
+  } 
 </style>
 
 ## Temario
 
+<div class="grid-container2">
+<div class="grid-item">
+
 - Constantes
 - Variables
-- Tipos de Datos
-- Ejercicio: Valores predeterminados
-- Conversión de Datos
-- Paquete fmt
-- Paquete math
+- Tipos de Datos en Go
+- Ejercicio: Valores Predeterminados
+- Conversión de Datos (Casteo)
+- Paquete FMT
+- Paquete Math
+- Ejercicio: Triángulo
+- Operadores booleanos
+- Control de flujo: if- else
+
+</div>
+<div class="grid-item">
+
+- Control de flujo: Switch
+- Control de flujo: for
 - Funciones
+- Ejercicio: Adivinar número
+- Estructura de Datos
+- Matrices
+- Slice
+- Mapas
 - Estructuras
-- Receivers
+- Punteros
+
+</div></div>
 
 ---
 
@@ -351,7 +383,7 @@ Perímetro: 39.56
 if condicion {//no usa paréntesis
 	//Código
 } else if condicion2 {
-	//Código>
+	//Código
 } else {
 	//Código
 }
@@ -473,12 +505,11 @@ func Suma(a int, b int) int {
 
 Crear un programa que permita a un usuario adivinar un número.
 
-El programa debe:
-
 1. Generar un número aleatorio entre 0 y 100.
 2. El usuario tiene hasta 10 intentos para acertar el número.
 3. Tras cada intento el programa debe imprimir si el número aleatorio es menor o mayor al número ingresado por el usuario.
 4. Se debe mostrar un menú para permitir jugar nuevamente o salir del programa
+5. Deben existir 2 funciones: play(), displayMenu()
 
 Ejemplo de salida de pantalla:
 
@@ -511,6 +542,8 @@ Desea jugar nuevamente (s/n):
 
 ### Matrices Unidimensionales
 
+Es una colección de valores de un mismo tipo, requiere que se defina una capacidad inicial y se vayan asignando valores a través de su índice.
+
 ```go
 var miMatriz [5]int //Se puede crear una matriz vacía, se ve como [0 0 0 0 0]
 miMatriz[0] = 10 //Se puede ir completando elemento por elemento
@@ -519,7 +552,7 @@ var miMatrizNew = [5]int{10, 20, 30, 40, 50} //Se puede crear una matriz y asign
 var newMatrix = [...]int{10, 30, 60} //Si no sabemos con cuantos datos va a inicializar
 
 //Recorrer una matriz: Ejemplo 1
-for i:=0; i < len(newMatrix); i ++{
+for i:=0; i < len(newMatrix); i++ {
 	fmt.Println(newMatrix[i])
 }
 
@@ -545,7 +578,16 @@ var matriz = [3][5]int{
 
 ### Slice
 
-Forma sencilla de trabajar con partes de una matriz.
+Forma sencilla de trabajar con partes de una matriz, que provee ciertas funciones adicionales.
+
+- **append**: Agrega un nuevo elemento al slice.
+- **len**: Obtiene la longitud de un slice.
+- **cap**: Retorna la capacidad del arreglo subyacente del slice.
+- **copy**: Copia el contenido de un slice en otro.
+
+---
+
+### Slice
 
 ```go
 var slice1 []int //Declarar Slice o Rebanada
@@ -575,7 +617,11 @@ copy(slice3, slice2) //Se copian los valores de slice2 a -> slice3
 
 ### Mapas
 
-Estructuras de datos que permiten almacenar clave-valor:
+Estructuras de datos que permiten almacenar clave-valor. Un Hash-Table es utilizado para almacenar elementos en un mapa de tal forma que los valores se almacenan sin un orden.
+
+---
+
+### Mapas
 
 ```go
 colores := map[string]string{
