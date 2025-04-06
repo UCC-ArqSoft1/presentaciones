@@ -6,6 +6,12 @@ slideNumber: true
 
 # Control de Versiones
 
+<style>
+.small{
+	font-size: 0.5em
+}
+</style>
+
 ---
 
 ## Temario
@@ -155,6 +161,8 @@ Es una herramienta que permite a profesoresgestionar aulas y tareas digitales.
 
 ### Ejercicio 1.0: Github Básico
 
+<p class="small">(para ver en casa y repasar)</p>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VOrSQApihmc?si=AgcGWvoFao7qvoYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
@@ -188,6 +196,8 @@ func main(){
 ---
 
 ### Ejercicio 1.1: Github Branchs
+
+<p class="small">(para ver en casa y repasar)</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/m4-SueQ7l9E?si=47erfMTkklw0W5G9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -226,6 +236,8 @@ Es una solicitud de incorporación de cambios que aún no está lista para revis
 ---
 
 ### Ejercicio 2: Github - Pull Request
+
+<p class="small">(para ver en casa y repasar)</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/j3Su-k84F4Y?si=3atFdV09xWoBoHP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -296,6 +308,8 @@ Los tipos más comunes:
 ---
 
 ### Ejercicio 3: Conventional Commits
+
+<p class="small">(para ver en casa y repasar)</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-AguKC9Me2s?si=5Wb2RwEjtFJ20VNe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

@@ -19,6 +19,10 @@ h1 {
   background-color: rgba(255,255,255,.7);
 }
 
+.small{
+	font-size: 0.5em
+}
+
 .grid-container2 { 
   display: grid; 
   grid-template-columns: auto auto; 
@@ -330,6 +334,8 @@ Nota: Si VSC sugiere agregar herramientas, presionar SI
 ---
 
 ### Ejercicio 1: Hola Mundo!
+
+<p class="small">(para ver en casa y repasar)</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uLjrm9bRJ-c?si=fWbBL8-CGZ84thw7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

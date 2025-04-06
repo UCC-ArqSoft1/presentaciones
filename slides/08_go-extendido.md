@@ -1,4 +1,5 @@
----title: Introducción a GO Extendida
+---
+title: Introducción a GO Extendida
 theme: solarized
 slideNumber: true
 ---
