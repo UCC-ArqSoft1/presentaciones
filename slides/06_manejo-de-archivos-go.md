@@ -44,19 +44,10 @@ Usos de defer:
 ## Defer
 
 ```go []
-func printHello() {
-  fmt.Println("Hello World")
-}
-
-func main() {
-  defer printHello()
-}
-
-//Se puede invocar una función anónima:
-func main() {
-  defer func() {
-     fmt.Println("Hello World")
-  }()
+func main(){
+	defer fmt.Println(3)
+	fmt.Println(1)
+	fmt.Println(2)
 }
 ```
 
@@ -73,6 +64,8 @@ Se realiza mediante paquetes y funciones que permiten leer, escribir y recorrer 
 Crear un archivo en Go.
 
 ```go []
+const path = "hola.txt"
+
 func CreateFile(path string) error {
   file, err := os.Create(path)
   defer file.Close()
@@ -87,7 +80,9 @@ func CreateFile(path string) error {
 
 ---
 
-## Escribir un Archivo
+## Escribir un Archivo: WriteFile
+
+<!-- .slide: style="font-size: 0.90em" -->
 
 ```go []
 func WriteFile(path string, content []byte) error {
@@ -97,6 +92,74 @@ func WriteFile(path string, content []byte) error {
   return nil
 }
 ```
+
+Ejemplo:
+
+```go []
+data := []byte("Hola mundo!")
+err := os.WriteFile("archivo.txt", data, 0644)
+//0644 el propietario puede leer-escribir - otros usuarios solo lectura
+```
+
+- Crea o sobreescribe el archivo.
+- Escribe todos los datos que se envien como parámetro.
+- Cierra el archivo automáticamente.
+
+---
+
+## Escribir un Archivo: Write
+
+```go []
+file, err := os.Create("archivo.txt")
+defer file.Close()
+_, err = file.Write([]byte("Hola mundo"))
+```
+
+- Se requiere abrir o crear el archivo primero (os.Open, os.Create, etc.).
+- Ofrece más control: se puede escribir en varias partes del archivo, usar **Seek** para moverse dentro del archivo, escribir en **chunks**, etc.
+
+---
+
+## Escribir un Archivo
+
+<table>
+<thead>
+  <tr>
+  <th></th>
+  <th>os.WriteFile</th>
+  <th>Write</th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+  <td>
+  PROS
+  </td>
+  <td>
+   <li>Simple para archivos pequeños. </li>
+   <li>No es necesario abrir ni cerrar el archivo manualmente.</li>
+  </td>
+  <td>
+  <li>Ofrece más control (ej. escribir en varias partes) </li>
+  <li>Para archivos grandes o escritura continua </li>
+  <li>Se puede escribir en diferentes posiciones del archivo</li>
+  </td>
+</tr>
+<tr>
+  <td>
+  CONS
+  </td>
+  <td>
+  <li>No es eficiente para escribir grandes volúmenes de datos o escribir por partes (streams). </li>
+  <li>No se pueden hacer varias escrituras seguidas fácilmente.</li>
+  </td>
+  <td>
+  <li>Se debe abrir y cerrar el archivo manualmente. </li> 
+  <li>Ligeramente más código. </li>
+  </td>
+</tr>
+</tbody>
+</table>
 
 ---
 
@@ -126,6 +189,42 @@ func readFile(path string) ([]byte, error) {
 
   return bytes, nil
 }
+```
+
+---
+
+### Ejercicio 6: Gestor de Contactos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+Crear un programa que permita gestionar contactos: agregar, editar, eliminar.
+
+- Los **contactos** deben poseer: nombre, email y teléfono (**struc**).
+- Los contactos se deben almacenar en un archivo **json**.
+
+Ejemplo de salida de pantalla:
+
+```bash
+==== GESTOR DE CONTACTOS ====
+1. Agregar un contacto
+2. Mostrar todos los contactos
+3. Salir
+Elige una opción: 1
+Nombre: Agus
+Email: agus@email.com
+Phone: 3513892288
+```
+
+Ejemplo de archivo **json**:
+
+```bash
+[
+  {
+    "name": "Agus",
+    "e-mail": "agus@email.com",
+    "phone": "3513892288"
+  }
+]
 ```
 
 ---
