@@ -39,9 +39,10 @@ h1 {
 ## Temario
 
 1. ¿Qué son los errores en Go?
-2. ¿Cómo crear un error?
-3. ¿Cómo capturar un error?
-4. Early return
+2. Panic
+3. ¿Cómo crear un error?
+4. ¿Cómo capturar un error?
+5. Early return
 
 ---
 
@@ -53,8 +54,38 @@ Los **errores en Go** nos permiten manejar situaciones no deseadas. En otros len
 
 - Existe un tipo de dato estándar de Go que se llama **error**.
 - Si bien este tipo de dato ya nos permite manejar un error, con sus atributos y métodos, existe un paquete de Go que nos permite crear y manejar errores de manera más fácil, el package **errors**.
-- Los errores en Go admiten nil como valor, que es el valor más usado cuando el error no existe.
+- Los errores en Go admiten **nil** como valor, que es el valor más usado cuando el error no existe.
 - Para obtener el mensaje de un tipo error, se utiliza el método **Error()** del tipo **error**, que devuelve un **string**.
+
+---
+
+### Panic
+
+Es una función integrada que detiene la ejecución normal de un programa. Se produce cuando el programa encuentra un error que no puede gestionar.
+
+Se produce un **pánico**:
+
+- Al acceder a un puntero nulo
+- Al realizar una operación ilegal
+- Al dividir por cero
+- Al intentar acceder a un índice de matriz fuera de límites
+
+---
+
+### ¿Qué hace un pánico?
+
+- Detiene la ejecución normal del programa
+- Desempaqueta la pila de llamadas
+- Ejecuta las funciones diferidas (defer) en el proceso
+- Imprime un mensaje de error en el flujo de error estándar
+
+---
+
+### ¿Por qué se usa un pánico?
+
+- Para señalar errores irrecuperables o condiciones excepcionales
+- Para reaccionar rápidamente ante errores que no deberían ocurrir durante el funcionamiento normal
+- Para abortar si una función devuelve un valor de error que no sabemos (o no queremos) gestionar
 
 ---
 
@@ -63,13 +94,13 @@ Los **errores en Go** nos permiten manejar situaciones no deseadas. En otros len
 Para crear un error en Go hay que utilizar la librería errors. Un error se crea de esta forma:
 
 ```go
-err := errors.New(“Mensaje del error”)
+err := errors.New("Mensaje del error")
 ```
 
 También podemos crear errores con directivas de formato:
 
 ```go
-err := fmt.Errorf(“Mensaje %d con directiva de %s”, 1, “hola”)
+err := fmt.Errorf("Mensaje %d con directiva de %s", 1, "formato")
 ```
 
 ---
@@ -81,13 +112,13 @@ Luego a esta variable puede retornarla en una función para informar que ocurri�
 ```go []
 func division(a int, b int) (int, error) {
   if b == 0 {
-    return -1, errors.New(“b no puede ser cero”)
+    return -1, errors.New("b no puede ser cero")
   }
   return a / b, nil
 }
 ```
 
-En este punto, si no ocurre ningún error, en el lugar del error para retornar, colocamos un nil.
+En este punto, si no ocurre ningún error, en el lugar del error para retornar, colocamos un **nil**.
 
 ---
 
@@ -96,19 +127,27 @@ En este punto, si no ocurre ningún error, en el lugar del error para retornar, 
 <!-- .slide: style="font-size: 0.80em" -->
 
 - Para capturar un error lo único que debemos hacer es asignarlo en una variable.
-- De esta manera, lo primero que debemos hacer es preguntar si el valor del error es distinto de nil.
+- De esta manera, lo primero que debemos hacer es preguntar si el valor del error es distinto de **nil**.
 - Continuando con el ejemplo anterior:
 
 ```go []
 _, err := division(7, 0)
 if err != nil {
-  fmt.Println(“Error:”, err.Error())
+  fmt.Println("Error:", err.Error())
   return
 }
 ```
 
 - Siempre es importante que cuando utilicemos una función que puede devolver un error, lo primero que hagamos sea validar que el mismo no existe.
   Si obviamos esta validación o colocamos un guión bajo para evitarlo, podríamos usar resultados erróneos.
+
+---
+
+## Ejercicio: Refactor todo-list
+
+Modifique el código desarrollado en **todo-list** para realizar manejo de errores.
+
+- En caso de que el usuario ingrese un índice mayor al existente o menor a cero, muestre el mensaje "Índice fuera de rango".
 
 ---
 
@@ -130,26 +169,26 @@ if err != nil {
 
 ## Early Return
 
-Ejemplo INCORRECTO:
+Ejemplo **INCORRECTO**:
 
 ```go []
 div, err := division(5, 0)
 if err != nil {
-  fmt.Println(“Error:”, err.Error())
+  fmt.Println("Error:", err.Error())
 } else {
-  fmt.Println(“Division:”, div)
+  fmt.Println("Division:", div)
 }
 ```
 
-Ejemplo CORRECTO:
+Ejemplo **CORRECTO**:
 
 ```go []
 div, err := division(5, 0)
 if err != nil {
-  fmt.Println(“Error:”, err.Error())
+  fmt.Println("Error:", err.Error())
   return
 }
-fmt.Println(“Division:”, div)
+fmt.Println("Division:", div)
 ```
 
 ---
