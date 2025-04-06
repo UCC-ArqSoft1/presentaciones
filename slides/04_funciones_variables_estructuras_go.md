@@ -870,7 +870,7 @@ Ejemplo:
 func Emplear(persona Persona) Empleado {
 	return Empleado{
 		Nombre: persona.Nombre,
-		Empleo: “Nombre del empleo”,
+		Empleo: "Nombre del empleo",
 		Antiguedad: 0,
 		Edad: persona.Edad,
   }

@@ -74,7 +74,7 @@ Una prueba unitaria es una forma de comprobar el correcto funcionamiento de una 
 ```go []
 func division(a int, b int) (int, error) {
 	if b == 0 {
-      return 0, errors.New(“no puedo dividir por 0”)}
+      return 0, errors.New("no puedo dividir por 0")}
 	}
 	return a / b, nil
 }
@@ -97,7 +97,7 @@ func getUsuario(idUsuario int) *Usuario {
 	if idUsuario == 0 {
       return nil
 	}
-	call := rest_client.Get(“api.mercadolibre/usuarios”)
+	call := rest_client.Get("api.mercadolibre/usuarios")
 	// ...
 }
 ```

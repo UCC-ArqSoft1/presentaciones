@@ -31,6 +31,18 @@ h1 {
 
 ## Defer
 
+Aplaza la ejecución de una función hasta que finaliza la función que la rodea. Se utiliza para garantizar que se realicen acciones de limpieza al terminar una función.
+
+Usos de defer:
+
+- Gestionar recursos
+- Garantizar que las acciones de limpieza se realicen al finalizar una función
+- Intercalar diferir correctamente al llamar a funciones que devuelven un error
+
+---
+
+## Defer
+
 ```go []
 func printHello() {
   fmt.Println("Hello World")
@@ -47,6 +59,12 @@ func main() {
   }()
 }
 ```
+
+---
+
+## Manejo de Archivos
+
+Se realiza mediante paquetes y funciones que permiten leer, escribir y recorrer directorios.
 
 ---
 
