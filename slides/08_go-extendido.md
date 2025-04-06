@@ -1,5 +1,4 @@
----
-title: Introducción a GO Extendida
+---title: Introducción a GO Extendida
 theme: solarized
 slideNumber: true
 ---
@@ -25,6 +24,34 @@ h1 {
 1. Ciclos
 2. Defer
 3. ByRef
+
+---
+
+## Función: parámetros variádicos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+```go
+func Nombre (pars ...tipo) {
+	return
+}
+```
+
+- Los parámetros de entrada de la función tienen que recibirse en un sólo valor mediante un nombre e indicando su tipo
+- Externamente los valores se envían como parámetros independientes
+- Internamente los valores se tratan como un array
+
+Ejemplo:
+
+```go
+	func Suma(values ...int) int {
+		suma := 0
+		for _, v := range values {
+			suma += v
+}
+		return suma
+}
+```
 
 ---
 
