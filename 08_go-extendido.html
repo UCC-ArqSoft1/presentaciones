@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>Introducción a GO Extendida</title>
+    <title>reveal-md</title>
     <link rel="shortcut icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./dist/reset.css" />
     <link rel="stylesheet" href="./dist/reveal.css" />
-    <link rel="stylesheet" href="./dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
 
     <link rel="stylesheet" href="./_assets/slides/css/filminas.css" />
@@ -18,7 +18,10 @@
       <div class="slides">
         <section data-markdown data-separator="^---" data-separator-vertical="^\r?\n----\r?\n$">
           <textarea data-template>
-            
+            ---title: Introducción a GO Extendida
+theme: solarized
+slideNumber: true
+---
 
 <style>
 h1 {
@@ -41,6 +44,34 @@ h1 {
 1. Ciclos
 2. Defer
 3. ByRef
+
+---
+
+## Función: parámetros variádicos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+```go
+func Nombre (pars ...tipo) {
+	return
+}
+```
+
+- Los parámetros de entrada de la función tienen que recibirse en un sólo valor mediante un nombre e indicando su tipo
+- Externamente los valores se envían como parámetros independientes
+- Internamente los valores se tratan como un array
+
+Ejemplo:
+
+```go
+	func Suma(values ...int) int {
+		suma := 0
+		for _, v := range values {
+			suma += v
+}
+		return suma
+}
+```
 
 ---
 
