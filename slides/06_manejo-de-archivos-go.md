@@ -193,14 +193,25 @@ func readFile(path string) ([]byte, error) {
 
 ---
 
+### Close
+
+Si el archivo no se cierra pueden ocurrir diversos problemas:
+
+- Parte del contenido puede quedar en la memoria y no llegar a escribirse al disco.
+- El recurso asignado no se libera y ocurren errores como "too many open files"
+- Puede bloquear otros procesos
+
+---
+
 ### Ejercicio 6: Gestor de Contactos
 
 <!-- .slide: style="font-size: 0.70em" -->
 
-Crear un programa que permita gestionar contactos: agregar, editar, eliminar.
+Crear un programa que permita agregar y mostrar contactos.
 
 - Los **contactos** deben poseer: nombre, email y teléfono (**struc**).
 - Los contactos se deben almacenar en un archivo **json**.
+- Se debe hacer manejo de errores para los archivos.
 
 Ejemplo de salida de pantalla:
 
