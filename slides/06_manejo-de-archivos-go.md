@@ -122,6 +122,8 @@ _, err = file.Write([]byte("Hola mundo"))
 
 ## Escribir un Archivo
 
+<!-- .slide: style="font-size: 0.60em" -->
+
 <table>
 <thead>
   <tr>
