@@ -242,6 +242,18 @@ Ejemplo de archivo **json**:
 
 ---
 
+### Ejercicio 6: Gestor de Contactos (parte 1)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y13FxBBPBtU?si=2ZR5YvmVoPNFBJ7Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+### Ejercicio 6: Gestor de Contactos (parte 2)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F1p7AnFJKmI?si=XBBe7W8bQHJFagmu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)
