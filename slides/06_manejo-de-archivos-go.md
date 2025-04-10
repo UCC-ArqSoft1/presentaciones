@@ -59,9 +59,9 @@ Se realiza mediante paquetes y funciones que permiten leer, escribir y recorrer 
 
 ---
 
-## Manejo de Archivos
+## Crear un Archivo
 
-Crear un archivo en Go.
+Crear un archivo en Go con [os.Create](https://pkg.go.dev/os#Create).
 
 ```go []
 const path = "hola.txt"
@@ -80,17 +80,21 @@ func CreateFile(path string) error {
 
 ---
 
-## Escribir un Archivo: WriteFile
+## Escribir un Archivo: [WriteFile](https://pkg.go.dev/os#WriteFile)
 
-<!-- .slide: style="font-size: 0.90em" -->
+<!-- .slide: style="font-size: 0.80em" -->
 
 ```go []
 func WriteFile(path string, content []byte) error {
-  if err := os.WriteFile(path, content, os.ModeAppend); err != nil {
+  if err := os.WriteFile(path, content, 0644); err != nil {
      return err
   }
   return nil
 }
+//0 indicando que es base octal
+//segundo (6) permiso de usuario propietario
+//tercero (4) permiso de grupo
+//cuato (4) permiso para otros
 ```
 
 Ejemplo:
@@ -98,7 +102,7 @@ Ejemplo:
 ```go []
 data := []byte("Hola mundo!")
 err := os.WriteFile("archivo.txt", data, 0644)
-//0644 el propietario puede leer-escribir - otros usuarios solo lectura
+//4=lectura, 2=Escritura, 1=Ejecución, 6=lectura+Escritura
 ```
 
 - Crea o sobreescribe el archivo.
@@ -107,7 +111,7 @@ err := os.WriteFile("archivo.txt", data, 0644)
 
 ---
 
-## Escribir un Archivo: Write
+## Escribir un Archivo: [Write](https://pkg.go.dev/os#File.Write)
 
 ```go []
 file, err := os.Create("archivo.txt")
@@ -122,7 +126,7 @@ _, err = file.Write([]byte("Hola mundo"))
 
 ## Escribir un Archivo
 
-<!-- .slide: style="font-size: 0.60em" -->
+<!-- .slide: style="font-size: 0.80em" -->
 
 <table>
 <thead>
@@ -171,27 +175,16 @@ _, err = file.Write([]byte("Hola mundo"))
 
 ```go []
 func readFile(path string) ([]byte, error) {
-
-  file, err := os.Open(path)
-  if err != nil {
-     return nil, err
-  }
-
-  defer func() {
-     err = file.Close()
-     if err != nil {
-        log.Fatal(err)
-     }
-  }() //Se agregan parentesis para que se ejecute la función
-
-  bytes, err := ioutil.ReadAll(file)
-  if err != nil {
-     return nil, err
-  }
-
-  return bytes, nil
+  data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }
 ```
+
+- La función [**os.ReadFile**](https://pkg.go.dev/os#ReadFile) abre el archivo, lee todo su contenido, y lo cierra.
+- Al devolver los datos en typo byte es importante castearlos usando **string(data)**
 
 ---
 
