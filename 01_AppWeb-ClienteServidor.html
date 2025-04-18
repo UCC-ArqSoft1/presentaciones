@@ -43,22 +43,29 @@
 
 ## Aplicaciones Web
 
-<!-- .slide: style="font-size: 0.85em" -->
+<!-- .slide: style="font-size: 0.70em" -->
 
-- Son herramientas a las que los usuarios pueden acceder a través de Internet.
-- Son programas que se codifican en un lenguaje interpretable por el browser o navegador web.
-- El esquema completo está conformado por:
-  - Cliente
-  - Servidor
-  - Base de datos
-    - Base de datos relacional
-    - Caché
+- Son sistemas con los que el usuario puede interactuar a través de Internet.
+- Están compuestas por:
+  - Cliente:
+    - Browser, navegador web o aplicación móvil nativa.
+    - Las mismas se conectan con los servicios del backend.
+  - Servidor:
+    - Servicio de backend que procesa las solicitudes
+    - Múltiples microservicios que procesan la información
+  - Fuente de datos
+    - Bases de datos relacionales
+    - Bases de datos no relacionales
+    - Servicios de Caché
     - Motores de búsqueda
-    - Etcétera
+    - Modelos de Inteligencia Artificial
+    - Servicios externos
 
 ---
 
 ## Arquitectura cliente-servidor
+
+<!-- .slide: style="font-size: 0.70em" -->
 
 En la arquitectura cliente servidor, uno o más servidores centralizan el conjunto de solicitudes (request) que los clientes envían.
 Cada uno de los clientes recibe la respuesta (response) que el servidor retornó luego de realizar el procesamiento y la interpreta.
@@ -66,36 +73,24 @@ Cada uno de los clientes recibe la respuesta (response) que el servidor retornó
 - Llamamos _client side_ al conjunto de clientes que interpreta la respuesta del servidor.
 - Llamamos _server side_ al procesamiento de datos que se da del lado del server.
 
----
-
-## Arquitectura cliente-servidor
-
 ![Arquitectura Cliente-Servidor](images/cliente-servidor/arq-cliente-servidor.png)
 
 ---
 
-En las aplicaciones web aparecen 2 conceptos fundamentales:
+## Frontend & Backend
 
-- Frontend
-- Backend
+<!-- .slide: style="font-size: 0.80em" -->
 
----
-
-## Frontend
-
-- Es la capa de aplicación que se comunica con el cliente.
-- Generalmente, implementa los aspectos visuales y de comportamiento de una aplicación.
-- Puede tener código que se ejecute client side y server side.
-- La ejecución es dependiente de la plataforma del cliente.
-
----
-
-## Backend
-
-- Es la capa de aplicación encargada de la lógica de negocio y conexión con servicios.
-- Generalmente, implementa procesamiento sobre datos que el usuario no puede ver.
-- El código se ejecuta server side.
-- La ejecución no depende de la plataforma del cliente ya que se ejecuta en el servidor.
+- **Frontend**
+  - Es la capa de aplicación que se comunica con el cliente.
+  - Generalmente, implementa los aspectos visuales y de comportamiento de una aplicación.
+  - Puede tener código que se ejecute client side y server side.
+  - La ejecución es dependiente de la plataforma del cliente.
+- **Backend**
+  - Es la capa de aplicación encargada de la lógica de negocio y conexión con servicios.
+  - Generalmente, implementa procesamiento sobre datos que el usuario no puede ver.
+  - El código se ejecuta server side.
+  - La ejecución no depende de la plataforma del cliente ya que se ejecuta en el servidor.
 
 ---
 
@@ -105,23 +100,22 @@ En las aplicaciones web aparecen 2 conceptos fundamentales:
 
 ---
 
-## REST - Transferencia de estado representacional
+### HTTP - Protocolo
 
-Es un estilo de arquitectura de software para sistemas hipermedia.
-Es ampliamente usado en la programación de aplicaciones web descentralizadas.
+<!-- .slide: style="font-size: 0.80em" -->
 
----
+Es un **protocolo** que define cómo se comunican los clientes y servidores en la web.
 
-## REST
-
-- Comunicación basada en un protocolo cliente servidor sin estado.
-- Conjunto de operaciones definidas:
-  - **GET** Consulta
-  - **POST** Creación
-  - **PUT** Actualización
-  - **DELETE** Borrado
-- Sintaxis universal de direccionamiento.
-- Códigos de estado para representar diferentes situaciones.
+- HTTP especifica varios métodos, los que más vamos a utilizar son:
+  - **GET** (obtener datos)
+  - **POST** (enviar datos)
+  - **PUT** (actualizar datos)
+  - **DELETE** (eliminar datos)
+- HTTP es solo el canal de transporte, no define cómo deben estructurarse los datos ni cómo organizarlos.
+- HTTP utiliza los siguientes códigos:
+  - **2xx** = Operaciones exitosas
+  - **4xx** = Errores del cliente
+  - **5xx** = Errores del servidor
 
 ---
 
@@ -129,50 +123,90 @@ Es ampliamente usado en la programación de aplicaciones web descentralizadas.
 
 ![Status Code](images/cliente-servidor/status-code.png)
 
-[Status Code](https://cheatography.com/kstep/cheat-sheets/http-status-codes/#google_vignette)
+[Lista completa de los códigos de estado HTTP](https://cheatography.com/kstep/cheat-sheets/http-status-codes/)
 
 ---
 
-## API - Interfaz de Programación de Aplicaciones
+## REST - Transferencia de estado representacional
 
-<!-- .slide: style="font-size: 0.80em" -->
+<!-- .slide: style="font-size: 0.65em" -->
 
-- Una API es una aplicación que se encarga de realizar algún procesamiento sobre algún dato de entrada para brindar un resultado.
-- La ventaja de las API’s a diferencia de las aplicaciones monolíticas es que permiten ser consumidas por un cliente y también realizar peticiones a otras API’s.
-- Es por esto que las API’s pueden ser entendidas como un conjunto de nodos que se interconectan para generar un procesamiento más complejo de los datos, de manera descentralizada.
-- Cada API es responsable de su tarea particular.
-- Las distintas API’s se comunican mediante el protocolo REST.
-- [Referencia API’s de Mercado Libre](https://developers.mercadolibre.com.ar/)
+Es un **conjunto de principios** para diseñar APIs que sean simples, escalables y eficientes.
 
----
+**REST** se apoya en HTTP y establece reglas como:
 
-![API Meli](images/cliente-servidor/api-meli.png)
+- Uso de recursos con URLs claras. Por ejemplo /users, /products/123.
+- Uso adecuado de métodos HTTP. Por ejemplo GET para leer, POST para crear, etc.
+- Respuestas en formatos estándar como JSON o XML.
+- Stateless: cada petición es independiente y no mantiene estado en el servidor.
 
----
+Ejemplo de API REST sobre HTTP:
 
-### MVC - Modelo vista controlador
+- **GET** https://api.tienda.com/products/617349 → Devuelve el producto con ID = 617349.
+- **POST** https://api.tienda.com/products → Crea un nuevo producto.
 
-Es un patrón de arquitectura de software que separa la implementación de una API en 3 capas:
-
-- Datos y lógica de negocio (frontend y backend).
-- Módulo encargado de gestionar los eventos y comunicaciones con servicios (frontend y backend).
-- Representación de los datos o vista (frontend).
+REST no está ligado exclusivamente a HTTP; puede implementarse sobre otros protocolos como WebSockets o gRPC, aunque HTTP es el más común.
 
 ---
 
-### MVC
+### Ejercicio 1: Analizando un servicio
 
-![MVC](images/cliente-servidor/mvc.png)
+<!-- .slide: style="font-size: 0.65em" -->
+
+1. En un navegador abrir las **DevTools** o **Herramientas de Desarrollo** presionando **F12**.
+2. Navegar a [https://tienda.claro.com.ar](https://tienda.claro.com.ar)
+3. En la pestaña de **Network** o **Red** analizar las siguientes peticiones:
+    - contentManagement?content=Productos_destacados_spot
+    - contentManagement?content=Footer_Content&page=home
+4. De la petición debe obtener:
+    - Método
+    - Dirección url
+    - Cabecera
+    - Cuerpo
+5. De la respuesta debe obtener:
+    - Código de estado
+    - Mensaje de estado
+    - Cabeceras
+    - Cuerpos
 
 ---
 
-### Ejercicio JSON
+### Ejercicio 2: Usando Swagger
 
-**Diseñar un archivo JSON** (Javascript Object Notation) que contenga la información de una nota de pedido que hace una empresa a una compañía de transporte para una determinada dirección detallada y con un conjunto de ítems con precio a ser transportados. [https://api.mercadolibre.com/items/MLA1387074579](https://api.mercadolibre.com/items/MLA1387074579)
+1. Acceda al siguiente swagger: [https://petstore.swagger.io/](https://petstore.swagger.io/)
+2. Verifique el funcionamiento de los siguientes métodos HTTP buscando obtener diferentes respuestas (200, 404) empleando diferentes parámetros de entrada: 
+    - **GET** /pet/{petId}
+    - **DELETE** /pet/{petId}
+    - **POST** /pet/{petId}
 
 ---
 
-### Ejercicio JSON
+### Ejercicio 3: Usando Postman (parte 1)
+
+Las mismas peticiones que antes realizó empleando Swagger, realizarlas empleando postman:
+
+1. Cree una colección que se llame **petStore**
+2. Copiar de [https://petstore.swagger.io/](https://petstore.swagger.io/) la información de la petición HTTP e importarlo.
+
+---
+
+### Ejercicio 3: Usando Postman (parte 2)
+
+Las mismas peticiones que observó en la Tienda del ejercicio 1, realizarlas empleando postman:
+1. Cree una colección que se llame **Claro**
+2. En el navegador, en la pestaña de network hacer click en los servicios de productos destacados o del footer. Click cn copy > copy curl as curl (bash)
+3. En postman click en “Import”
+4. Pegar la información copiada y click en “Import into collection”
+
+---
+
+### Ejercicio 4: Diseñar un JSON
+
+**Diseñar un archivo JSON** (Javascript Object Notation) que contenga la información de una nota de pedido que hace una empresa a una compañía de transporte para una determinada dirección detallada y con un conjunto de ítems con precio a ser transportados.
+
+---
+
+### Ejercicio 4: Diseñar un JSON
 
 <!-- .slide: style="font-size: 0.85em" -->
 
@@ -191,7 +225,7 @@ Tips cuando se elabora un JSON:
 
 ---
 
-### Ejercicio JSON
+### Ejercicio 4: Diseñar un JSON
 
 ```json []
 {
