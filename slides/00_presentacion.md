@@ -48,7 +48,6 @@ slideNumber: true
 - Frontend y Backend
 - HTTP: Métodos y códigos de estado HTTP
 - REST: Concepto y características
-- APIs
 
 ---
 
