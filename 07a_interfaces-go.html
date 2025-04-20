@@ -40,72 +40,39 @@ h1 {
 
 ---
 
-## Estructura del proyecto
+### Interfaces
 
-**main.go**
+Interface en Go es el tipo de dato que en Go que representa un conjunto de funciones.
 
-| clients | product_client.go |
-| services | product_service.go |
-| services | product_service_test.go |
+Si bien puede ser utilizado como el tipo de dato que representa a cualquier otro (posteriormente renombrado a any en el lenguaje) en sí define un listado de funciones entre sus llaves que deben ser implementadas para que otro tipo de dato la satisfaga.
 
----
-
-## product_client.go
-
-```go []
-package product_client
-
-import (
-    "math/rand"
-    "time"
-)
-
-// Definimos la estructura productClient sin campos que usamos para implementar la interfaz
-type productClient struct{}
-
-// ProductClientInterface: Definimos la interfaz que expone los métodos GetProductId y GetProductName
-type ProductClientInterface interface {
-    GetProductId() int
-    GetProductName() string
+```go
+type Service interface{
+    GetHotelByID(hotelID int64) (domain.Hotel, error)
 }
-
-// ProductClient: Variable global de tipo ProductClientInterface
-var (
-    ProductClient ProductClientInterface
-)
 ```
 
 ---
 
-## product_client.go (2)
+![Interfaces](images/go/interfaces.png)
 
-```go []
-package product_client
+---
 
-import (
-    "math/rand"
-    "time"
-)
+### Interaces
 
-// Usamos esta función para que cuando se inicialice el paquete,
-// se guarde nuestra interfaz en la variable global.
-func init() {
-    ProductClient = &productClient{}
+La utilización de interfaces es muy útil para aplicar patrones de diseño como dependency injection y para implementar estilos de arquitectura como arquitectura hexagonal.
+
+```go
+type Redis struct {
+    Client redis.Client
 }
 
-// GetProductId devuelve un número aleatorio que puede ser -1 o 0.
-func (s *productClient) GetProductId() int {
-    rand.Seed(time.Now().UnixNano())
-    return rand.Intn(2) - 1
+func (redis Redis) GetHotelByID(hotelID int64) (domain.Hotel, error) {
+	return redis.Client.Get(key)
 }
 
-// GetProductName devuelve una cadena aleatoria que puede ser vacía o "Hello".
-func (s *productClient) GetProductName() string {
-    rand.Seed(time.Now().UnixNano())
-    if rand.Intn(2) == 0 {
-        return ""
-    }
-    return "Hello"
+type Store interface{
+    GetHotelByID(hotelID int64) (domain.Hotel, error)
 }
 ```
 

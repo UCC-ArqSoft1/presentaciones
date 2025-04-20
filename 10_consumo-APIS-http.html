@@ -26,8 +26,29 @@
 
 ## Temario
 
-1. Documentación de una API
-2. Cómo consumir una API en GO utilizando los paquetes HTTP y JSON.
+- Documentación de una API
+- Cómo consumir una API en GO utilizando los paquetes HTTP y JSON.
+
+---
+
+### CORS
+
+CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad que implementan los navegadores para controlar qué recursos pueden ser accedidos desde otro origen.
+Por ejemplo: El frontend en localhost:3000 intenta hacer una petición fetch() a un backend en localhost:8080. Aunque parezca el mismo host, el puerto cambia, entonces el navegador lo considera un "origen cruzado" y bloquea la petición a menos que el backend diga que lo permite.
+
+---
+
+### Configurar CORS en GO
+
+Cuando se agrega esto en el handler o middleware:
+- c.Header("Access-Control-Allow-Origin", "*")
+- c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+- c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+Estás diciéndole al navegador:
+- **Allow-Origin:** "Cualquier frontend puede acceder a mi backend" (ideal para desarrollo).
+- **Allow-Methods:** "Permití estos métodos HTTP".
+- ** Allow-Headers:** "Permití que vengan estos headers" (como Content-Type, Authorization, etc)
 
 ---
 
