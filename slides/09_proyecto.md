@@ -10,10 +10,18 @@ slideNumber: true
 
 ## Temario
 
-- Estructura de un proyecto
 - Patrones de Diseño
+- MVC - Modelo Vista Controlador
+- Estructura de un proyecto
 - Gin - Gonic
 - Auth
+
+---
+
+## Patrones de diseño
+
+Los patrones de diseño son soluciones habituales a problemas que ocurren con frecuencia en el diseño de software. Son como
+planos prefabricados que se pueden personalizar para resolver un problema de diseño recurrente en tu código.
 
 ---
 
@@ -38,28 +46,7 @@ Es un patrón de arquitectura de software que separa la implementación de una A
 
 ---
 
-## Patrones de diseño
-
-Los patrones de diseño son soluciones habituales a problemas que ocurren con frecuencia en el diseño de software. Son como
-planos prefabricados que se pueden personalizar para resolver un problema de diseño recurrente en tu código.
-
----
-
 ![MVC](images/mvc/mvc2.png)
-
----
-
-## Gin-Gonic
-
-```bash
-go mod init "NOMBRE"
-go mod tidy
-go run main.go
-```
-
-RECUERDEN: Estamos construyendo un API
-
-Las API van a estar corriendo todo el tiempo
 
 ---
 

@@ -24,9 +24,9 @@ slideNumber: true
 
 ## Impacto en la Industria IT
 
-- Ejemplos del mundo real: Empresas como Netflix, Uber o Mercado Libre tienen arquitecturas bien definidas que les permiten procesar millones de transacciones diarias sin fallos.
-- Demanda laboral: El mercado busca ingenieros con conocimientos sólidos en diseño de software y arquitectura escalable.
-- Innovación: Nuevas tecnologías como inteligencia artificial, blockchain y aplicaciones en la nube dependen de buenas prácticas de arquitectura.
+- **Ejemplos del mundo real:** Empresas como Netflix, Uber o Mercado Libre tienen arquitecturas bien definidas que les permiten procesar millones de transacciones diarias sin fallos.
+- **Demanda laboral:** El mercado busca ingenieros con conocimientos sólidos en diseño de software y arquitectura escalable.
+- **Innovación:** Nuevas tecnologías como inteligencia artificial, blockchain y aplicaciones en la nube dependen de buenas prácticas de arquitectura.
 
 ---
 
@@ -59,7 +59,6 @@ slideNumber: true
 - Comandos básicos
 - Buenas prácticas
 - Plataforma Github
-- Proyecto de ejemplo
 
 ---
 

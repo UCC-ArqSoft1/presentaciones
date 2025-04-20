@@ -27,7 +27,7 @@ h1 {
 ## Temario
 
 - Go Modules
-- Vebtajas
+- Ventajas
 - Archivos
 - Comandos
 

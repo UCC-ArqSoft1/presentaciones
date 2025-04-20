@@ -29,6 +29,10 @@ h1 {
 - Instalar MySQL
 - Instalar Driver para Go
 - Comandos Básicos
+- Ejercicio: Crear BD
+- GORM
+- Refactor API Vinilos
+- Go DotEnv
 
 ---
 
