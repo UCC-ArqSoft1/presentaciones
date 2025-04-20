@@ -8,6 +8,10 @@ slideNumber: true
 h1 {
   background-color: rgba(255,255,255,.7);
 }
+
+.small{
+	font-size: 0.2em
+}
 </style>
 
 <section data-background-image="images/go/background.jpeg">
@@ -138,6 +142,65 @@ Las pruebas de integración son esenciales en Go porque permiten comprobar cómo
 
 - La cobertura de código es una medida (porcentual) en las pruebas de software que mide el grado en que el código fuente de un programa ha sido comprobado.
 - Sirve para determinar la calidad del test que se lleve a cabo y para determinar las partes críticas del código que no han sido comprobadas y las partes que ya lo fueron, además se puede utilizar como técnica de optimización dentro de un compilador optimizador para llevar a cabo una eliminación de código muerto, más específicamente sirve para detectar código inalcanzable.​
+
+---
+
+### Package testing
+
+El paquete [testing](https://pkg.go.dev/testing) es el framework de pruebas integrado en Go.
+Se usa para escribir y ejecutar tests unitarios y ejemplos.
+
+---
+
+### Package testing: Comandos
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+- Ejecutar los tests del paquete actual:
+```bash
+go test
+```
+
+- Mostrar % de la cobertura de los tests:
+```bash
+go test -cover
+```
+
+- Crear archivo "coverage" con info sobre la cobertura de los tests :
+```bash
+go test -coverprofile=coverage
+```
+
+- Mostrar por terminal detalle de la cobertura de las funciones:
+```bash
+go tool cover -func=coverage
+```
+
+- Generar html con líneas de código CON y SIN cobertura:
+```bash
+go tool cover -html=coverage
+```
+
+---
+
+### Ejercicio 8: Test Unitario
+
+
+1. Cree una función sencilla que reciba 2 números enteros y devuelva la suma de ambos.
+2. Cree un test unitario que verifique la función creada empleando el package [testing](https://pkg.go.dev/testing).
+3. Ejecute el test.
+4. Ejecute la prueba con múltiples valores.
+5. Agregue una función que devuelva el mayor de 2 números enteros.
+6. Mida el coverage del archivo.
+7. Visualice que líneas de código poseen cobertura y cuales no.
+
+---
+
+### Ejercicio 8: Test Unitario
+
+<p class="small">(para ver en casa y repasar)</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N8JOouEHSWk?si=jfRYgeVzNtNvqpY0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
