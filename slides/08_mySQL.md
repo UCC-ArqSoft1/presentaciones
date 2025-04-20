@@ -139,6 +139,8 @@ insert into contact (name, email, phone) values
 
 ### Ejercicio 1: Crear BD
 
+<p class="small">(para ver en casa y repasar)</p>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OtGU1ztqB1s?si=0G6qtXrb3cwTk7n7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
@@ -196,11 +198,15 @@ Empleando [gorm](https://pkg.go.dev/gorm.io/gorm) conectarse a la base de datos 
 
 ### Ejercicio: Refactor API de Vinilos (parte 1)
 
+<p class="small">(para ver en casa y repasar)</p>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UJHJcrNvVeE?si=xdXvNr7-2VTMyAaz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
 ### Ejercicio: Refactor API de Vinilos (parte 2)
+
+<p class="small">(para ver en casa y repasar)</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7v7JffEy3xA?si=dbYM4rpGs-ODaZG1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -240,6 +246,22 @@ DB_PASSWORD=supersecreta
     - database
     - handlers
     - models
+
+---
+
+### Ejercicio: Refactor PRO API de Vinilos (parte 1)
+
+<p class="small">(para ver en casa y repasar)</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uAn8YOtUdgA?si=qRgLdAQ70mfwmaFD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+### Ejercicio: Refactor PRO API de Vinilos (parte 2)
+
+<p class="small">(para ver en casa y repasar)</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GRXy2prOnpg?si=1a0C7z_a288Xr8FH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
