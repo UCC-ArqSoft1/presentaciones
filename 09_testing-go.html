@@ -49,10 +49,13 @@ h1 {
 
 ---
 
-## Testing en Go
+## Concepto y utilidad de testing o pruebas de software
 
-El testing en Go es un método para verificar si un producto digital cumple con los requisitos esperados y se encuentra libre de errores y brechas. El testing implica la ejecución de componentes de software utilizando herramientas manuales o automatizadas para evaluar una o más propiedades de interés.
-Las pruebas de integración son una parte esencial del proceso de pruebas en Go, ya que proporcionan información valiosa sobre la funcionalidad general y el rendimiento de su aplicación a través de diferentes componentes.
+<!-- .slide: style="font-size: 0.80em" -->
+
+- Las pruebas de software (en inglés software testing) son las investigaciones empíricas y técnicas cuyo objetivo es proporcionar información objetiva e independiente sobre la calidad del producto a la parte interesada o stakeholder. Es una actividad más en el proceso de control de calidad.
+- El testing se puede realizar mediante pruebas estáticas (no requiere ejecución del software) y pruebas dinámicas (requieren ejecución del programa implementado).
+- Librería para Golang: [https://github.com/stretchr/testify](https://github.com/stretchr/testify)
 
 ---
 
@@ -63,17 +66,7 @@ Los diferentes tipos de pruebas en software son:
 - Pruebas unitarias
 - Pruebas de integración
 - Pruebas funcionales
-- Pruebas de extremo a extremo
-
----
-
-## Concepto y utilidad de testing o pruebas de software
-
-<!-- .slide: style="font-size: 0.80em" -->
-
-- Las pruebas de software (en inglés software testing) son las investigaciones empíricas y técnicas cuyo objetivo es proporcionar información objetiva e independiente sobre la calidad del producto a la parte interesada o stakeholder. Es una actividad más en el proceso de control de calidad.
-- El testing se puede realizar mediante pruebas estáticas (no requiere ejecución del software) y pruebas dinámicas (requieren ejecución del programa implementado).
-- Librería para Golang: [https://github.com/stretchr/testify](https://github.com/stretchr/testify)
+- Pruebas e2e
 
 ---
 
@@ -90,11 +83,14 @@ func division(a int, b int) (int, error) {
 }
 ```
 
----
+Ejemplo de test unitario:
+```go []
+func TestDivision(t *testing.T) {
+    resultado := division(8, 4)
 
-## Pruebas Unitarias
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/THUGSL6GM0g?si=qpYukAzrR5fUZTmx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    assert.Equal(t, resultado, 2)
+}
+```
 
 ---
 
@@ -116,17 +112,11 @@ func getUsuario(idUsuario int) *Usuario {
 
 ## Pruebas de Integración
 
-Un test de integración hace referencia a una prueba de software donde se brindan un conjunto de entradas y se espera una salida sin conocer el proceso que ocurre internamente. También se conoce como test E2E.
+Un test de integración hace referencia a una prueba de software donde se brindan un conjunto de entradas y se espera una salida sin conocer el proceso que ocurre internamente.
 
 Las pruebas de integración son esenciales en Go porque permiten comprobar cómo funcionan juntos los distintos componentes o módulos de una aplicación, garantizando que la funcionalidad general del software siga siendo fiable y esté libre de errores.
 
 [https://api.mercadolibre.com/users/1234567](https://api.mercadolibre.com/users/1234567)
-
----
-
-## Importancia de cada Test
-
-Mientras mas test unitarios haga, mas seguridad tengo que mis test de integración van a funcionar, y asi vamos subiendo.
 
 ---
 
@@ -158,241 +148,12 @@ Mientras mas test unitarios haga, mas seguridad tengo que mis test de integraci�
 
 ---
 
-## Cómo implementar testing en Go
-
-<!-- .slide: style="font-size: 0.80em" -->
-
-Para implementar testing en Go, puedes seguir estos pasos:
-
-- Escribir pequeñas funciones de prueba que ejerciten una única función o método de tu código.
-- Ejecutar la prueba usando el comando go test.
-- Para generar un reporte con el coverage de tus suites de test, puedes pasar el parámetro adicional -cover.
-- Para ejecutar todos los tests dentro del directorio actual y los subdirectorios del mismo, de forma recursiva, puedes pasar el parámetro adicional ./...
-- Los archivos de pruebas utilizan el nombre del archivo que se está probando con el sufijo \_test.
-- Las funciones que se escriben empiezan con la palabra Test.
-
----
-
-![Ejemplo Test](images/go/ejemplo_test.png)
-
----
-
 ## Cobertura
 
 <!-- .slide: style="font-size: 0.90em" -->
 
 - La cobertura de código es una medida (porcentual) en las pruebas de software que mide el grado en que el código fuente de un programa ha sido comprobado.
 - Sirve para determinar la calidad del test que se lleve a cabo y para determinar las partes críticas del código que no han sido comprobadas y las partes que ya lo fueron, además se puede utilizar como técnica de optimización dentro de un compilador optimizador para llevar a cabo una eliminación de código muerto, más específicamente sirve para detectar código inalcanzable.​
-
-## Testify y los asserts
-
-[https://pkg.go.dev/github.com/stretchr/testify/assert](https://pkg.go.dev/github.com/stretchr/testify/assert)
-
-```go []
-import (
-    "testing"
-    "github.com/stretchr/testify/assert"
-)
-
-func TestSomething(t *testing.T) {
-    // assert equality
-    assert.Equal(t, 123, 123, "they should be equal")
-
-    // assert inequality
-    assert.NotEqual(t, 123, 456, "they should not be equal")
-
-    // assert for nil (good for errors)
-    assert.Nil(t, object)
-
-    // assert for not nil (good when you expect something)
-    if assert.NotNil(t, object) {
-        // now we know that object isn't nil, we are safe to make
-        // further assertions without causing any errors
-        assert.Equal(t, "Something", object.Value)
-    }
-}
-```
-
----
-
-## Ejemplo:
-
-<!-- .slide: style="font-size: 0.60em" -->
-
-**main.go**
-
-```go []
-package main
-
-import "fmt"
-
-func Hello() string {
-    return "Hello, world."
-}
-
-func main() {
-    fmt.Println(Hello())
-}
-```
-
-**test_main.go**
-
-```go []
-package main
-
-import (
-    "testing"
-    "github.com/stretchr/testify/assert"
-)
-
-func TestHello(t *testing.T) {
-    assert.Equal(t, "Hello, world.", Hello())
-}
-```
-
-```bash
-go mod init test
-go mod tidy
-go test
-```
-
----
-
-## Ejercicio 1:
-
-Escriba la función que pase estos tests. Ejecutar el test para comprobarlo.
-
-```go []
-package main
-
-import (
-    "testing"
-    "github.com/stretchr/testify/assert"
-)
-
-func TestCalculate(t *testing.T) {
-    assert := assert.New(t)
-
-    var tests = []struct {
-        input    int
-        expected int
-    }{
-        {2, 4},
-        {-1, 1},
-        {0, 2},
-        {-5, -3},
-        {99999, 100001},
-    }
-
-    for _, test := range tests {
-        assert.Equal(Calculate(test.input), test.expected)
-    }
-}
-```
-
----
-
-## Ejercicio 2:
-
-Escriba un test para la siguiente función
-
-```go []
-func division(a int, b int) (int, error) {
-	if b == 0 {
-		return 0, errors.New("no puedo dividir por 0")}
-	}
-	return a / b, nil
-}
-```
-
----
-
-## Ejercicio 3:
-
-Escriba dos test, uno para comprobar la estructura de parsing y otro para la respuesta a un get de
-la api:
-
-[https://api.mercadolibre.com/sites/MLA/categories](https://api.mercadolibre.com/sites/MLA/categories)
-
-![Categories](images/go/categories.png)
-
----
-
-## Que es el Package
-
-Estructuras Logicas/Fisicas de organizar la distribución de carpetas y
-componentes del software.
-
-main.go -> package main
-
-package_a - utils_a.go -> package package_a
-
-package_b - utils_b.go -> package package_b
-
----
-
-## Que es el Package
-
-**utils_a.go**
-
-```go []
-package package_a
-
-func Hello() string {
-    return "Hello, world."
-}
-```
-
-**utils_b.go**
-
-```go []
-package package_b
-
-func Hello() string {
-    return "Hello, main b."
-}
-```
-
----
-
-## Que es el Package
-
-<!-- .slide: style="font-size: 0.80em" -->
-
-**main.go**
-
-```go []
-package main
-
-import "ucc/package_a"
-import "ucc_package_b"
-import "fmt"
-
-func main() {
-    fmt.Println(package_a.Hello)
-	fmt.Println(package_b.Hello)
-}
-```
-
-Por que ucc?
-
-```bash
-go mod init ucc
-go mod tidy
-go test ./...
-go run main.go
-```
-
----
-
-## Ejercicio
-
-Escribe los tests para los utils en los packages.
-
-Ayuda:
-
-- utils_a_test.go
-- utils_b_test.go
 
 ---
 
