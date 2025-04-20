@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Docker</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+    <link rel="stylesheet" href="./_assets/slides/css/filminas.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="^---" data-separator-vertical="^\r?\n----\r?\n$">
+          <textarea data-template>
+            
+
+
+<style>
+h1 {
+  background-color: rgba(255,255,255,.7);
+}
+
+.small{
+	font-size: 0.5em
+}
+</style>
+
+<section data-background-image="images/docker/background.avif">
+
+<br><br><br><br><br><br>
+
+<h1>Docker</h1>
+
+</section>
+
+---
+
+## Temario
+
+- Deploy
+- Máquinas Virtuales
+- Docker
+- TL;DR
+- Comandos Docker
+- Docker File
+- Recomendaciones
+- Terminal
+
+---
+
+## Docker
+
+Docker es una herramienta que permite crear, desplegar y ejecutar aplicaciones dentro de contenedores, que son entornos aislados y livianos. Estos contenedores incluyen todo lo necesario para que una aplicación funcione —como el código, librerías y dependencias—, lo que facilita la portabilidad, la escalabilidad y la consistencia entre distintos entornos de desarrollo, prueba y producción.
+
+---
+
+## Virtual Machine
+
+![Virtual Machine](images/docker/virtual-machine.png)
+
+---
+
+## Docker
+
+<!-- .slide: style="font-size: 0.90em" -->
+
+![Docker](images/docker/docker.png)
+
+La imagen de docker puede ser propia o de un tercero.
+
+El Registry es una aplicación del lado del servidor, sin estado (stateless) y altamente escalable, que almacena y permite distribuir imágenes de Docker. 
+
+---
+
+## Docker Layers
+
+<!-- .slide: style="font-size: 0.90em" -->
+
+- Cada capa es una imagen en sí misma, solo que sin una etiqueta asignada por un humano. Sin embargo, tienen IDs generados automáticamente.
+- Cada instrucción en un Dockerfile genera una nueva capa. (Excepto en compilaciones multi-etapa, donde generalmente solo se incluyen las capas de la imagen final, o cuando una imagen se aplana en una sola capa).
+- Las capas se utilizan para evitar transferir información redundante y omitir pasos de compilación que no han cambiado (según la caché de Docker).
+
+---
+
+![Docker layers](images/docker/TL_DR.png)
+
+---
+
+## Comandos Docker Terminal
+
+```bash
+Install Docker
+
+docker images ls
+
+docker container ls
+
+docker pull {name}:{tag}
+
+docker pull {name}:{latest}
+
+docker pull golang:latest
+
+docker run {name}:{tag}
+
+docker run {name}:{latest}
+
+docker run golang:latest
+
+docker run -d -p 80:80 docker/getting-started
+
+docker ps
+
+docker exec -it -t {container} sh
+  // ejecuta una terminal en el contenedor
+  // -i interactive
+  // -t terminal
+```
+
+---
+
+## Docker File
+
+```bash []
+# syntax=docker/dockerfile:1
+
+FROM golang:1.18.1-alpine3.15
+WORKDIR /app
+
+COPY . .
+RUN go mod download
+RUN go build -o /docker-go
+
+EXPOSE 8081
+
+CMD [ "/docker-go" ]
+```
+
+```bash
+docker build -t docker-go .
+docker run -d -p 8080:8080 docker-go:0.0.1
+```
+
+---
+
+## Docker File
+
+```bash
+El comando -v permite compartir un volumen para almacenamiento de datos
+
+docker logs -f {container}
+Permite ver los logs del contenedor
+
+docker push emikohmann/docker-go:0.0.1
+```
+
+---
+
+## Docker: Recomendación
+
+- Generalmente los datos que se manejan dentro de los container son volátiles, es decir que si los almacenamos en el container se pueden perder.
+- Por eso se recomienda gestionarlo de alguna manera que nos permita recuperarlos o utilizarlos sin depender de un container ID.
+- Tener en cuenta que generalmente nos vamos a basar en imágenes para correr las aplicaciones.
+
+---
+
+## Docker: terminal
+
+<!-- .slide: style="font-size: 0.85em" -->
+
+```bash
+ekohmann @ docker-go $ docker images
+REPOSITORY               TAG       IMAGE ID       CREATED              SIZE
+docker-go                latest    53dcdeeb3c6c   About a minute ago   423MB
+ubuntu                   latest    d2e4e1f51132   3 days ago           77.8MB
+golang                   latest    65375c930b21   12 days ago          964MB
+docker/getting-started   latest    cb90f98fd791   3 weeks ago          28.8MB
+alpine                   latest    0ac33e5f5afa   4 weeks ago          5.57MB
+```
+
+---
+
+## Docker: terminal
+
+```bash
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> main.main.func1 (1 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8081
+```
+
+---
+
+## Docker: terminal
+
+```bash
+docker network -d create docker-net
+```
+
+---
+
+![Terminal](images/docker/terminal1.png)
+
+---
+
+## Docker: terminal
+
+![Terminal](images/docker/terminal2.png)
+
+---
+
+![Terminal](images/docker/terminal3.png)
+
+---
+
+## Docker: terminal
+
+![Terminal](images/docker/terminal4.png)
+
+---
+
+## Docker Compose
+
+```bash []
+version: "3.7"
+
+services:
+
+  #docker run -dp 3000:3000 --network todo-app -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=secret -e MYSQL_DB=docker-db getting-started:v2
+
+   app:
+     image: emikohmann/example:v1
+     ports:
+       - 3000:3000
+     environment:
+       MYSQL_HOST: mysql
+       MYSQL_USER: root
+       MYSQL_PASSWORD: secret
+       MYSQL_DB: todos
+
+
+# docker run -d     --network todo-app --network-alias mysql     -v todo-mysql-data:/var/lib/mysql     -e MYSQL_ROOT_PASSWORD=secret     -e MYSQL_DATABASE=docker-db     mysql:5.7
+
+   mysql:
+     image: mysql:5.7
+     volumes:
+       - ./todo-mysql-data:/var/lib/mysql
+     environment:
+       MYSQL_ROOT_PASSWORD: secret
+       MYSQL_DATABASE: todos
+```
+
+---
+
+## ¿Dudas, Preguntas, Comentarios?
+
+![Preguntas](images/pregunta.gif)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"_":["slides"],"static":"public"}, queryOptions);
+    </script>
+
+    <script src="./_assets/slides/js/pruebas.js"></script>
+    <script src="./_assets/slides/js/init.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) {
+        mermaid.init(mermaidOptions, '.stack.present > .present pre code.mermaid');
+        mermaid.init(mermaidOptions, '.slides > .present:not(.stack) pre code.mermaid');
+      }
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
