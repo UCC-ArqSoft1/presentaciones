@@ -17,6 +17,17 @@ slideNumber: true
 
 ---
 
+### MVC - Modelo Vista Controlador
+
+Es un patrón de arquitectura de software que separa la implementación de una API en 3 capas:
+- Datos y lógica de negocio (frontend y backend).
+- Módulo encargado de gestionar los eventos y comunicaciones con servicios (frontend y backend).
+- Representación de los datos o vista (frontend).
+
+![mvc](images/mvc/mvc.png)
+
+---
+
 ### Estructura del Proyecto Final
 
 <!-- .slide: style="font-size: 0.85em" -->
@@ -25,22 +36,12 @@ slideNumber: true
 - BACKEND – (GO)
 - BDD (MYSQL)
 
-- Nos vamos a enfocar ahora en el BackEnd
-- Hasta ahora tenemos el archivo MAIN.GO, cuando tenemos que agregar los paquetes, en un principio GO propuso que todas las dependencias de un programa en GO estén en un mismo proyecto, con el tiempo GO agilizó todo con la manera actual, que son los módulos de GO.
-- Definimos los archivos GO.mod y GO.sum (hash del código).
-
 ---
 
 ## Patrones de diseño
 
 Los patrones de diseño son soluciones habituales a problemas que ocurren con frecuencia en el diseño de software. Son como
 planos prefabricados que se pueden personalizar para resolver un problema de diseño recurrente en tu código.
-
----
-
-## MVC
-
-![MVC](images/mvc/mvc.png)
 
 ---
 
