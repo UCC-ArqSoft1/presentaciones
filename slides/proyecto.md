@@ -15,16 +15,11 @@ slideNumber: true
 
 ---
 
-## Enunciado
+## [Enunciado](https://docs.google.com/document/d/1kshladtOu1VUWsoAw-S_mw03kIyq28Tyv56mvzKLQos/edit?tab=t.0#heading=h.pdp9wsykfu56)
 
-<!-- TODO: CAMBIAR ENUNCIADO -->
-
-Como práctico integrador se solicita la creación de un sistema de **gestión de cursos en línea (LMS)**, donde se destacan dos componentes a ser desarrollados.
-
-El **backend**, desarrollado en **Golang**, brindará todas las interfaces necesarias para dar solución al requerimiento.
-
-El **frontend**, desarrollado en **React**, representa la vista final del usuario y consumirá los servicios desarrollados en el backend.
-Para la construcción del sistema de gestión de cursos se solicitan los siguientes puntos.
+Como práctico integrador se solicita la creación de un sistema de **gestión de actividades deportivas** en un gimnasio, donde se destacan dos componentes a ser desarrollados:
+* **Backend**, desarrollado en Golang, que brindará todas las interfaces necesarias para dar solución al requerimiento.
+* **Frontend**, desarrollado en React, representa la vista final del usuario y consumirá los servicios desarrollados en el backend.
 
 El grupo será de **3** o **4** personas.
 
@@ -34,9 +29,9 @@ El grupo será de **3** o **4** personas.
 
 <!-- .slide: style="font-size: 0.90em" -->
 
-- **Autenticación de usuarios:** Implementar un sistema de login y gestión de permisos de usuarios. Deben existir 2 tipos de usuarios: alumno y administrador.
-- **Gestión de cursos:** Desarrollar endpoints que permitan la creación, edición, y eliminación de cursos por parte de los administradores.
-- **Gestión de usuarios inscritos:** Implementar un endpoint para listar los cursos a los que un usuario está inscrito.
+- **Autenticación de usuarios:** Implementar un sistema de login y gestión de permisos de usuarios. Deben existir 2 tipos de usuarios: socio y administrador.
+- **Gestión de actividades deportivas:** Desarrollar endpoints que permitan la creación, edición, y eliminación de actividades deportivas por parte de los administradores del gimnasio. (ej. deben poder agregar clases de musculación, pilates, yoga, funcional, spinning, taekwondo, gap, aerobox, mma, boxeo, etc).
+- **Gestión de usuario:** Implementar endpoints para listar las clases a las que un socio está inscripto.
 - **Seguridad:** Garantizar la seguridad de las transacciones (autorización por token firmado entre frontend y backend) y datos (hashing de contraseñas) del sistema.
 
 ---
@@ -45,11 +40,11 @@ El grupo será de **3** o **4** personas.
 
 <!-- .slide: style="font-size: 0.80em" -->
 
-- **Pantalla de inicio (Home):** Mostrar un listado de cursos disponibles para inscripción.
-- **Búsqueda de cursos:** Implementar un motor de búsqueda que permita a los usuarios encontrar cursos por palabras clave o categorías.
-- **Detalle del curso:** Mostrar información detallada sobre un curso seleccionado, incluyendo descripción, instructor, duración, y requisitos.
-- **Inscripción en curso:** Habilitar un botón de inscripción para que los usuarios puedan registrarse en los cursos de su interés.
-- **Mis cursos:** Mostrar un listado de los cursos a los que el usuario está inscrito, con la opción de acceder a los detalles de cada curso.
+- **Pantalla de inicio (Home):** Mostrar un listado de las actividades deportivas disponibles para inscripción.
+- **Búsqueda de actividades deportivas:** Implementar un motor de búsqueda que permita a los socios encontrar las actividades deportivas por palabras clave o por horario.
+- **Detalle de la actividad deportiva:** Mostrar información detallada sobre una actividad deportiva seleccionada, incluyendo descripción, foto, instructor, horario, duración, cupo, etc.
+- **Inscripción en actividad deportiva:** Habilitar un botón de inscripción para que el socio pueda registrarse en una clase de la actividad de su interés.
+- **Mis actividades deportivas:** Mostrar un listado de las actividades deportivas a los que el usuario está inscrito, con la opción de acceder a los detalles de cada actividad.
 
 ---
 
@@ -69,17 +64,17 @@ El grupo será de **3** o **4** personas.
 
 - [ ] Formulario de Login y botón para hacer Logout
 - [ ] Página de bienvenida se muestra correctamente
-- [ ] Se pueden buscar cursos correctamente
+- [ ] Se pueden buscar actividades deportivas correctamente
 - [ ] Muestra correctamente resultados de búsqueda / No hay resultados
-- [ ] Se puede inscribir correctamente a un curso
-- [ ] Se muestra error si no se puede inscribir a un curso (Por ej. ya inscripto)
-- [ ] Muestra el listado de cursos a los que se encuentra inscripto un usuario
-- [ ] Formulario para dejar un comentario y puntuación sobre el curso
-- [ ] Formulario para crear curso sólo visible usuario administrador
-- [ ] Formulario para editar curso sólo visible usuario administrador
-- [ ] Permite al administrador subir un archivo relacionado con el curso
-- [ ] Opción para eliminar un curso sólo visible usuario administrador
-- [ ] Los errores al crear/editar/eliminar curso se muestran correctamente
+- [ ] Se puede inscribir correctamente a una actividad deportiva
+- [ ] Se muestra error si no se puede inscribir a una actividad deportiva (Por ejemplo si ya inscripto, o si se acabó el cupo)
+- [ ] Muestra el listado de actividades deportivas a los que se encuentra inscripto un usuario
+- [ ] Formulario para dejar un comentario y puntuación sobre la actividad deportiva
+- [ ] Formulario para crear una actividad deportiva sólo visible usuario administrador
+- [ ] Formulario para editar una actividad deportiva sólo visible usuario administrador
+- [ ] Permite al administrador subir un archivo relacionado con la actividade deportiva
+- [ ] Opción para eliminar una actividad deportiva sólo visible usuario administrador
+- [ ] Los errores al crear/editar/eliminar actividad deportiva se muestran correctamente
 
 ---
 
@@ -90,11 +85,11 @@ El grupo será de **3** o **4** personas.
 - [ ] Login recibe las credenciales y genera un token de acceso
 - [ ] Implementa correctamente el registro de un usuario nuevo
 - [ ] Manejo de errores (401 Login inválido, 404 curso no encontrado, 400/409 ya inscripto, etc.)
-- [ ] Implementa correctamente la búsqueda de cursos
+- [ ] Implementa correctamente la búsqueda de actividades deportivas
 - [ ] Implementa correctamente la generación de la inscripción
-- [ ] Implementa correctamente la obtención de cursos a los que está inscripto un user ID
+- [ ] Implementa correctamente la obtención de actividades deportivas a los que está inscripto un user ID
 - [ ] Implementa correctamente agregar un comentario y puntuación al curso (y retorna esta información en el GET)
-- [ ] Implementa correctamente el agregado de un archivo relacionado a un curso
+- [ ] Implementa correctamente el agregado de un archivo relacionado a una actividad deportiva
 - [ ] Implementa estructura MVC y respeta las responsabilidades de modelo, vista y controlador.
 - [ ] Implementa correctamente la separación entre los objetos del modelos (DAOs) y los DTOs
 - [ ] Implementa correctamente el manejo de errores (no ignora los errores) y códigos de estado
