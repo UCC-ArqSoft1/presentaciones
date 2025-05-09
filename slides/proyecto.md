@@ -124,6 +124,27 @@ El grupo será de **3** o **4** personas.
 
 ---
 
+![Estructura del Proyecto](images/proyecto/estructura-carpetas.png)
+
+---
+
+La estructura del proyecto está dividida en dos grandes partes: **backend** y **frontend**. 
+El cliente (frontend) y el servidor (backend) están desacoplados, lo que mejora la mantenibilidad y escalabilidad del proyecto.
+
+---
+
+## Backend
+
+- **clients:** Estan definidos los clientes que consumen servicios externos, como APIs de terceros, bases de datos no relacionales, servicios de autenticación, etc.
+- **controllers:** Contiene los controladores HTTP que reciben las peticiones del cliente, llaman a los servicios correspondientes y devuelven respuestas. Es el punto de entrada del backend a cada funcionalidad.
+- **dao (Data Access Object):** Maneja el acceso a la base de datos. Se encarga de hacer queries y mapear datos entre el modelo del dominio y las tablas o documentos en la base de datos.
+- **domain:** Define las entidades del negocio (modelos) y sus reglas. Esta capa representa el núcleo del dominio del sistema.
+- **services:** Contiene la lógica de negocio. Los servicios implementan las operaciones definidas por el dominio y son llamados desde los controladores.
+- **utils:** Funciones utilitarias o helpers que son reutilizables y no pertenecen específicamente a ninguna capa.
+- **main.go** Punto de entrada de la aplicación Go. Se configura el servidor HTTP, se inicializan los routers, se cargan los servicios, etc.
+
+---
+
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)
