@@ -135,6 +135,8 @@ El cliente (frontend) y el servidor (backend) están desacoplados, lo que mejora
 
 ## Backend
 
+<!-- .slide: style="font-size: 0.65em" -->
+
 - **clients:** Estan definidos los clientes que consumen servicios externos, como APIs de terceros, bases de datos no relacionales, servicios de autenticación, etc.
 - **controllers:** Contiene los controladores HTTP que reciben las peticiones del cliente, llaman a los servicios correspondientes y devuelven respuestas. Es el punto de entrada del backend a cada funcionalidad.
 - **dao (Data Access Object):** Maneja el acceso a la base de datos. Se encarga de hacer queries y mapear datos entre el modelo del dominio y las tablas o documentos en la base de datos.
