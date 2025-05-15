@@ -112,88 +112,22 @@ Usando SHA-256, la palabra "hola" genera este hash:
 
 ---
 
+<iframe src="https://drive.google.com/file/d/1yhEk1xHjMsnR7triga-2H_kPFzxtjdF4/preview" width="640" height="480" allow="autoplay"></iframe>
+
+---
+
 ### Interfaces
 
 Las interfaces permiten definir un conjunto de métodos que deben ser implementados por otros tipos de datos.
 
 Un interface en Go define un contrato que especifica qué métodos deben ser implementados por otros tipos de datos.
 
----
-
-### Interfaces: Ejemplo
-
-**animal.go**
-```
-package animal
-
-import (
-	"fmt"
-)
-
-type Animal interface {
-	Sonido()
-}
-
-// Estructura de perro y sus métodos
-type Perro struct {
-	Nombre string
-}
-
-func (p *Perro) Sonido(){
-		fmt.Println(p.Nombre + " hace guau guau")
-}
-
-// Estructura de gato y sus métodos
-type Gato struct {
-	Nombre string
-}
-
-func (g *Gato) Sonido(){
-		fmt.Println(g.Nombre + " hace miau miau")
-}
-
-// Función para imprimir sonido
-func HacerSonido(animal Animal){
-	animal.Sonido()
-}
-```
-
----
-
-### Interfaces: Ejemplo
-**main.go**
-```
-package main
-
-import (
-	"animals-char/animal"
-)
-
-func main() {
-	miPerro := animal.Perro{Nombre: "Laica"}
-	miGato := animal.Gato{Nombre: "Tom"}
-
-	//permite flexibilidad y reutilizacion de código
-	animal.HacerSonido(&miPerro)
-	animal.HacerSonido(&miGato)
-
-	animales := []animal.Animal {
-		&animal.Perro{Nombre: "Pluto"},
-		&animal.Gato{Nombre: "Garfield"},
-		&animal.Perro{Nombre: "Buddy"},
-		&animal.Gato{Nombre: "Luna"},
-	}
-
-	for _, animal := range animales {
-		animal.Sonido()
-	}
-}
-```
+[Ejemplo de uso](https://gobyexample.com/interfaces)
 
 ---
 
 Este ejemplo ilustra como las interfaces en Go nos permiten trabajar con diferentes tipos de datos
-de manera uniforma, lo que facilita la escritura del código genérico y reutilizable.
+de manera uniforme, lo que facilita la escritura del código genérico y reutilizable.
 
 Con un interface podes enviar varios tipos de datos sin preocuparnos por su implementación interna.
 
@@ -217,7 +151,7 @@ La utilización de interfaces es muy útil para aplicar patrones de diseño como
 ```go
 type Redis struct {
     Client redis.Client
-}
+} 
 
 func (redis Redis) GetHotelByID(hotelID int64) (domain.Hotel, error) {
 	return redis.Client.Get(key)
