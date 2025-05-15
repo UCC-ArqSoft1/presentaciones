@@ -20,7 +20,23 @@
           <textarea data-template>
             
 
-# Frontend - Node + React
+<style>
+h1 {
+  background-color: rgba(255,255,255,.7);
+}
+
+.small{
+	font-size: 0.5em
+}
+</style>
+
+<section data-background-image="images/react/react-logo-banner.jpg">
+
+<br><br><br><br><br><br>
+
+<h1>Frontend - Node + React</h1>
+
+</section>
 
 ---
 
@@ -34,8 +50,10 @@
 
 ### Node.js 
 
-Es un entorno de ejecución de JavaScript que permite correr código JS fuera del navegador (por ejemplo, en la terminal o en un servidor).
+Es un entorno de ejecución de JavaScript que permite ejecutar código JS fuera del navegador (por ejemplo, en la terminal o en un servidor).
 Lo usamos porque muchas herramientas modernas de desarrollo frontend están escritas en JavaScript y necesitan un entorno para ejecutarse.
+
+Si necesitas tener varias versiones de node.js en tu computadora investiga sobre: [nvm](https://github.com/coreybutler/nvm-windows) 
 
 ---
 
@@ -66,6 +84,8 @@ Es una librería de JavaScript para construir interfaces de usuario.
 Fue creada por Facebook.
 
 Su gran ventaja es que permite crear componentes reutilizables.
+
+[https://react.dev/](https://react.dev/)
 
 ---
 
@@ -100,152 +120,55 @@ npm create-react-app@latest frontend
 ```
 2. Ir al directorio del proyecto `cd frontend`
 3. Ejecutar el proyecto con `npm start`
+4. Ingresar a localhost:3000
 
 ---
 
-### CORS
+### Vite
 
-CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad que implementan los navegadores para controlar qué recursos pueden ser accedidos desde otro origen.
-Por ejemplo: El frontend en localhost:3000 intenta hacer una petición fetch() a un backend en localhost:8080. Aunque parezca el mismo host, el puerto cambia, entonces el navegador lo considera un "origen cruzado" y bloquea la petición a menos que el backend diga que lo permite.
+Es una herramienta de desarrollo de Frontend que busca proporcionar una experiencia de desarrollo más rápida y eficiente para proyectos web modernos. 
 
----
+Su objetivo principal es acelerar el proceso de construcción y compilación de aplicaciones web, ofreciendo tiempos de arranque, compilación y recarga muy breves.
 
-### Configurar CORS en GO
-
-Cuando se agrega esto en el handler o middleware:
-- c.Header("Access-Control-Allow-Origin", "*")
-- c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-- c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-
-Estás diciéndole al navegador:
-- **Allow-Origin:** "Cualquier frontend puede acceder a mi backend" (ideal para desarrollo).
-- **Allow-Methods:** "Permití estos métodos HTTP".
-- **Allow-Headers:** "Permití que vengan estos headers" (como Content-Type, Authorization, etc)
+[https://es.vite.dev/guide/](https://es.vite.dev/guide/)
 
 ---
 
-### Documentación de una API
+### Vite
 
-Las **APIS** tienen disponible documentos donde se especifica cómo interactuar con ellas para enviar y recibir datos.
-
----
-
-### Documentación de una API
-
-<!-- .slide: style="font-size: 0.80em" -->
-
-Para consumir una API necesitamos conocer:
-
-- El método **HTTP** (GET, POST, PUT, DELETE, etc.)
-- Las URL, que están conformadas por:
-  - **Base URL:** Es la ruta básica a partir de la cual se forman todos los endpoints disponibles para consumir. Por ej. [http://api.mercadolibre.com/](http://api.mercadolibre.com/)
-  - **Endpoint:** Es el path dentro de la API para acceder al recurso solicitado. Por ej. [/sites/MLA/categories]()
-  - **Parámetros:** Son un conjunto de valores que se envían en la misma dirección. Se especifican mediante nombre=valor y se separan mediante el caracter &.
-- El cuerpo del mensaje, llamado **body**.
-- Las cabeceras del mensaje, llamados **headers**.
-
----
-
-## Paquete HTTP
-
-El paquete HTTP nos permite realizar peticiones y procesar los datos correspondientes a una solicitud HTTP, además de contar con variables, constantes y funciones útiles en este procesamiento. Para utilizarlo, debemos:
-
-Importar el paquete HTTP:
-
-```go
-import "net/http"
+1. Ejecutar el siguiente comando para inicializar el proyecto:
 ```
-
----
-
-## Paquete HTTP
-
-<!-- .slide: style="font-size: 0.80em" -->
-
-Invocar a la función correspondiente mediante http. Métodos básicos:
-
-- **GET**
-
-```go
-resp := http.Get(url)
+npm create vite@latest
 ```
-
-- **POST**
-
-```go
-resp := http.Get(url, body)
-```
-
-Luego, debemos leer los bytes de esta respuesta mediante:
-
-```go
-data, err := ioutil.ReadAll(resp.Body)
-```
+2. Colocar un nombre al proyecto
+3. Seleccionar el framework: React
+4. Seleccionar el lenguaje: JavaScript
+5. Ingresar a la carpeta creada `cd nombre-proyecto`
+6. Ejecutar `npm install`
+7. Ejecutar `npm run dev`
+8. Ingresar a localhost:5173
 
 ---
 
-## Paquete HTTP
+### Instalación de React Usando Vite
 
-Una vez obtenidos los bytes, debemos crear una variable del tipo de dato que estamos esperando recibir.
-
-```go
-var myVar myStruct
-```
-
-Ahora debemos asociar toda la información contenida en el cuerpo de mensaje con nuestra estructura. Para esto, debemos tener en cuenta las anotaciones especificadas a la derecha de cada uno de los atributos de nuestra estructura e invocar un método del paquete encoding/json.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7SjTALRxnjA?si=LnK2mq4n9fEUPqFa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
-## Paquete ENCODING/JSON
+### React 1: Crear un Login Básico
 
-El paquete ENCODING/JSON nos disponibiliza un gran número de funciones y útiles para trabajar con datos en formato json.
-Para consumir una API, debemos desplegar, o asociar los datos obtenidos en una variable del tipo deseado. Para esto se utiliza la función **unmarshal** de la siguiente manera:
+1. Crear un archivo **Login.jsx** similar al siguiente:
 
-```go
-err := json.Unmarshal(bytes, &myVar)
-```
+![Login](images/react/ejemplo-login.png)
 
----
-
-## Paquete ENCODING/JSON
-
-Donde bytes, es el conjunto de bytes que leímos de la response y &myVar es la dirección de memoria del objeto creado anteriormente que se rellenará con los datos mediante las notations.
-
-Si en este punto no obtenemos ningún error, entonces ya podríamos acceder a los valores de los atributos de nuestra variable tal como nos llegaron en el cuerpo de la respuesta a nuestra solicitud.
+2. Al presionar **Ingresar**, si el usuario y password es 'admin', mostrar por consola "Login OK", sino "Login Incorrecto".
 
 ---
 
-## Arquitectura web
+### React 1: Crear un Login Básico
 
-![Arquitectura Web](images/react/arquitetcura.png)
-
----
-
-## Frontend
-
-- Descargar e instalar NodeJS desde https://nodejs.org/en/download
-- Ir a la carpeta de la materia _/frontend_
-- Ejecutar
-
-```bash
-npx create-react-app client
-```
-
----
-
-## Conectar frontend con backend
-
-- Completar la vista del ítem
-- Crear la carpeta frontend/server
-  - Package.JSON
-  - Server.JS
-- Implementar la llamada a localhost:5001 en **useEffect** del componente
-
----
-
-## Conexión frontend con backend
-
-![Conexion Front-Back](images/react/conexion-front-back.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CgZpHKvEaGg?si=0XKvTBIcz3UPBAxc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
