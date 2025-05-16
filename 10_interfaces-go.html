@@ -124,6 +124,45 @@ Usando SHA-256, la palabra "hola" genera este hash:
 
 ---
 
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Concepto</th>
+      <th>SHA-256</th>
+      <th>JWT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tipo</td>
+      <td>Función hash</td>
+      <td>Formato de token (JSON codificado)</td>
+    </tr>
+    <tr>
+      <td>Propósito</td>
+      <td>Hash/integridad de datos</td>
+      <td>Transmisión de datos seguros</td>
+    </tr>
+    <tr>
+      <td>Reversible</td>
+      <td>No</td>
+      <td>No (pero se puede decodificar payload)</td>
+    </tr>
+    <tr>
+      <td>Uso típico</td>
+      <td>Hashear contraseñas, firmas</td>
+      <td>Autenticación y autorización</td>
+    </tr>
+    <tr>
+      <td>Firma</td>
+      <td>Puede usarse para firmar JWT</td>
+      <td>Puede estar firmado con SHA-256</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 ![Login Process](images/go/login.png)
 
 ---
