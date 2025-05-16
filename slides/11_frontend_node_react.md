@@ -156,6 +156,47 @@ npm create vite@latest
 
 ---
 
+### Redirección de Rutas
+
+1. Ejecutar `npm install react-router-dom`
+2. Leer la documentación [routing](https://reactrouter.com/start/declarative/routing)
+
+---
+
+### React 2: Redirección de Rutas
+
+1. Ejecutar `npm install react-router-dom`
+2. Si el login es exitoso redireccionar a "/actividades"
+3. Use la siguiente información para crear una pantalla donde se pueda mostrar adecuadamente
+
+```javaScript
+const activities = [
+  {
+    nombre: "taekwondo",
+    descripcion: "Arte marcial coreana",
+    horarios: [
+      { dia: 2, "hora-inicio": "18:30", "hora-fin": "20:00" },
+      { dia: 4, "hora-inicio": "18:30", "hora-fin": "20:00" }
+    ]
+  },
+  {
+    nombre: "zumba",
+    descripcion: "ritmos latinos",
+    horarios: [
+      { dia: 1, "hora-inicio": "19:30", "hora-fin": "20:30" },
+      { dia: 3, "hora-inicio": "19:30", "hora-fin": "20:30" }
+    ]
+  }
+];
+
+const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+
+
+```
+
+---
+
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)

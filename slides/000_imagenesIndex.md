@@ -12,6 +12,7 @@ slideNumber: true
 ![u4](images/indice/u4_icono.png)
 ![u5](images/indice/u5_icono.png)
 ![u6](images/indice/u6_icono.png)
+![u7](images/indice//u_icono.png)
 ![proyecto](images/indice/proyecto.png)
 ![caratula go](images/go/background.jpeg)
 ![caratula go](images/mySQL/background.png)
