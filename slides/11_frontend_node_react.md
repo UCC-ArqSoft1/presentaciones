@@ -156,10 +156,38 @@ npm create vite@latest
 
 ---
 
-### Redirección de Rutas
+### Enrutamiento o Routing
 
-1. Ejecutar `npm install react-router-dom`
-2. Leer la documentación [routing](https://reactrouter.com/start/declarative/routing)
+Es el proceso de definir cómo una aplicación web maneja diferentes URL o rutas que el usuario puede visitar
+
+Cuando el usuario hace clic en un enlace o escribe directamente la URL en la barra de direcciones, React Router actualiza la interfaz sin recargar toda la página, esto se logra manipulando el historial del navegador y utilizando componentes de React para cambiar el contenido dinámicamente, todo del lado del cliente.
+
+---
+
+### Enrutamiento o Routing
+
+Para poder utilizar el enrutamiento es necesario instalar la dependencia:
+
+```
+npm install react-router-dom
+```
+
+Te recomendamos leer la documentación [routing](https://reactrouter.com/start/declarative/routing)
+
+---
+
+### Ventajas de usar React Router
+
+<!-- .slide: style="font-size: 0.70em" -->
+
+- La navegación se vuelve fluida y sin interrupciones, y se maneja del lado del cliente.
+- Permite navegar sin recargar toda la página, actualizando solo la parte necesaria del contenido, haciendo la navegación más rápida.
+- Permite definir rutas específicas dentro de la aplicación como /home, /about , etc. También define rutas dinámicas que pueden contener parámetros variables como /products/:id donde el id es un identificador.
+- Accede a los parámetros de ruta, lo cual es útil al momento de tener filtros, búsquedas o detalles de productos.
+- Protege ciertas rutas con la finalidad de que solo los usuarios autenticados puedan acceder a ellas, permitiendo un mayor control sobre qué se muestra en cada ruta.
+- Se puede crear rutas anidadas o subrutas, permitiendo una estructura más compleja y jerárquica.
+- Soporta redirecciones automáticas y las rutas no encontradas (404).
+- Es compatible con SEO (motores de búsqueda).
 
 ---
 
@@ -194,6 +222,69 @@ const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viern
 
 
 ```
+
+---
+
+### React 2: Redirección de Rutas (parte 1)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j46p0NoWjZY?si=jpK0yCt8NHRbmC0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+### React 2: Redirección de Rutas (parte 2)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TE-QTgIujU4?si=-uZlDTV6VjjIuU2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+### Outlet
+
+Permite que el contenido de cada ruta se inyecte dinámicamente en el diseño.
+
+```jsx
+// Layout.js
+import { Outlet } from 'react-router-dom';
+
+const Layout = () => {
+  return (
+    <div>
+      <header>My App Header</header>
+      <nav>Navigation Bar</nav>
+      <main>
+        <Outlet /> {/* Content specific to the route will be rendered here */}
+      </main>
+      <footer>My App Footer</footer>
+    </div>
+  );
+};
+
+export default Layout;
+
+```
+
+---
+
+### Outlet: Enrutamiento Ejemplo
+
+```jsx
+// App.js
+<Routes>
+  <Route path="/" element={<Layout />}>
+    <Route path="blog" element={<BlogLayout />}>
+      <Route index element={<BlogList />} />
+      <Route path=":postId" element={<BlogPost />} />
+    </Route>
+  </Route>
+</Routes>
+```
+
+---
+
+### React 3: Outlet
+
+1. Crear un componente de **Header**
+2. Crear un componente de **Footer**
+3. Crear un **layout** que renderice Header, Main, Footer, y el contenido de main puede varias acorde se selecicone /login o /actividades.
 
 ---
 
