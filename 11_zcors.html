@@ -20,7 +20,7 @@
           <textarea data-template>
             
 
-# Frontend - Node + React
+# CORS
 
 <style>
 h1 {
@@ -42,11 +42,13 @@ h1 {
 ### CORS
 
 CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad que implementan los navegadores para controlar qué recursos pueden ser accedidos desde otro origen.
-Por ejemplo: El frontend en localhost:3000 intenta hacer una petición fetch() a un backend en localhost:8080. Aunque parezca el mismo host, el puerto cambia, entonces el navegador lo considera un "origen cruzado" y bloquea la petición a menos que el backend diga que lo permite.
+Por ejemplo: El frontend en **localhost:3000** o **localhost:5173**  intenta hacer una petición **fetch()** a un backend en **localhost:8080**. Aunque parezca el mismo host, el puerto cambia, entonces el navegador lo considera un "origen cruzado" y bloquea la petición a menos que el backend diga que lo permite.
 
 ---
 
 ### Configurar CORS en GO
+
+<!-- .slide: style="font-size: 0.80em" -->
 
 Cuando se agrega esto en el handler o middleware:
 - c.Header("Access-Control-Allow-Origin", "*")
@@ -57,6 +59,44 @@ Estás diciéndole al navegador:
 - **Allow-Origin:** "Cualquier frontend puede acceder a mi backend" (ideal para desarrollo).
 - **Allow-Methods:** "Permití estos métodos HTTP".
 - **Allow-Headers:** "Permití que vengan estos headers" (como Content-Type, Authorization, etc)
+
+---
+
+### Cors
+
+<!-- .slide: style="font-size: 0.90em" -->
+
+Para configurar **CORS** de una manera más robusta, segura y correcta se recomienda [https://github.com/gin-contrib/cors](https://github.com/gin-contrib/cors)
+
+1. Ejecuta:
+```bash
+go get github.com/gin-contrib/cors
+```
+2. Antes de las rutas:
+```go
+router.Use(cors.New(cors.Config{
+  AllowOrigins:     []string{"http://localhost:5173"}, // o 3000
+  AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+  AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+  ExposeHeaders:    []string{"Content-Length"},
+  AllowCredentials: true,
+  MaxAge:           12 * time.Hour,
+}))
+```
+
+---
+
+### Ejercicio 5: Go CORS & React
+
+1. Crea un componente para visualizar el listado de vinilos
+2. Emplea un **fetch** para traer los datos que obtendrias con el **GET**
+2. Configura CORS para que los vinilos puedan visualizarse
+
+---
+
+### Ejercicio 5: Go CORS & React
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cqt28QG9-PE?si=ELgKoqUI4WLWz8E6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -154,18 +194,6 @@ Si en este punto no obtenemos ningún error, entonces ya podríamos acceder a lo
 ## Arquitectura web
 
 ![Arquitectura Web](images/react/arquitetcura.png)
-
----
-
-## Frontend
-
-- Descargar e instalar NodeJS desde https://nodejs.org/en/download
-- Ir a la carpeta de la materia _/frontend_
-- Ejecutar
-
-```bash
-npx create-react-app client
-```
 
 ---
 
