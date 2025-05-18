@@ -108,6 +108,10 @@ drop table contact;
 
 ### MySQL: Comandos básicos de Consulta
 
+- Consulta para ver la estructura de la tabla:
+```bash
+describe nombre-tabla;
+```
 - Consulta básica para ver registros:
 ```bash
 select * from contact;

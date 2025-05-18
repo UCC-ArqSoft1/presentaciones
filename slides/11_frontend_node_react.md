@@ -282,9 +282,17 @@ export default Layout;
 
 ### React 3: Outlet
 
-1. Crear un componente de **Header**
+1. Crear un componente de **Header**, donde haya un menú de navegación con: Home, Login, Actividades
 2. Crear un componente de **Footer**
-3. Crear un **layout** que renderice Header, Main, Footer, y el contenido de main puede varias acorde se selecicone /login o /actividades.
+3. Crear un **layout** que renderice Header, Main, Footer. El contenido de main puede variar acorde se selecicone /login o /actividades o /Home.
+4. En la página de actividades, mostrar el botón de inscripción solo si el usuario está logueado.
+5. Si el usuario está logueado, mostrar en **Header** el botón de **Logout**.
+
+---
+
+### React 3: Outlet
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YvN3uB1zR7g?si=IUkh6BYRZx-ulCML" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
