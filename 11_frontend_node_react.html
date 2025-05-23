@@ -156,6 +156,37 @@ npm create vite@latest
 
 ---
 
+### [Hooks](https://es.react.dev/reference/react/hooks)
+
+Son funciones especiales que te permiten usar características de React (como estado, ciclo de vida, contexto, etc.) en componentes funcionales, sin necesidad de usar clases.
+
+Los más comunes son:
+* useState
+* useEffect
+* useContext
+* useNavigate
+
+---
+
+### Hooks: useState
+Permite guardar y actualizar estado local en un componente.
+
+```react
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // estado inicial = 0
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicks: {count}
+    </button>
+  );
+}
+```
+
+---
+
 ### React 1: Crear un Login Básico
 
 1. Crear un archivo **Login.jsx** similar al siguiente:
@@ -255,7 +286,21 @@ const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viern
 
 ### Outlet
 
-Permite que el contenido de cada ruta se inyecte dinámicamente en el diseño.
+Permitiendo que los componentes de una ruta principal rendericen los componentes de sus rutas hijas. 
+Esto facilita la creación de estructuras de navegación complejas en aplicaciones React, donde una ruta principal puede compartir un diseño común y luego renderizar contenido diferente según la ruta secundaria activa. 
+
+---
+
+### Outlet
+
+![Outlet](images/react/outlet.webp)
+
+
+---
+
+### Outlet: Ejemplo
+
+Este componente es una plantilla común para varias páginas. Contiene partes que son compartidas, como el header, el nav y el footer.
 
 ```jsx
 // Layout.js
@@ -282,14 +327,19 @@ export default Layout;
 
 ### Outlet: Enrutamiento Ejemplo
 
+- path='/' → usa el componente Layout como base.
+- `<Outlet />` en Layout decidirá qué mostrar según la ruta hija.
+- index → muestra Home en la raíz (/).
+- path='about' → muestra About en /about.
+- path='contact' → muestra Contact en /contact.
+
 ```jsx
 // App.js
 <Routes>
   <Route path="/" element={<Layout />}>
-    <Route path="blog" element={<BlogLayout />}>
-      <Route index element={<BlogList />} />
-      <Route path=":postId" element={<BlogPost />} />
-    </Route>
+    <Route index element={<Home />} />
+    <Route path="about" element={<About />} />
+    <Route path="contact" element={<Contact />} />
   </Route>
 </Routes>
 ```
@@ -309,6 +359,84 @@ export default Layout;
 ### React 3: Outlet
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YvN3uB1zR7g?si=IUkh6BYRZx-ulCML" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+
+### Hooks: useEffect
+Ejecuta efectos secundarios (como fetch de datos, suscripciones, etc.).
+
+```react
+import React, { useEffect, useState } from 'react';
+
+const PostList = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        if (!response.ok) throw new Error("Error al obtener los datos");
+        return response.json();
+      })
+      .then(data => {
+        setPosts(data);
+      })
+      .catch(error => {
+        console.error("Hubo un error:", error);
+      });
+  }, []); // Los corchetes indican que solo se ejecuta al montar el componente
+
+  return (
+    <div>
+      <h2>Lista de Posts</h2>
+      <ul>
+        {posts.slice(0, 10).map(post => (
+          <li key={post.id}>
+            <strong>{post.title}</strong>
+            <p>{post.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostList;
+
+```
+
+
+---
+
+### Fetch
+
+fetch() es una función nativa de JavaScript que se usa para hacer peticiones HTTP (como GET, POST, etc.) a servidores o APIs. Es muy común usarlo para obtener datos desde un backend o un servicio web.
+
+Por ejemplo:
+
+```js
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+---
+
+### React 4: Fetch & CORS
+
+1. Crea un componente que renderice los vinilos (del ejercicio de Go). Cada vinilo debe mostrarse como una tarjeta con datos del:
+- Título del álbum
+- Artista
+- Año
+- Precio
+(Prueba que la aplicación renderice los datos. ¿Falla? ¿Qué error se muestra?
+2. Configure CORS (Cross-Origin Resource Sharing) en el mismo archivo de Go donde se definen las rutas del servidor.
+
+---
+
+### React 5: Fetch (POST)
+
+1. Crea un componente de react que posea 4 inputs para que el usuario pueda ingresar un nuevo álbum.
 
 ---
 
