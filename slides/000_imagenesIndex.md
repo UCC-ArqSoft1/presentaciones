@@ -17,3 +17,4 @@ slideNumber: true
 ![caratula go](images/go/background.jpeg)
 ![caratula go](images/mySQL/background.png)
 ![caratula react](images/react/react-logo-banner.jpg)
+![caratura docker](images/docker/background.avif)
