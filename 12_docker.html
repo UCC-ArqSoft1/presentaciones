@@ -148,6 +148,12 @@ docker run hello-world
 
 ---
 
+#### Docker 2: Ejecución de una imagen de DockerHub
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Dnom8K3lytE?si=N1Z1_hNzJcZoXRPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 ### Dockerfile
 
 Es un archivo de texto que contiene las instrucciones necesarias para construir una imagen de Docker. 
@@ -172,6 +178,12 @@ CMD echo "Hello Go!"
 
 ---
 
+### Docker 3: Dockerfile
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l7UOdHWaI3g?si=BTxigQ-UqVR4oES5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 ### Dockerfile: Instrucciones
 
 <!-- .slide: style="font-size: 0.80em" -->
@@ -191,7 +203,16 @@ CMD echo "Hello Go!"
 <!-- .slide: style="font-size: 0.60em" -->
 
 1. Crear un archivo **Dockerfile** en la carpeta raiz del ejercicio 7 de vinilos (version SIN BD)
-2. En el archivo escribe:
+2. En el archivo escribir los comandos para:
+  - utilizar una imagen de golang
+  - establecer el directorio de trabajo
+  - copiar el contenido del ejercicio7 a la carpeta
+  - descargar las dependencias
+  - compilar la aplicación
+  - exponer el puerto del contenedor para comunicarse con el exterior
+  - ejecutar la aplicación compilada
+
+<!--
 ```bash
 FROM golang:1.24
 
@@ -206,12 +227,19 @@ EXPOSE 8080
 
 CMD ["./server"]
 ```
-3. Modifica el código de golang para que en lugar de decir `router.Run("localhost:8080")` diga `router.Run(":8080")`
+-->
+3. Modifica el código de golang para que pueda utilizar el puerto del contenedor
 4. Generar la imagen del contenedor ejecutando `docker build . -t vinilback:1`
 5. Verifica en el **Docker Desktop** la sección de **Images**
 6. Ejecutar el contenedor con `docker run --name vinilback-cont -p 8080:8080 vinilback:1`
 7. Verifica en el **Docker Desktop** la sección de **Containers**
 8. Prueba empleando Postman que puedes acceder a los datos del servicio
+
+---
+
+### Docker 4: Dockerfile para backend
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QYKDwtv6fVg?si=K52iTAOrZHOmDzeq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -227,8 +255,9 @@ Utilizando un archivo YAML para configurar la aplicación, las dependencias y lo
 
 <!-- .slide: style="font-size: 0.60em" -->
 
-1. Crear un archivo **Dockerfile** en la carpeta raiz del ejercicio 7 de vinilos (version CON BD)
-2. En el archivo escribe:
+1. Reutilizaremos el archivo **Dockerfile** llevando una copia a la carpeta del ejercicio 7 de vinilos (version CON BD)
+2. Modifica el código de golang para que pueda utilizar el puerto del contenedor y no solo localhost
+<!--
 ```bash
 FROM golang:1.24
 
@@ -243,14 +272,22 @@ EXPOSE 8080
 
 CMD ["./server"]
 ```
-3. Modifica el código de golang para que en lugar de decir `router.Run("localhost:8080")` diga `router.Run(":8080")`
+-->
+
 
 ---
 
 ### Docker 5: Dockerfiles + Docker Compose
 
-4. Vamos a la carpeta **ej-react/frontend**
-5. Creamos un archivo **Dockerfile** y escribimos:
+3. Vamos a la carpeta **ej-react/frontend**
+4. Creamos un archivo **Dockerfile** y escribimos los comandos para:
+  - utilizar una imagen de node
+  - establecer el directorio de trabajo
+  - copiar el contenido de frontend a la carpeta
+  - descargar las dependencias
+  - exponer el puerto del contenedor para comunicarse con el exterior
+  - ejecutar vite
+<!--
 ```bash
 FROM node:22
 
@@ -264,13 +301,18 @@ EXPOSE 5173
 
 CMD ["npm", "run", "dev", "--", "--host"]
 ```
+-->
 
 ---
 
 ### Docker 5: Crear docker-compose.yml
 
-7. Crear un archivo **docker-compose.yml** en la carpeta raíz del proyecto.
-8. Escribir en el archivo:
+5. Crear un archivo **docker-compose.yml** en la carpeta raíz del proyecto.
+6. Escribir en el archivo:
+  - los contenedores que se van a ejecutar: backend, frontend, base de datos
+  - establecer que imágenes se van a contruir
+  - que puertos se van a exponer (host:contenedor)
+<!--
 ```bash
 services:
   backend:
@@ -306,6 +348,13 @@ services:
 volumes:
   db-data:
 ```
+-->
+
+---
+
+### Docker 5: Crear docker-compose.yml
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YiI5_4F5RTE?si=kKrZp_OmyCZvW3Mf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -313,7 +362,7 @@ volumes:
 
 <!-- .slide: style="font-size: 0.70em" -->
 
-9. Si intentamos ejecutar, fallará, porque no se le brinda suficiente tiempo a la BD para que se instale. Por eso agregaremos una función en go:
+7. Si intentamos ejecutar, fallará, porque no se le brinda suficiente tiempo a la BD para que se instale. Por eso agregaremos una función en go:
 ```go
 func waitForDB(dsn string) (*gorm.DB, error) {
 	var db *gorm.DB
@@ -347,12 +396,22 @@ db, err := waitForDB(dsn)
 
 ### Docker 5: Crear docker-compose.yml
 
-10. Ejecutar en la terminal: 
+8. Ejecutar en la terminal: 
 ```bash
 docker-compose up --build
 ```
-11. Ingresa a `http://localhost:5173/` para verificar que Vite responde correctamente.`
-12. Con postman asegurarse de que los servicios de GO responden
+9. Ingresa a `http://localhost:5173/` para verificar que Vite responde correctamente.`
+10. Con postman asegurarse de que los servicios de GO responden
+
+---
+
+### Docker 5: Crear docker-compose.yml
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1qRH3azHDYM?si=JLCUE-iGEsSnenw-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+![Docker Desktop](images/docker/docker-desktop.png)
 
 ---
 
