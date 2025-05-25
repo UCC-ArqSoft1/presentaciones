@@ -346,6 +346,89 @@ export default Layout;
 
 ---
 
+### Estructura del Proyecto
+
+En los proyectos de react se recomienda emplear la siguiente estructura:
+- **components:** Componentes reutilizables, como el Header, Footer o e Layout.
+- **pages:** Vistas o páginas principales.
+- **styles:** Archivos css.
+
+---
+
+### Ejercicio Estructura del Proyecto
+
+1. Dentro de la carpeta **src** cree 3 subcarpetas:
+  - components
+  - pages
+  - assets
+2. Re-organice los archivos en las carpetas correspondientes
+3. Modifique los imports y verifique que la página funciona correctamente.
+4. Modifique **vite.config.js** para mejorar los imports usando **alias**
+
+---
+
+### React: Imágenes
+
+Las imágenes pueden colocarse en:
+- **src/assets**
+- **public**
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Opción</th>
+      <th>Ventajas</th>
+      <th>Desventajas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>src/assets (importando)</strong></td>
+      <td>
+        <ul>
+          <li>Se procesan y optimizan en el build (mejor performance).</li>
+          <li>Evita errores de rutas relativas.</li>
+          <li>Permite lazy loading y dinámicas.</li>
+          <li>Más modular: cada componente gestiona sus imágenes.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Debes importar cada imagen manualmente.</li>
+          <li>No se pueden acceder directamente por URL en HTML o redes sociales.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>public/ (ruta directa)</strong></td>
+      <td>
+        <ul>
+          <li>Permite usar rutas absolutas (ej: <code>/images/foto.jpg</code>).</li>
+          <li>Útil para HTML directo, metadatos (og:image), favicon, etc.</li>
+          <li>No requiere importación en JSX.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>No se optimizan en el build.</li>
+          <li>Puede causar errores de ruta si se renombra/mueve algo.</li>
+          <li>No hay verificación estática en tiempo de compilación.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+### React: Imágenes
+
+1. Dentro de **public** crea una carpeta de home y guarda 2 imágenes
+2. Dentro de **assets** crea una carpeta de home y guarda 2 imágenes
+3. En la **Home** reemplaza el texto por una estructura de 4 cards, cada una con una imágen y el título de la actividad.
+
+---
+
 ## ¿Dudas, Preguntas, Comentarios?
 
 ![Preguntas](images/pregunta.gif)
