@@ -10,7 +10,11 @@ h1 {
 }
 
 .small{
-	font-size: 0.5em
+	font-size: 0.5em;
+}
+
+table{
+  font-size: 0.5em;
 }
 </style>
 
@@ -349,7 +353,7 @@ export default Layout;
 ### Estructura del Proyecto
 
 En los proyectos de react se recomienda emplear la siguiente estructura:
-- **components:** Componentes reutilizables, como el Header, Footer o e Layout.
+- **components:** Componentes reutilizables, como el Header, Footer o el Layout.
 - **pages:** Vistas o páginas principales.
 - **styles:** Archivos css.
 
